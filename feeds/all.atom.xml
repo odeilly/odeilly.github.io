@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Odeilly's Note</title><link href="https://odeilly.github.io/" rel="alternate"></link><link href="https://odeilly.github.io/feeds/all.atom.xml" rel="self"></link><id>https://odeilly.github.io/</id><updated>2020-07-12T00:00:00+09:00</updated><entry><title>Pelicanのテーマ</title><link href="https://odeilly.github.io/pelican-theme.html" rel="alternate"></link><published>2020-07-12T00:00:00+09:00</published><updated>2020-07-12T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-12:/pelican-theme.html</id><summary type="html">&lt;p&gt;Pelicanのテーマを導入します.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Odeilly's Note</title><link href="https://odeilly.github.io/" rel="alternate"></link><link href="https://odeilly.github.io/feeds/all.atom.xml" rel="self"></link><id>https://odeilly.github.io/</id><updated>2020-07-12T00:00:00+09:00</updated><entry><title>Pelicanのテーマ</title><link href="https://odeilly.github.io/pelican/pelican-theme/" rel="alternate"></link><published>2020-07-12T00:00:00+09:00</published><updated>2020-07-12T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-12:/pelican/pelican-theme/</id><summary type="html">&lt;p&gt;Pelicanのテーマを導入します.
 このブログでは,
 &lt;a class="reference external" href="https://github.com/guilherme-toti/nice-blog"&gt;Nice Blog&lt;/a&gt;
 を導入しています.&lt;/p&gt;
@@ -44,7 +44,7 @@ notmyidea
 simple
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-</content><category term="pelican"></category><category term="Pelican"></category></entry><entry><title>Pelicanの導入</title><link href="https://odeilly.github.io/start-pelican.html" rel="alternate"></link><published>2020-07-12T00:00:00+09:00</published><updated>2020-07-12T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-12:/start-pelican.html</id><summary type="html">&lt;p&gt;Pelicanを導入しました.&lt;/p&gt;
+</content><category term="pelican"></category><category term="Pelican"></category></entry><entry><title>Pelicanの導入</title><link href="https://odeilly.github.io/pelican/start-pelican/" rel="alternate"></link><published>2020-07-12T00:00:00+09:00</published><updated>2020-07-12T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-12:/pelican/start-pelican/</id><summary type="html">&lt;p&gt;Pelicanを導入しました.&lt;/p&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h2&gt;環境設定&lt;/h2&gt;
 &lt;div class="section" id="github-pages"&gt;
