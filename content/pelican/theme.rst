@@ -2,6 +2,7 @@
  Pelicanのテーマ
 =================
 
+:status: draft
 :slug: pelican-theme
 :date: 2020-07-12
 :tags: Pelican
