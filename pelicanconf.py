@@ -43,5 +43,10 @@ PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'
 DEFAULT_DATE_FORMAT = '%Y年%B%d日 (%a)'
 
-THEME = 'nice-blog'
-SIDEBAR_DISPLAY = ['tags']
+THEME = 'voidy-bootstrap'
+STYLESHEET_FILES = ("pygment.css")
+SIDEBAR = "sidebar.html"
+CUSTOM_SOCIAL = False
+SOCIAL = False
+SIDEBAR_HIDE_CATEGORIES = True
+CUSTOM_SIDEBAR_MIDDLES = ("sb_taglist.html", )
