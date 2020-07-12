@@ -44,7 +44,7 @@ PAGE_SAVE_AS = 'pages/{slug}/index.html'
 DEFAULT_DATE_FORMAT = '%Y年%B%d日 (%a)'
 
 THEME = 'voidy-bootstrap'
-STYLESHEET_FILES = ("pygment.css")
+STYLESHEET_FILES = ("pygment.css", "voidybootstrap.css",)
 SIDEBAR = "sidebar.html"
 CUSTOM_SOCIAL = False
 SOCIAL = False
