@@ -117,7 +117,7 @@ conent ディレクトリの配下に Markdown または reStructruedText 形式
 
 .. code-block:: none
 
-   make serve
+   make publish
 
 ``make github`` コマンドで, outout ディレクトリのファイルが,
 GitHub Pages の master ブランチにアップロード (プッシュ)されます.
