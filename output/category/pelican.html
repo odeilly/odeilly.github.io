@@ -3,35 +3,44 @@
 <head>
         <meta charset="utf-8" />
         <title>Odeilly's Note - pelican</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link rel="stylesheet" href="https://odeilly.github.io/theme/css/main.css" />
+        <link href="https://odeilly.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Odeilly's Note Atom Feed" />
 </head>
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">Odeilly's Note </a></h1>
+                <h1><a href="https://odeilly.github.io/">Odeilly's Note </a></h1>
                 <nav><ul>
-                    <li class="active"><a href="/category/pelican.html">pelican</a></li>
+                    <li class="active"><a href="https://odeilly.github.io/category/pelican.html">pelican</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/pelicannodao-ru.html">Pelicanの導入</a></h1>
+                    <h1 class="entry-title"><a href="https://odeilly.github.io/start-pelican.html">Pelicanの導入</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2020-07-12T00:00:00+09:00">
                 Published: 日 12 7月 2020
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/odeilly.html">Odeilly</a>
+                By                         <a class="url fn" href="https://odeilly.github.io/author/odeilly.html">Odeilly</a>
         </address>
-<p>In <a href="/category/pelican.html">pelican</a>.</p>
-<p>tags: <a href="/tag/pelican.html">Pelican</a> </p>
+<p>In <a href="https://odeilly.github.io/category/pelican.html">pelican</a>.</p>
+<p>tags: <a href="https://odeilly.github.io/tag/pelican.html">Pelican</a> </p>
 </footer><!-- /.post-info --><p>Pelicanを導入しました.</p>
 <div class="section" id="id1">
 <h2>環境設定</h2>
+<div class="section" id="github-pages">
+<h3>GitHub Pages</h3>
+<p>GitHubリポジトリを準備します.
+username.github.jo というパブリックリポジトリとします.
+このブログの場合は, odeilly.github.io です.</p>
+</div>
 <div class="section" id="id2">
 <h3>ソフトウェアのインストール</h3>
+<p>ローカルマシンにソフトウェアをインストールしていきます.
+インストールするソフトウェアとバージョンは以下の通りです.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="50%" />
@@ -74,6 +83,59 @@ GitHub Pages のアップロードが楽になります.</p>
 </ol>
 </div>
 </div>
+<div class="section" id="id3">
+<h2>ローカルにサイトを構築</h2>
+<p>適当なディレクトリを作り,
+作ったディレクトリに移動して
+<tt class="docutils literal"><span class="pre">pelican-quickstart</span></tt> コマンドを実行します.
+いろいろ質問があるので, 答えていきます.</p>
+<div class="highlight"><pre><span></span>$ pelican-quickstart
+Welcome to pelican-quickstart v4.2.0.
+
+This script will help you create a new Pelican-based website.
+
+Please answer the following questions so this script can generate the files
+needed by Pelican.
+
+
+&gt; Where do you want to create your new web site? [.]
+&gt; What will be the title of this web site? Odeilly&#39;s Note
+&gt; Who will be the author of this web site? Odeilly
+&gt; What will be the default language of this web site? [Japanese] ja
+&gt; Do you want to specify a URL prefix? e.g., https://example.com   (Y/n) https://odeilly.github.io
+You must answer &#39;yes&#39; or &#39;no&#39;
+&gt; Do you want to specify a URL prefix? e.g., https://example.com   (Y/n) Y
+&gt; What is your URL prefix? (see above example; no trailing slash) https://odeilly.github.io
+&gt; Do you want to enable article pagination? (Y/n) Y
+&gt; How many articles per page do you want? [10] 10
+&gt; What is your time zone? [Europe/Paris] Asia/Tokyo
+&gt; Do you want to generate a tasks.py/Makefile to automate generation and publishing? (Y/n) Y
+&gt; Do you want to upload your website using FTP? (y/N) N
+&gt; Do you want to upload your website using SSH? (y/N) N
+&gt; Do you want to upload your website using Dropbox? (y/N) N
+&gt; Do you want to upload your website using S3? (y/N) N
+&gt; Do you want to upload your website using Rackspace Cloud Files? (y/N) N
+&gt; Do you want to upload your website using GitHub Pages? (y/N) y
+&gt; Is this your personal page (username.github.io)? (y/N) y
+Done. Your new project is available at /foo/bar
+</pre></div>
+<p>これで, 記事を書いていく準備ができました.
+conent ディレクトリの配下に Markdown または reStructruedText 形式で記事を書きます.
+<tt class="docutils literal">make html</tt> コマンドで, HTMLに変換され output ディレクトリに出力されます.</p>
+<div class="highlight"><pre><span></span>make html
+</pre></div>
+<p><tt class="docutils literal">make serve</tt> コマンドによりローカルサーバが起動します.
+ブラウザで <a class="reference external" href="http://localhost:8000">http://localhost:8000</a> にアクセスすると, 記事が表示されます.</p>
+<div class="highlight"><pre><span></span>make serve
+</pre></div>
+<p><tt class="docutils literal">make publish</tt> コマンドで, GitHub Pages 用のHTMLに変更されます.</p>
+<div class="highlight"><pre><span></span>make serve
+</pre></div>
+<p><tt class="docutils literal">make github</tt> コマンドで, outout ディレクトリのファイルが,
+GitHub Pages の master ブランチにアップロード (プッシュ)されます.</p>
+<div class="highlight"><pre><span></span>make github
+</pre></div>
+</div>
                 </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">
@@ -89,6 +151,7 @@ GitHub Pages のアップロードが楽になります.</p>
                 <div class="social">
                         <h2>social</h2>
                         <ul>
+                            <li><a href="https://odeilly.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
 
                             <li><a href="#">You can add links in your config file</a></li>
                             <li><a href="#">Another social link</a></li>
