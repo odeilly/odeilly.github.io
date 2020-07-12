@@ -34,5 +34,13 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
+#ARTICLE_URL = 'posts/{category}/{slug}/'
+#ARTICLE_URL = 'posts/{category}/{slug}/index.html'
+
+ARTICLE_URL = '{category}/{slug}/'
+ARTICLE_SAVE_AS = '{category}/{slug}/index.html'
+PAGE_URL = 'pages/{slug}/'
+PAGE_SAVE_AS = 'pages/{slug}/index.html'
+
 THEME = 'nice-blog'
 SIDEBAR_DISPLAY = ['tags']
