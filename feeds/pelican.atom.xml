@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Odeilly's Note - pelican</title><link href="https://odeilly.github.io/" rel="alternate"></link><link href="https://odeilly.github.io/feeds/pelican.atom.xml" rel="self"></link><id>https://odeilly.github.io/</id><updated>2020-07-12T00:00:00+09:00</updated><entry><title>Pelicanのテーマ</title><link href="https://odeilly.github.io/pelican/pelican-theme/" rel="alternate"></link><published>2020-07-12T00:00:00+09:00</published><updated>2020-07-12T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-12:/pelican/pelican-theme/</id><summary type="html">&lt;p&gt;Pelicanのテーマを導入します.
-このブログでは,
-&lt;a class="reference external" href="https://github.com/guilherme-toti/nice-blog"&gt;Nice Blog&lt;/a&gt;
-を導入しています.&lt;/p&gt;
-&lt;div class="section" id="nice-blog"&gt;
-&lt;h2&gt;Nice Blog のダウンロード&lt;/h2&gt;
-&lt;p&gt;Nice Blog は GitHub で提供されています.
-任意のディレクトリに,
-&lt;tt class="docutils literal"&gt;git clone&lt;/tt&gt; で, ローカルリポジトリとして取り込みます.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git clone https://github.com/guilherme-toti/nice-blog.git
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id1"&gt;
-&lt;h2&gt;Nice Blog のインストール&lt;/h2&gt;
-&lt;p&gt;ダウンロードした Nice Blog テーマを,
-&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;pelican-themes&lt;/span&gt;&lt;/tt&gt; コマンドでインストールします.&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://docs.getpelican.com/en/stable/pelican-themes.html"&gt;https://docs.getpelican.com/en/stable/pelican-themes.html&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pelican-themes -i /foo/bar/voidy-bootstrap
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;pelican-themes&lt;/span&gt;&lt;/tt&gt; コマンドで …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Pelicanのテーマを導入します.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Odeilly's Note - pelican</title><link href="https://odeilly.github.io/" rel="alternate"></link><link href="https://odeilly.github.io/feeds/pelican.atom.xml" rel="self"></link><id>https://odeilly.github.io/</id><updated>2020-07-12T00:00:00+09:00</updated><entry><title>Pelicanのテーマ</title><link href="https://odeilly.github.io/pelican/pelican-theme/" rel="alternate"></link><published>2020-07-12T00:00:00+09:00</published><updated>2020-07-12T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-12:/pelican/pelican-theme/</id><summary type="html">&lt;p class="first last"&gt;Pelicanのテーマの導入メモです.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Pelicanのテーマを導入します.
 このブログでは,
 &lt;a class="reference external" href="https://github.com/guilherme-toti/nice-blog"&gt;Nice Blog&lt;/a&gt;
 を導入しています.&lt;/p&gt;
@@ -44,56 +26,8 @@ notmyidea
 simple
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-</content><category term="pelican"></category><category term="Pelican"></category></entry><entry><title>Pelicanの導入</title><link href="https://odeilly.github.io/pelican/start-pelican/" rel="alternate"></link><published>2020-07-12T00:00:00+09:00</published><updated>2020-07-12T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-12:/pelican/start-pelican/</id><summary type="html">&lt;p&gt;Pelicanを導入しました.&lt;/p&gt;
-&lt;div class="section" id="id1"&gt;
-&lt;h2&gt;環境設定&lt;/h2&gt;
-&lt;div class="section" id="github-pages"&gt;
-&lt;h3&gt;GitHub Pages&lt;/h3&gt;
-&lt;p&gt;GitHubリポジトリを準備します.
-username.github.jo というパブリックリポジトリとします.
-このブログの場合は, odeilly.github.io です.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
-&lt;h3&gt;ソフトウェアのインストール&lt;/h3&gt;
-&lt;p&gt;ローカルマシンにソフトウェアをインストールしていきます.
-インストールするソフトウェアとバージョンは以下の通りです.&lt;/p&gt;
-&lt;table border="1" class="docutils"&gt;
-&lt;colgroup&gt;
-&lt;col width="50%" /&gt;
-&lt;col width="50%" /&gt;
-&lt;/colgroup&gt;
-&lt;thead valign="bottom"&gt;
-&lt;tr&gt;&lt;th class="head"&gt;ソフトウェア&lt;/th&gt;
-&lt;th class="head"&gt;バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td&gt;Python&lt;/td&gt;
-&lt;td&gt;3.8.3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;pelican&lt;/td&gt;
-&lt;td&gt;4.2.0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;Markdown&lt;/td&gt;
-&lt;td&gt;3.1.1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ghp-import&lt;/td&gt;
-&lt;td&gt;0.5.5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ol class="arabic"&gt;
-&lt;li&gt;&lt;p class="first"&gt;Pythonをインストールします.
-パスを通すようにして下さい.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Pelicanをインストールします.
-Markdownで編集できるように, Markdownオプションを付けます.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install pelican Markdown
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;ghp-import をインストールします.
-GitHub Pages のアップロードが楽になります.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip …&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Pelicanを導入しました.&lt;/p&gt;
+</content><category term="pelican"></category><category term="Pelican"></category></entry><entry><title>Pelicanの導入</title><link href="https://odeilly.github.io/pelican/start-pelican/" rel="alternate"></link><published>2020-07-12T00:00:00+09:00</published><updated>2020-07-12T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-12:/pelican/start-pelican/</id><summary type="html">&lt;p class="first last"&gt;Pelicanのインストールメモです.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Pelicanを導入しました.&lt;/p&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h2&gt;環境設定&lt;/h2&gt;
 &lt;div class="section" id="github-pages"&gt;
