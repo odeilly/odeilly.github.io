@@ -22,8 +22,8 @@ Nice Blog は GitHub で提供されています.
 
    git clone https://github.com/guilherme-toti/nice-blog.git
 
-VodyBootstrapのインストール
-===========================
+Nice Blog のインストール
+========================
 
 ダウンロードした Nice Blog テーマを,
 ``pelican-themes`` コマンドでインストールします.
