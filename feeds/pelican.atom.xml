@@ -101,7 +101,7 @@ conent ディレクトリの配下に Markdown または reStructruedText 形式
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make serve
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;make publish&lt;/tt&gt; コマンドで, GitHub Pages 用のHTMLに変更されます.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make serve
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make publish
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;make github&lt;/tt&gt; コマンドで, outout ディレクトリのファイルが,
 GitHub Pages の master ブランチにアップロード (プッシュ)されます.&lt;/p&gt;
