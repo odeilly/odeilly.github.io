@@ -1,39 +1,127 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="ja"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
 <html lang="ja">
-<head>
-        <meta charset="utf-8" />
-        <title>Pelicanの導入</title>
-        <link rel="stylesheet" href="https://odeilly.github.io/theme/css/main.css" />
-        <link href="https://odeilly.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Odeilly's Note Atom Feed" />
-</head>
+<!--<![endif]-->
+	<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="author" content="Odeilly">
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="https://odeilly.github.io/">Odeilly's Note </a></h1>
-                <nav><ul>
-                    <li class="active"><a href="https://odeilly.github.io/category/pelican.html">pelican</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="https://odeilly.github.io/start-pelican.html" rel="bookmark"
-           title="Permalink to Pelicanの導入">Pelicanの導入</a></h1>
-    </header>
 
-    <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2020-07-12T00:00:00+09:00">
-                Published: 日 12 7月 2020
-        </abbr>
+        <title>Odeilly's Note - Pelicanの導入</title>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://odeilly.github.io/author/odeilly.html">Odeilly</a>
-        </address>
-<p>In <a href="https://odeilly.github.io/category/pelican.html">pelican</a>.</p>
-<p>tags: <a href="https://odeilly.github.io/tag/pelican.html">Pelican</a> </p>
-</footer><!-- /.post-info -->      <p>Pelicanを導入しました.</p>
+            <link href="https://odeilly.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Odeilly's Note Full Atom Feed" />
+            <link href="https://odeilly.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Odeilly's Note Categories Atom Feed" />
+        <!-- FAVICON -->
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://odeilly.github.io/theme/css/style.css">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+        <!-- Custom CSS -->
+        	<link rel="stylesheet" href="https://odeilly.github.io/theme/css/colors/blue.css" id="colors">
+
+        <!-- Code highlight color scheme -->
+            <link href="https://odeilly.github.io/theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="Pelican" />
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Pelicanの導入">
+    <meta property="og:url" content="start-pelican.html">
+    <meta property="og:description" content="Pelicanを導入しました. 環境設定 GitHub Pages GitHubリポジトリを準備します. username.github.jo というパブリックリポジトリとします. このブログの場合は, odeilly.github.io です. ソフトウェアのインストール ローカルマシンにソフトウェアをインストールしていきます. インストールするソフトウェアとバージョンは以下の通りです. ソフトウェア バージョン Python 3.8.3 pelican 4.2.0 Markdown 3.1.1 ghp-import 0.5.5 Pythonをインストールします. パスを通すようにして下さい. Pelicanをインストールします. Markdownで編集できるように, Markdownオプションを付けます. pip install pelican Markdown ghp-import をインストールします. GitHub Pages のアップロードが楽になります. pip …">
+    <meta property="article:published_time" content="日曜日, 7月 12, 2020">
+    <meta name="twitter:title" content="Pelicanの導入">
+    <meta name="twitter:description" content="Pelicanを導入しました. 環境設定 GitHub Pages GitHubリポジトリを準備します. username.github.jo というパブリックリポジトリとします. このブログの場合は, odeilly.github.io です. ソフトウェアのインストール ローカルマシンにソフトウェアをインストールしていきます. インストールするソフトウェアとバージョンは以下の通りです. ソフトウェア バージョン Python 3.8.3 pelican 4.2.0 Markdown 3.1.1 ghp-import 0.5.5 Pythonをインストールします. パスを通すようにして下さい. Pelicanをインストールします. Markdownで編集できるように, Markdownオプションを付けます. pip install pelican Markdown ghp-import をインストールします. GitHub Pages のアップロードが楽になります. pip …">
+    <meta name="description" content="Pelicanを導入しました. 環境設定 GitHub Pages GitHubリポジトリを準備します. username.github.jo というパブリックリポジトリとします. このブログの場合は, odeilly.github.io です. ソフトウェアのインストール ローカルマシンにソフトウェアをインストールしていきます. インストールするソフトウェアとバージョンは以下の通りです. ソフトウェア バージョン Python 3.8.3 pelican 4.2.0 Markdown 3.1.1 ghp-import 0.5.5 Pythonをインストールします. パスを通すようにして下さい. Pelicanをインストールします. Markdownで編集できるように, Markdownオプションを付けます. pip install pelican Markdown ghp-import をインストールします. GitHub Pages のアップロードが楽になります. pip …">
+    <meta name="twitter:image" content="">
+    <meta property="og:image" content="">
+
+	                <meta property="og:locale" content="">
+		<meta property="og:site_name" content="Odeilly's Note">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="https://odeilly.github.io/start-pelican.html">
+	<meta property="og:title" content="Pelicanの導入">
+	<meta property="og:description" content="">
+	   <meta property="og:image" content="https://odeilly.github.io/images/guilherme-toti.jpg">
+	<meta property="article:published_time" content="2020-07-12 00:00:00+09:00">
+	</head>
+	<body>
+		<header id="header">
+			<!-- Container -->
+			<div class="container">
+				<!-- Logo / Mobile Menu -->
+				<div class="five columns">
+					<div id="textlogo">
+						<h1><a href="https://odeilly.github.io/">Odeilly's Note</a></h1>
+					</div>
+				</div>
+						<!-- Navigation
+				================================================== -->
+				<div class="eleven columns">
+
+					<nav id="navigation" class="menu">
+						<ul id="responsive">
+
+							<li><a href="https://odeilly.github.io/">Home</a></li>
+
+
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<!-- Container / End -->
+		</header>
+		<!-- Header / End -->
+
+		<!-- Breadcrumbs Container-->
+		<div id="content-wrapper">
+			<section id="titlebar">
+				<!-- Container -->
+				<div class="container">
+				<div class="thirteen columns">
+					<nav id="breadcrumbs">
+						<ul>
+							<li>You are here:</li>
+							<li><a href="https://odeilly.github.io/">Home</a></li>
+<li><a href="https://odeilly.github.io/category/pelican.html">pelican</a></li>
+<li>Pelicanの導入</li>
+						</ul>
+					</nav>
+				</div>
+				</div>
+				<!-- Container / End -->
+			</section>
+
+			<div class="container">
+        <div class="twelve alt columns">
+<article class="post" style="margin: 0; border: 0;">
+
+	<section class="post-content">
+
+		<header class="meta">
+			<h2><a href="https://odeilly.github.io/start-pelican.html">Pelicanの導入</a></h2>
+			<ul>
+				<li>By <a href="https://odeilly.github.io/author/odeilly.html">Odeilly</a></li>
+				<li>日 12 7月 2020</li>
+			</ul>
+		</header>
+
+		<p>Pelicanを導入しました.</p>
 <div class="section" id="id1">
 <h2>環境設定</h2>
 <div class="section" id="github-pages">
@@ -142,38 +230,64 @@ GitHub Pages の master ブランチにアップロード (プッシュ)され�
 </pre></div>
 </div>
 
-    </div><!-- /.entry-content -->
+		    <div class="tags">
+		        <p>tags: <a href="https://odeilly.github.io/tag/pelican.html">Pelican</a></p>
+		    </div>
 
-  </article>
-</section>
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="https://odeilly.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+<div class="sharing">
+</div>
+<hr>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+	</section>
+	<div class="clearfix"></div>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+</article>
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+        </div>
 
-</body>
+        <!-- Sidebar -->
+        <div class="four columns">
+
+
+
+
+                
+                <!-- Tags -->
+                <div class="widget no-mg-top">
+                        <h3 class="headline">Tags</h3><span class="line"></span><div class="clearfix"></div>
+                        <nav class="tags">                                    <a href="https://odeilly.github.io/tag/pelican.html">Pelican</a>
+                        </nav>
+                </div>
+        </div>
+			</div>
+			<!-- Container / End -->
+		</div>
+		<!-- Content Wrapper / End -->
+
+		<div id="footer-bottom">
+			<!-- Container -->
+			<div class="container">
+				<div class="eight columns">&copy;  || Blog powered by <a href="http://getpelican.com">Pelican</a></div>
+					<div class="eight columns">
+						<ul class="social-icons-footer">
+								<li>
+									<a href="#" class="tooltip top" title="You can add links in your config file">
+										<i class="fab fa-you can add links in your config file"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltip top" title="Another social link">
+										<i class="fab fa-another social link"></i>
+									</a>
+								</li>
+						</ul>
+					</div>
+			</div>
+			<!-- Container / End -->
+		</div>
+		<!-- Footer Bottom / End -->
+
+	<!-- Javascripts -->
+	<script src="https://odeilly.github.io/theme/js/jquery.min.js"></script>
+	</body>
 </html>

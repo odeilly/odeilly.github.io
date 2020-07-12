@@ -1,5 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Odeilly's Note</title><link href="https://odeilly.github.io/" rel="alternate"></link><link href="https://odeilly.github.io/feeds/all.atom.xml" rel="self"></link><id>https://odeilly.github.io/</id><updated>2020-07-12T00:00:00+09:00</updated><entry><title>Pelicanの導入</title><link href="https://odeilly.github.io/start-pelican.html" rel="alternate"></link><published>2020-07-12T00:00:00+09:00</published><updated>2020-07-12T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-12:/start-pelican.html</id><summary type="html">&lt;p&gt;Pelicanを導入しました.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Odeilly's Note</title><link href="https://odeilly.github.io/" rel="alternate"></link><link href="https://odeilly.github.io/feeds/all.atom.xml" rel="self"></link><id>https://odeilly.github.io/</id><updated>2020-07-12T00:00:00+09:00</updated><entry><title>Pelicanのテーマ</title><link href="https://odeilly.github.io/pelican-theme.html" rel="alternate"></link><published>2020-07-12T00:00:00+09:00</published><updated>2020-07-12T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-12:/pelican-theme.html</id><summary type="html">&lt;p&gt;Pelicanのテーマを導入します.
+このブログでは,
+&lt;a class="reference external" href="https://github.com/guilherme-toti/nice-blog"&gt;Nice Blog&lt;/a&gt;
+を導入しています.&lt;/p&gt;
+&lt;div class="section" id="nice-blog"&gt;
+&lt;h2&gt;Nice Blog のダウンロード&lt;/h2&gt;
+&lt;p&gt;Nice Blog は GitHub で提供されています.
+任意のディレクトリに,
+&lt;tt class="docutils literal"&gt;git clone&lt;/tt&gt; で, ローカルリポジトリとして取り込みます.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git clone https://github.com/guilherme-toti/nice-blog.git
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="vodybootstrap"&gt;
+&lt;h2&gt;VodyBootstrapのインストール&lt;/h2&gt;
+&lt;p&gt;ダウンロードした Nice Blog テーマを,
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;pelican-themes&lt;/span&gt;&lt;/tt&gt; コマンドでインストールします.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://docs.getpelican.com/en/stable/pelican-themes.html"&gt;https://docs.getpelican.com/en/stable/pelican-themes.html&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pelican-themes -i /foo/bar/voidy-bootstrap
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;pelican-themes&lt;/span&gt;&lt;/tt&gt; コマンドで, インストールされたテーマが表示されます.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pelican-themes …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Pelicanのテーマを導入します.
+このブログでは,
+&lt;a class="reference external" href="https://github.com/guilherme-toti/nice-blog"&gt;Nice Blog&lt;/a&gt;
+を導入しています.&lt;/p&gt;
+&lt;div class="section" id="nice-blog"&gt;
+&lt;h2&gt;Nice Blog のダウンロード&lt;/h2&gt;
+&lt;p&gt;Nice Blog は GitHub で提供されています.
+任意のディレクトリに,
+&lt;tt class="docutils literal"&gt;git clone&lt;/tt&gt; で, ローカルリポジトリとして取り込みます.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git clone https://github.com/guilherme-toti/nice-blog.git
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="vodybootstrap"&gt;
+&lt;h2&gt;VodyBootstrapのインストール&lt;/h2&gt;
+&lt;p&gt;ダウンロードした Nice Blog テーマを,
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;pelican-themes&lt;/span&gt;&lt;/tt&gt; コマンドでインストールします.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://docs.getpelican.com/en/stable/pelican-themes.html"&gt;https://docs.getpelican.com/en/stable/pelican-themes.html&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pelican-themes -i /foo/bar/voidy-bootstrap
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;pelican-themes&lt;/span&gt;&lt;/tt&gt; コマンドで, インストールされたテーマが表示されます.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pelican-themes
+nice-blog
+notmyidea
+simple
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="pelican"></category><category term="Pelican"></category></entry><entry><title>Pelicanの導入</title><link href="https://odeilly.github.io/start-pelican.html" rel="alternate"></link><published>2020-07-12T00:00:00+09:00</published><updated>2020-07-12T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-12:/start-pelican.html</id><summary type="html">&lt;p&gt;Pelicanを導入しました.&lt;/p&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h2&gt;環境設定&lt;/h2&gt;
 &lt;div class="section" id="github-pages"&gt;
