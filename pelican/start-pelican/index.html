@@ -1,127 +1,92 @@
-﻿<!DOCTYPE html>
-<!--[if IE 8 ]><html class="ie ie8" lang="ja"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="ja">
-<!--<![endif]-->
-	<head>
-            <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <meta name="author" content="Odeilly">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Odeilly" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
+    <title>Pelicanの導入 - Odeilly's Note</title>
 
-        <title>Odeilly's Note - Pelicanの導入</title>
-
-            <link href="https://odeilly.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Odeilly's Note Full Atom Feed" />
-            <link href="https://odeilly.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Odeilly's Note Categories Atom Feed" />
-        <!-- FAVICON -->
-        <!-- CSS -->
-        <link rel="stylesheet" href="https://odeilly.github.io/theme/css/style.css">
-
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-        <!-- Custom CSS -->
-        	<link rel="stylesheet" href="https://odeilly.github.io/theme/css/colors/blue.css" id="colors">
-
-        <!-- Code highlight color scheme -->
-            <link href="https://odeilly.github.io/theme/css/code_blocks/darkly.css" rel="stylesheet">
-
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+   
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
 
 
 
 
-        <meta name="tags" contents="Pelican" />
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Pelicanの導入">
-    <meta property="og:url" content="pelican/start-pelican/">
-    <meta property="og:description" content="Pelicanのインストールメモです.">
-    <meta property="article:published_time" content="日曜日, 7月 12, 2020">
-    <meta name="twitter:title" content="Pelicanの導入">
-    <meta name="twitter:description" content="Pelicanのインストールメモです.">
-    <meta name="description" content="Pelicanのインストールメモです.">
-    <meta name="twitter:image" content="">
-    <meta property="og:image" content="">
 
-	                <meta property="og:locale" content="">
-		<meta property="og:site_name" content="Odeilly's Note">
+      <link rel="stylesheet" href="https://odeilly.github.io/theme/css/pygment.css" />
+      <link rel="stylesheet" href="https://odeilly.github.io/theme/css/voidybootstrap.css" />
 
-	<meta property="og:type" content="article">
-	<meta property="article:author" content="">
-	<meta property="og:url" content="https://odeilly.github.io/pelican/start-pelican/">
-	<meta property="og:title" content="Pelicanの導入">
-	<meta property="og:description" content="">
-	   <meta property="og:image" content="https://odeilly.github.io/images/guilherme-toti.jpg">
-	<meta property="article:published_time" content="2020-07-12 00:00:00+09:00">
-	</head>
-	<body>
-		<header id="header">
-			<!-- Container -->
-			<div class="container">
-				<!-- Logo / Mobile Menu -->
-				<div class="five columns">
-					<div id="textlogo">
-						<h1><a href="https://odeilly.github.io/">Odeilly's Note</a></h1>
-					</div>
-				</div>
-						<!-- Navigation
-				================================================== -->
-				<div class="eleven columns">
+    <link rel="shortcut icon" href="https://odeilly.github.io/favicon.ico" />
+        <link href="https://odeilly.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Odeilly's Note Atom Feed" />
+  </head>
 
-					<nav id="navigation" class="menu">
-						<ul id="responsive">
+  <body>
+   
+    <nav class="navbar navbar-default">
+      <div class="container">
+	   <div class="navbar-header">
+		<button type="button" class="navbar-toggle" 
+				data-toggle="collapse" data-target="#main-navbar-collapse">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="https://odeilly.github.io/" rel="home">
+          <i class="fas fa-home fa-fw fa-lg"> </i> </a>
+       </div>
 
-							<li><a href="https://odeilly.github.io/">Home</a></li>
+      <div class="collapse navbar-collapse" id="main-navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li class="divider"></li>
+            <li class="">
+              <a href="https://odeilly.github.io/archives.html">Archives</a>
+            </li>
+          <li class="divider"></li>
+            <li><a href="https://odeilly.github.io/feeds/all.atom.xml" 
+                   type="application/atom+xml" rel="alternate">
+                <i class="fas fa-rss fa-fw fa-lg"></i> </a></li>
+        </ul> <!-- /nav -->
+      </div> <!-- /navbar-collapse -->
+	  </div> <!-- /container -->
+    </nav> <!-- /navbar -->
 
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="https://odeilly.github.io/">Odeilly's Note</a></h1>
+	  </div>
+	</div>
 
-						</ul>
-					</nav>
-				</div>
-			</div>
-			<!-- Container / End -->
-		</header>
-		<!-- Header / End -->
-
-		<!-- Breadcrumbs Container-->
-		<div id="content-wrapper">
-			<section id="titlebar">
-				<!-- Container -->
-				<div class="container">
-				<div class="thirteen columns">
-					<nav id="breadcrumbs">
-						<ul>
-							<li>You are here:</li>
-							<li><a href="https://odeilly.github.io/">Home</a></li>
-<li><a href="https://odeilly.github.io/category/pelican.html">pelican</a></li>
-<li>Pelicanの導入</li>
-						</ul>
-					</nav>
-				</div>
-				</div>
-				<!-- Container / End -->
-			</section>
-
-			<div class="container">
-        <div class="twelve alt columns">
-<article class="post" style="margin: 0; border: 0;">
-
-	<section class="post-content">
-
-		<header class="meta">
-			<h2><a href="https://odeilly.github.io/pelican/start-pelican/">Pelicanの導入</a></h2>
-			<ul>
-				<li>By <a href="https://odeilly.github.io/author/odeilly.html">Odeilly</a></li>
-				<li>2020年7月12日 (日)</li>
-			</ul>
-		</header>
-
-		<p>Pelicanを導入しました.</p>
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<abbr class="article-header-date">
+  2020年7月12日 (日)
+</abbr> <h1>
+  <a href="https://odeilly.github.io/pelican/start-pelican/" rel="bookmark"
+     title="Permalink to Pelicanの導入">
+    Pelicanの導入
+  </a>
+</h1><div class="article-header-info">
+  <p>
+      Posted by <a href="https://odeilly.github.io/author/odeilly.html">Odeilly</a>
+    in 
+    <a href="https://odeilly.github.io/category/pelican.html">
+      pelican</a>
+    &nbsp;&nbsp;
+  </p>
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<p>Pelicanを導入しました.</p>
 <div class="section" id="id1">
 <h2>環境設定</h2>
 <div class="section" id="github-pages">
@@ -230,64 +195,61 @@ GitHub Pages の master ブランチにアップロード (プッシュ)され�
 </pre></div>
 </div>
 
-		    <div class="tags">
-		        <p>tags: <a href="https://odeilly.github.io/tag/pelican.html">Pelican</a></p>
-		    </div>
-
-<div class="sharing">
-</div>
-<hr>
-
-	</section>
-	<div class="clearfix"></div>
+  </div>
+  
 
 </article>
+        </div><!-- /content -->
 
-        </div>
+        <div class="col-md-3 sidebar-nav" id="sidebar">
 
-        <!-- Sidebar -->
-        <div class="four columns">
-
-
+<div class="row">
 
 
-                
-                <!-- Tags -->
-                <div class="widget no-mg-top">
-                        <h3 class="headline">Tags</h3><span class="line"></span><div class="clearfix"></div>
-                        <nav class="tags">                                    <a href="https://odeilly.github.io/tag/pelican.html">Pelican</a>
-                        </nav>
-                </div>
-        </div>
-			</div>
-			<!-- Container / End -->
-		</div>
-		<!-- Content Wrapper / End -->
 
-		<div id="footer-bottom">
-			<!-- Container -->
-			<div class="container">
-				<div class="eight columns">&copy;  || Blog powered by <a href="http://getpelican.com">Pelican</a></div>
-					<div class="eight columns">
-						<ul class="social-icons-footer">
-								<li>
-									<a href="#" class="tooltip top" title="You can add links in your config file">
-										<i class="fab fa-you can add links in your config file"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#" class="tooltip top" title="Another social link">
-										<i class="fab fa-another social link"></i>
-									</a>
-								</li>
-						</ul>
-					</div>
-			</div>
-			<!-- Container / End -->
-		</div>
-		<!-- Footer Bottom / End -->
+</div> <!-- /row -->
 
-	<!-- Javascripts -->
-	<script src="https://odeilly.github.io/theme/js/jquery.min.js"></script>
-	</body>
+<h4><i class="fas fa-tags fa-fw fa-lg"></i> Tags</h4>
+<p class="tag-cloud">
+      <a href="https://odeilly.github.io/tag/pelican.html">
+        <i class="fas fa-tag fa-fw fa-lg"></i>Pelican
+      </a>
+</p>
+<h4><i class="fas fa-rss fa-fw fa-lg"></i> Feeds</h4>
+<ul class="list-unstyled">
+    <li><a href="https://odeilly.github.io/feeds/all.atom.xml" 
+		   type="application/atom+xml" rel="alternate">
+		<i class="fas fa-rss-square fa-fw fa-lg"></i> Atom Feed</a></li>
+</ul>
+
+<hr />
+
+        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+ 
+      <address id="site-colophon">
+        <p class="text-center text-muted">
+        Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+        &nbsp;&bull;&nbsp; Theme based on
+        <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+           target="_blank">VoidyBootstrap</a> by 
+        <a href="http://voidynullness.net"
+           target="_blank">RKI</a>  
+        </p>
+      </address><!-- /colophon  -->
+    </footer>
+
+
+    <!-- javascript -->
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+
+  </body>
 </html>
