@@ -5,6 +5,7 @@
 :slug: start-pelican
 :date: 2020-07-12
 :tags: Pelican
+:summary: Pelicanのインストールメモです.
 
 Pelicanを導入しました.
 

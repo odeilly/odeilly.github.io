@@ -5,6 +5,7 @@
 :slug: pelican-theme
 :date: 2020-07-12
 :tags: Pelican
+:summary: Pelicanのテーマの導入メモです.
 
 Pelicanのテーマを導入します.
 このブログでは,
