@@ -38,7 +38,7 @@ Pelicanを導入しました.
       pip install pelican Markdown
 
 #. ghp-import をインストールします.
-   GitHub Page のアップロードが楽になります.
+   GitHub Pages のアップロードが楽になります.
 
    .. code-block:: none
 
