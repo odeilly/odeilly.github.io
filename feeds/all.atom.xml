@@ -11,15 +11,14 @@
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git clone https://github.com/guilherme-toti/nice-blog.git
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="vodybootstrap"&gt;
-&lt;h2&gt;VodyBootstrapのインストール&lt;/h2&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;Nice Blog のインストール&lt;/h2&gt;
 &lt;p&gt;ダウンロードした Nice Blog テーマを,
 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;pelican-themes&lt;/span&gt;&lt;/tt&gt; コマンドでインストールします.&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://docs.getpelican.com/en/stable/pelican-themes.html"&gt;https://docs.getpelican.com/en/stable/pelican-themes.html&lt;/a&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pelican-themes -i /foo/bar/voidy-bootstrap
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;pelican-themes&lt;/span&gt;&lt;/tt&gt; コマンドで, インストールされたテーマが表示されます.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pelican-themes …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Pelicanのテーマを導入します.
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;pelican-themes&lt;/span&gt;&lt;/tt&gt; コマンドで …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Pelicanのテーマを導入します.
 このブログでは,
 &lt;a class="reference external" href="https://github.com/guilherme-toti/nice-blog"&gt;Nice Blog&lt;/a&gt;
 を導入しています.&lt;/p&gt;
@@ -31,8 +30,8 @@
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git clone https://github.com/guilherme-toti/nice-blog.git
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="vodybootstrap"&gt;
-&lt;h2&gt;VodyBootstrapのインストール&lt;/h2&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;Nice Blog のインストール&lt;/h2&gt;
 &lt;p&gt;ダウンロードした Nice Blog テーマを,
 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;pelican-themes&lt;/span&gt;&lt;/tt&gt; コマンドでインストールします.&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://docs.getpelican.com/en/stable/pelican-themes.html"&gt;https://docs.getpelican.com/en/stable/pelican-themes.html&lt;/a&gt;&lt;/p&gt;
