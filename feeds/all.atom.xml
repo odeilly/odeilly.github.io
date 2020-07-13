@@ -35,7 +35,7 @@ GitHub で管理されています.
 &lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;i18n_subsites&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-</content><category term="pelican"></category></entry><entry><title>Pelicanの導入</title><link href="https://odeilly.github.io/pelican/start-pelican/" rel="alternate"></link><published>2020-07-12T00:00:00+09:00</published><updated>2020-07-12T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-12:/pelican/start-pelican/</id><summary type="html">&lt;p class="first last"&gt;Pelicanのインストールメモです.&lt;/p&gt;
+</content><category term="pelican"></category><category term="Pelican"></category></entry><entry><title>Pelicanの導入</title><link href="https://odeilly.github.io/pelican/start-pelican/" rel="alternate"></link><published>2020-07-12T00:00:00+09:00</published><updated>2020-07-12T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-12:/pelican/start-pelican/</id><summary type="html">&lt;p class="first last"&gt;Pelicanのインストールメモです.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;Pelicanを導入しました.&lt;/p&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h2&gt;環境設定&lt;/h2&gt;
