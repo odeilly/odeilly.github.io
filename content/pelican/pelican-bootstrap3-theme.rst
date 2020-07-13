@@ -7,6 +7,9 @@
 :tag: Pelican
 :summary: pelican-bootstrap3テーマのインストールメモです.
 
+https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3
+
+
 ダウンロード
 ============
 
