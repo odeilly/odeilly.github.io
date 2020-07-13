@@ -44,10 +44,16 @@ THEME = 'pelican-bootstrap3'
 BOOTSTRAP_THEME = 'cerulean'
 PYGMENTS_STYLE = 'emacs'
 
+DISPLAY_TAGS_ON_SIDEBAR = True
+DISPLAY_TAGS_INLINE = True
 SOCIAL = (
      ('GitHub', 'https://github.com/odeilly'),
 )
+LINKS = ()
 
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 PLUGIN_PATHS = ['../pelican-plugins']
-PLUGINS = ['i18n_subsites']
+PLUGINS = [
+    'i18n_subsites',
+    'tag_cloud'
+]
