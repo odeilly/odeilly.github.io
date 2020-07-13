@@ -45,7 +45,6 @@ BOOTSTRAP_THEME = 'cerulean'
 PYGMENTS_STYLE = 'emacs'
 
 DISPLAY_TAGS_ON_SIDEBAR = True
-DISPLAY_TAGS_INLINE = True
 SOCIAL = (
      ('GitHub', 'https://github.com/odeilly'),
 )
