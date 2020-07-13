@@ -44,9 +44,18 @@ PAGE_SAVE_AS = 'pages/{slug}/index.html'
 DEFAULT_DATE_FORMAT = '%Y年%B%d日 (%a)'
 
 THEME = 'pelican-bootstrap3'
+BOOTSTRAP_THEME = 'cerulean'
+PYGMENTS_STYLE = 'emacs'
+
+SOCIAL = (
+     ('GitHub', 'https://github.com/odeilly'),
+)
+
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 PLUGIN_PATHS = ['../pelican-plugins']
 PLUGINS = ['i18n_subsites']
+
+
 
 
 #STYLESHEET_FILES = ("pygment.css", "voidybootstrap.css",)
