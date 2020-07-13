@@ -38,7 +38,7 @@ ARTICLE_URL = '{category}/{slug}/'
 ARTICLE_SAVE_AS = '{category}/{slug}/index.html'
 PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'
-DEFAULT_DATE_FORMAT = '%Y年%B%d日 (%a)'
+DEFAULT_DATE_FORMAT = '%Y年%b年%d日 (%a)'
 
 from unidecode import unidecode
 TAG_REGEX_SUBSTITUTIONS = [
