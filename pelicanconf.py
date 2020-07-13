@@ -43,10 +43,15 @@ PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'
 DEFAULT_DATE_FORMAT = '%Y年%B%d日 (%a)'
 
-THEME = 'voidy-bootstrap'
-STYLESHEET_FILES = ("pygment.css", "voidybootstrap.css",)
-SIDEBAR = "sidebar.html"
-CUSTOM_SOCIAL = False
-SOCIAL = False
-SIDEBAR_HIDE_CATEGORIES = True
-CUSTOM_SIDEBAR_MIDDLES = ("sb_taglist.html", )
+THEME = 'pelican-bootstrap3'
+JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
+PLUGIN_PATHS = ['../pelican-plugins']
+PLUGINS = ['i18n_subsites']
+
+
+#STYLESHEET_FILES = ("pygment.css", "voidybootstrap.css",)
+#SIDEBAR = "sidebar.html"
+#CUSTOM_SOCIAL = False
+#SOCIAL = False
+#SIDEBAR_HIDE_CATEGORIES = True
+#CUSTOM_SIDEBAR_MIDDLES = ("sb_taglist.html", )
