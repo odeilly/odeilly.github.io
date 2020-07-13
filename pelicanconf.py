@@ -40,6 +40,12 @@ PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'
 DEFAULT_DATE_FORMAT = '%Y年%B%d日 (%a)'
 
+from unidecode import unidecode
+TAG_REGEX_SUBSTITUTIONS = [
+    ('Pelican', 'pelican'),
+    (unidecode('サンプル'), 'sample'),
+]
+
 THEME = 'pelican-bootstrap3'
 BOOTSTRAP_THEME = 'cerulean'
 PYGMENTS_STYLE = 'emacs'
