@@ -34,9 +34,6 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
-#ARTICLE_URL = 'posts/{category}/{slug}/'
-#ARTICLE_URL = 'posts/{category}/{slug}/index.html'
-
 ARTICLE_URL = '{category}/{slug}/'
 ARTICLE_SAVE_AS = '{category}/{slug}/index.html'
 PAGE_URL = 'pages/{slug}/'
@@ -54,13 +51,3 @@ SOCIAL = (
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 PLUGIN_PATHS = ['../pelican-plugins']
 PLUGINS = ['i18n_subsites']
-
-
-
-
-#STYLESHEET_FILES = ("pygment.css", "voidybootstrap.css",)
-#SIDEBAR = "sidebar.html"
-#CUSTOM_SOCIAL = False
-#SOCIAL = False
-#SIDEBAR_HIDE_CATEGORIES = True
-#CUSTOM_SIDEBAR_MIDDLES = ("sb_taglist.html", )
