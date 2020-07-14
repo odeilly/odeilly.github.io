@@ -55,5 +55,8 @@ JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 PLUGIN_PATHS = ['../pelican-plugins']
 PLUGINS = [
     'i18n_subsites',
-    'tag_cloud'
+    'tag_cloud',
+    'plantuml'
 ]
+
+plantuml = 'java -jar /PlantUML/plantuml.jar'
