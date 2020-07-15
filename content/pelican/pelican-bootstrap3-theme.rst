@@ -56,4 +56,3 @@ pelicanconf.py設定
    JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
    PLUGIN_PATHS = ['/foo/bar/git/pelican-plugins']
    PLUGINS = ['i18n_subsites']
-
