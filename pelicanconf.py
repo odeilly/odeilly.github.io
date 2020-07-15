@@ -56,7 +56,8 @@ PLUGIN_PATHS = ['../pelican-plugins']
 PLUGINS = [
     'i18n_subsites',
     'tag_cloud',
-    'plantuml'
+    'plantuml',
+    'render_math'
 ]
 
 plantuml = 'java -jar /PlantUML/plantuml.jar'
