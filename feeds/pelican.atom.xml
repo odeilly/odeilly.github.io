@@ -1,5 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Odeilly's Note - pelican</title><link href="https://odeilly.github.io/" rel="alternate"></link><link href="https://odeilly.github.io/feeds/pelican.atom.xml" rel="self"></link><id>https://odeilly.github.io/</id><updated>2020-07-13T00:00:00+09:00</updated><entry><title>pelican-bootstrap3テーマを導入する</title><link href="https://odeilly.github.io/pelican/pelican-bootstrap3/" rel="alternate"></link><published>2020-07-13T00:00:00+09:00</published><updated>2020-07-13T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-13:/pelican/pelican-bootstrap3/</id><summary type="html">&lt;p class="first last"&gt;pelican-bootstrap3テーマのインストールメモです.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Odeilly's Note - pelican</title><link href="https://odeilly.github.io/" rel="alternate"></link><link href="https://odeilly.github.io/feeds/pelican.atom.xml" rel="self"></link><id>https://odeilly.github.io/</id><updated>2020-07-15T00:00:00+09:00</updated><entry><title>Pelicanで数式を書く</title><link href="https://odeilly.github.io/pelican/pelican-math/" rel="alternate"></link><published>2020-07-15T00:00:00+09:00</published><updated>2020-07-15T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-15:/pelican/pelican-math/</id><summary type="html">&lt;p class="first last"&gt;Render Math Plugin を利用して数式を書きます.&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="render-math-plugin"&gt;
+&lt;h2&gt;Render Math Plugin の設定&lt;/h2&gt;
+&lt;p&gt;Typogrify が必要となるので, pipコマンドでインストールします.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install typogrify
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;pelicanconf.py で, &lt;tt class="docutils literal"&gt;PLUGINS&lt;/tt&gt; に &lt;tt class="docutils literal"&gt;render_math&lt;/tt&gt; を追加します.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+             &lt;span class="o"&gt;...&lt;/span&gt;
+             &lt;span class="s1"&gt;&amp;#39;render_math&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+             &lt;span class="o"&gt;...&lt;/span&gt;
+&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;使用例&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;インライン数式&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;インライン数式は, &lt;span class="na"&gt;:math:&lt;/span&gt;&lt;span class="nv"&gt;`x^2 + x + 1 = 0`&lt;/span&gt; のように書きます.
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;インライン数式は, &lt;span class="math"&gt;\(x^2 + x + 1 = 0\)&lt;/span&gt; のように書きます.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;別行立て式&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;..&lt;/span&gt; &lt;span class="ow"&gt;math&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;
+
+   S = \int_a^b f(x) dx.
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+S = \int_a^b f(x) dx.
+\end{equation*}
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;script type='text/javascript'&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="pelican"></category><category term="Pelican"></category><category term="Math"></category></entry><entry><title>pelican-bootstrap3テーマを導入する</title><link href="https://odeilly.github.io/pelican/pelican-bootstrap3/" rel="alternate"></link><published>2020-07-13T00:00:00+09:00</published><updated>2020-07-13T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-13:/pelican/pelican-bootstrap3/</id><summary type="html">&lt;p class="first last"&gt;pelican-bootstrap3テーマのインストールメモです.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3"&gt;https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h2&gt;ダウンロード&lt;/h2&gt;

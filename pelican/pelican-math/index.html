@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Pelicanの導入 - Odeilly's Note</title>
+    <title>Pelicanで数式を書く - Odeilly's Note</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,20 +10,21 @@
 
     <link href="https://odeilly.github.io/images/favicon.ico" rel="icon">
 
-<link rel="canonical" href="https://odeilly.github.io/pelican/start-pelican/">
+<link rel="canonical" href="https://odeilly.github.io/pelican/pelican-math/">
 
         <meta name="author" content="Odeilly" />
-        <meta name="keywords" content="Pelican" />
-        <meta name="description" content="Pelicanのインストールメモです." />
+        <meta name="keywords" content="Pelican,Math" />
+        <meta name="description" content="Render Math Plugin を利用して数式を書きます." />
 
         <meta property="og:site_name" content="Odeilly's Note" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Pelicanの導入"/>
-        <meta property="og:url" content="https://odeilly.github.io/pelican/start-pelican/"/>
-        <meta property="og:description" content="Pelicanのインストールメモです."/>
-        <meta property="article:published_time" content="2020-07-12" />
+        <meta property="og:title" content="Pelicanで数式を書く"/>
+        <meta property="og:url" content="https://odeilly.github.io/pelican/pelican-math/"/>
+        <meta property="og:description" content="Render Math Plugin を利用して数式を書きます."/>
+        <meta property="article:published_time" content="2020-07-15" />
             <meta property="article:section" content="pelican" />
             <meta property="article:tag" content="Pelican" />
+            <meta property="article:tag" content="Math" />
             <meta property="article:author" content="Odeilly" />
 
 
@@ -79,10 +80,10 @@ Odeilly's Note            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="https://odeilly.github.io/pelican/start-pelican/"
+                    <a href="https://odeilly.github.io/pelican/pelican-math/"
                        rel="bookmark"
-                       title="Permalink to Pelicanの導入">
-                        Pelicanの導入
+                       title="Permalink to Pelicanで数式を書く">
+                        Pelicanで数式を書く
                     </a>
                 </h1>
             </header>
@@ -92,7 +93,7 @@ Odeilly's Note            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2020-07-12T00:00:00+09:00"> 2020年7年12日 (日)</time>
+        <i class="fa fa-calendar"></i><time datetime="2020-07-15T00:00:00+09:00"> 2020年7年15日 (水)</time>
     </span>
 
 
@@ -101,118 +102,107 @@ Odeilly's Note            </a>
 
 <span class="label label-default">Tags</span>
 	<a href="https://odeilly.github.io/tag/pelican.html">Pelican</a>
+        /
+	<a href="https://odeilly.github.io/tag/math.html">Math</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Pelicanを導入しました.</p>
+                <div class="section" id="render-math-plugin">
+<h2>Render Math Plugin の設定</h2>
+<p>Typogrify が必要となるので, pipコマンドでインストールします.</p>
+<div class="highlight"><pre><span></span>pip install typogrify
+</pre></div>
+<p>pelicanconf.py で, <tt class="docutils literal">PLUGINS</tt> に <tt class="docutils literal">render_math</tt> を追加します.</p>
+<div class="highlight"><pre><span></span><span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span>
+             <span class="o">...</span>
+             <span class="s1">&#39;render_math&#39;</span><span class="p">,</span>
+             <span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
 <div class="section" id="id1">
-<h2>環境設定</h2>
-<div class="section" id="github-pages">
-<h3>GitHub Pages</h3>
-<p>GitHubリポジトリを準備します.
-username.github.jo というパブリックリポジトリとします.
-このブログの場合は, odeilly.github.io です.</p>
-</div>
-<div class="section" id="id2">
-<h3>ソフトウェアのインストール</h3>
-<p>ローカルマシンにソフトウェアをインストールしていきます.
-インストールするソフトウェアとバージョンは以下の通りです.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">ソフトウェア</th>
-<th class="head">バージョン</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>Python</td>
-<td>3.8.3</td>
-</tr>
-<tr><td>pelican</td>
-<td>4.2.0</td>
-</tr>
-<tr><td>Markdown</td>
-<td>3.1.1</td>
-</tr>
-<tr><td>ghp-import</td>
-<td>0.5.5</td>
-</tr>
-</tbody>
-</table>
-<ol class="arabic">
-<li><p class="first">Pythonをインストールします.
-パスを通すようにして下さい.</p>
+<h2>使用例</h2>
+<ul>
+<li><p class="first">インライン数式</p>
+<div class="highlight"><pre><span></span>インライン数式は, <span class="na">:math:</span><span class="nv">`x^2 + x + 1 = 0`</span> のように書きます.
+</pre></div>
+<p>インライン数式は, <span class="math">\(x^2 + x + 1 = 0\)</span> のように書きます.</p>
 </li>
-<li><p class="first">Pelicanをインストールします.
-Markdownで編集できるように, Markdownオプションを付けます.</p>
-<div class="highlight"><pre><span></span>pip install pelican Markdown
+<li><p class="first">別行立て式</p>
+<div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">math</span><span class="p">::</span>
+
+   S = \int_a^b f(x) dx.
 </pre></div>
+<div class="math">
+\begin{equation*}
+S = \int_a^b f(x) dx.
+\end{equation*}
+</div>
 </li>
-<li><p class="first">ghp-import をインストールします.
-GitHub Pages のアップロードが楽になります.</p>
-<div class="highlight"><pre><span></span>pip install ghp-import
-</pre></div>
-</li>
-</ol>
+</ul>
 </div>
-</div>
-<div class="section" id="id3">
-<h2>ローカルにサイトを構築</h2>
-<p>適当なディレクトリを作り,
-作ったディレクトリに移動して
-<tt class="docutils literal"><span class="pre">pelican-quickstart</span></tt> コマンドを実行します.
-いろいろ質問があるので, 答えていきます.</p>
-<div class="highlight"><pre><span></span>$ pelican-quickstart
-Welcome to pelican-quickstart v4.2.0.
+<script type='text/javascript'>if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
 
-This script will help you create a new Pelican-based website.
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
 
-Please answer the following questions so this script can generate the files
-needed by Pelican.
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
 
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
 
-&gt; Where do you want to create your new web site? [.]
-&gt; What will be the title of this web site? Odeilly&#39;s Note
-&gt; Who will be the author of this web site? Odeilly
-&gt; What will be the default language of this web site? [Japanese] ja
-&gt; Do you want to specify a URL prefix? e.g., https://example.com   (Y/n) https://odeilly.github.io
-You must answer &#39;yes&#39; or &#39;no&#39;
-&gt; Do you want to specify a URL prefix? e.g., https://example.com   (Y/n) Y
-&gt; What is your URL prefix? (see above example; no trailing slash) https://odeilly.github.io
-&gt; Do you want to enable article pagination? (Y/n) Y
-&gt; How many articles per page do you want? [10] 10
-&gt; What is your time zone? [Europe/Paris] Asia/Tokyo
-&gt; Do you want to generate a tasks.py/Makefile to automate generation and publishing? (Y/n) Y
-&gt; Do you want to upload your website using FTP? (y/N) N
-&gt; Do you want to upload your website using SSH? (y/N) N
-&gt; Do you want to upload your website using Dropbox? (y/N) N
-&gt; Do you want to upload your website using S3? (y/N) N
-&gt; Do you want to upload your website using Rackspace Cloud Files? (y/N) N
-&gt; Do you want to upload your website using GitHub Pages? (y/N) y
-&gt; Is this your personal page (username.github.io)? (y/N) y
-Done. Your new project is available at /foo/bar
-</pre></div>
-<p>これで, 記事を書いていく準備ができました.
-conent ディレクトリの配下に Markdown または reStructruedText 形式で記事を書きます.
-<tt class="docutils literal">make html</tt> コマンドで, HTMLに変換され output ディレクトリに出力されます.</p>
-<div class="highlight"><pre><span></span>make html
-</pre></div>
-<p><tt class="docutils literal">make serve</tt> コマンドによりローカルサーバが起動します.
-ブラウザで <a class="reference external" href="http://localhost:8000">http://localhost:8000</a> にアクセスすると, 記事が表示されます.</p>
-<div class="highlight"><pre><span></span>make serve
-</pre></div>
-<p><tt class="docutils literal">make publish</tt> コマンドで, GitHub Pages 用のHTMLに変更されます.</p>
-<div class="highlight"><pre><span></span>make publish
-</pre></div>
-<p><tt class="docutils literal">make github</tt> コマンドで, outout ディレクトリのファイルが,
-GitHub Pages の master ブランチにアップロード (プッシュ)されます.</p>
-<div class="highlight"><pre><span></span>make github
-</pre></div>
-</div>
-
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
             </div>
             <!-- /.entry-content -->
         </article>
