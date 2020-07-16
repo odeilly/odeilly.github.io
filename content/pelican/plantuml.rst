@@ -44,7 +44,7 @@ https://plantuml.com/ja/download
 
 .. code-block:: none
 
-@echo off
+   @echo off
    java -jar C:\PlantUML\plantuml.jar %*
 
 pelicanconf.pyの編集
@@ -83,3 +83,23 @@ plantumlプラグインを追加します.
      deactivate A
      A -> User: Done
      deactivate A
+
+
+.. .. uml::
+
+   participant User
+
+   User -> A: DoWork
+   activate A #FFBBBB
+
+   A -> A: Internal call
+   activate A #DarkSalmon
+
+   A -> B: << createRequest >>
+   activate B
+
+   B --> A: RequestCreated
+   deactivate B
+   deactivate A
+   A -> User: Done
+   deactivate A
