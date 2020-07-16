@@ -16,8 +16,8 @@ PlantUMLは, 下記ページからダウンロードします.
 また, 動作させるためにJavaが必要になります.
 
 - PlantUML
-  
-  https://plantuml.com/ja/download
+
+https://plantuml.com/ja/download
 
   .. figure:: /images/plantuml/download.png
               :alt: PlantUML Download
@@ -43,8 +43,8 @@ PlantUMLは, 下記ページからダウンロードします.
 コマンドとして使えるようにしておきます.
 
 .. code-block:: none
-                
-   @echo off
+
+@echo off
    java -jar C:\PlantUML\plantuml.jar %*
 
 pelicanconf.pyの編集
@@ -56,9 +56,7 @@ plantumlプラグインを追加します.
 
    PLUGINS = [
                 ...
-                
                 'plantuml',
-                
                 ...
    ]
 
