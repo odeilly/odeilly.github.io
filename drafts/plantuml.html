@@ -111,13 +111,16 @@ Odeilly's Note            </a>
 <h2>ダウンロード</h2>
 <p>PlantUMLは, 下記ページからダウンロードします.
 また, 動作させるためにJavaが必要になります.</p>
-<ul>
-<li><p class="first">PlantUML</p>
+<ul class="simple">
+<li>PlantUML</li>
+</ul>
 <p><a class="reference external" href="https://plantuml.com/ja/download">https://plantuml.com/ja/download</a></p>
+<blockquote>
 <div class="figure">
 <img alt="PlantUML Download" src="/images/plantuml/download.png" />
 </div>
-</li>
+</blockquote>
+<ul>
 <li><p class="first">Java</p>
 <p><a class="reference external" href="https://www.oracle.com/java/technologies/javase-downloads.html">https://www.oracle.com/java/technologies/javase-downloads.html</a></p>
 </li>
@@ -147,9 +150,7 @@ java -jar C:\PlantUML\plantuml.jar %*
 <p>plantumlプラグインを追加します.</p>
 <div class="highlight"><pre><span></span><span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span>
              <span class="o">...</span>
-
              <span class="s1">&#39;plantuml&#39;</span><span class="p">,</span>
-
              <span class="o">...</span>
 <span class="p">]</span>
 </pre></div>
@@ -175,6 +176,24 @@ java -jar C:\PlantUML\plantuml.jar %*
    A -&gt; User: Done
    deactivate A
 </pre></div>
+<!-- .. uml::
+
+participant User
+
+User -> A: DoWork
+activate A #FFBBBB
+
+A -> A: Internal call
+activate A #DarkSalmon
+
+A -> B: << createRequest >>
+activate B
+
+B - -> A: RequestCreated
+deactivate B
+deactivate A
+A -> User: Done
+deactivate A -->
 </div>
 
             </div>
