@@ -21,6 +21,12 @@
    * - C-x RET r
      - revert-buffer-with-coding-system
      - 文字コードと改行コードを変換して開き直す
+   * - C-x C-v
+     - ffap-alternate-file
+     - カレントバッファを別のファイルで置き換える
+   * - (なし)
+     - revert-buffer
+     - カレントバッファを捨ててファイルを読み込み直す
 
 カーソル移動
 ============
