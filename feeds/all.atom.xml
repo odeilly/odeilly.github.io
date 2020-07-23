@@ -23,6 +23,14 @@
 &lt;td&gt;revert-buffer-with-coding-system&lt;/td&gt;
 &lt;td&gt;文字コードと改行コードを変換して開き直す&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;C-x C-v&lt;/td&gt;
+&lt;td&gt;ffap-alternate-file&lt;/td&gt;
+&lt;td&gt;カレントバッファを別のファイルで置き換える&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;(なし)&lt;/td&gt;
+&lt;td&gt;revert-buffer&lt;/td&gt;
+&lt;td&gt;カレントバッファを捨ててファイルを読み込み直す&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
