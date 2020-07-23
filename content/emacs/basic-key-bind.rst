@@ -40,3 +40,16 @@
    * - M-g M-g, M-g g
      - goto-line
      - 指定された行へ移動する
+
+文字入力
+========
+
+.. list-table::
+   :header-rows: 1
+
+   * - キー
+     - コマンド名
+     - 説明
+   * - C-q
+     - quoted-insert
+     - 特殊文字を入力する
