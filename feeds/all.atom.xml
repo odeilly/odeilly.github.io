@@ -78,6 +78,17 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;表示&lt;/h2&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h3&gt;文字サイズの変更&lt;/h3&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;C-x&lt;/span&gt; &lt;span class="pre"&gt;C-+=&lt;/span&gt;&lt;/tt&gt; または &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;C-x&lt;/span&gt; &lt;span class="pre"&gt;C-=&lt;/span&gt;&lt;/tt&gt; で文字サイズを大きくすることができる.
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;C-x&lt;/span&gt; &lt;span class="pre"&gt;C--&lt;/span&gt;&lt;/tt&gt; で文字サイズを小さくすることができる.
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;C-x&lt;/span&gt;&lt;/tt&gt; のあとのキーを連続でタイプすることによって,
+段階的にサイズを変更することができる.
+元のサイズに戻すには &lt;tt class="docutils literal"&gt;0&lt;/tt&gt; をタイプする.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </content><category term="emacs"></category><category term="Emacs"></category></entry><entry><title>Pelicanで数式を書く</title><link href="https://odeilly.github.io/pelican/pelican-math/" rel="alternate"></link><published>2020-07-15T00:00:00+09:00</published><updated>2020-07-15T00:00:00+09:00</updated><author><name>Odeilly</name></author><id>tag:odeilly.github.io,2020-07-15:/pelican/pelican-math/</id><summary type="html">&lt;p class="first last"&gt;Render Math Plugin を利用して数式を書きます.&lt;/p&gt;
 </summary><content type="html">&lt;div class="section" id="render-math-plugin"&gt;
 &lt;h2&gt;Render Math Plugin の設定&lt;/h2&gt;
