@@ -2,7 +2,7 @@
  Emacs キーバインドメモ
 ========================
 
-:slug: emacs-key-bind-memo
+:slug: basic-key-bind
 :date: 2020-07-23
 :summary: Emacsの基本的なキーバインドで忘れやすものをメモ.
 :tags: Emacs
