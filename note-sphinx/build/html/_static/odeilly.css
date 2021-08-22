@@ -1,0 +1,9 @@
+img {
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgray;
+}
+
+.wy-nav-content {
+    max-width: none;
+}
