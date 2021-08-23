@@ -10,6 +10,8 @@ Welcome to Odeilly's Note's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   sphinx/index
+
 
 
 Indices and tables
