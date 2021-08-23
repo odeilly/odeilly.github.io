@@ -8,6 +8,7 @@ Welcome to Odeilly's Note's documentation!
 
 .. toctree::
    :maxdepth: 2
+   :numbered:
    :caption: Contents:
 
    sphinx/index
