@@ -64,3 +64,5 @@ source_suffix = {
     '.rst': 'restructuredtext',
     '.md': 'markdown',
 }
+
+html_favicon = 'image/favicon.ico'
