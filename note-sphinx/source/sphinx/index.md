@@ -79,12 +79,12 @@ setuptools 56.0.0  57.4.0 wheel
 
 ### ライブラリの更新
 
-```sh
+```text
 pip install --upgrade <<ライブラリ名>>
 ```
 
 または
 
-```sh
+```text
 python -m pip install --upgrade <<ライブラリ名>>
 ```
