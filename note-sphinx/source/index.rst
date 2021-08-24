@@ -7,6 +7,7 @@ Odeilly's Note's
    :caption: Contents:
 
    sphinx/index
+   vscode/index
 
 .. Indices and tables
 .. ==================
