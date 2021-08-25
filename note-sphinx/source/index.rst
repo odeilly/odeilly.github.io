@@ -1,5 +1,5 @@
 Odeilly's Note's
-==========================================
+================
 
 .. toctree::
    :maxdepth: 1
@@ -7,6 +7,8 @@ Odeilly's Note's
    :caption: Contents:
 
    sphinx/index
+   vscode/index
+   docker/index
 
 .. Indices and tables
 .. ==================
