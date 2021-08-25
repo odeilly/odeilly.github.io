@@ -8,6 +8,7 @@ Odeilly's Note's
 
    sphinx/index
    vscode/index
+   docker/index
 
 .. Indices and tables
 .. ==================
