@@ -50,21 +50,19 @@ wsl --set-default-version 2
 
 ![download](image/download.png)
 
-### インストール
-
-#### インストーラ起動
+### インストーラ起動
 
 ![instller](image/installer.png)
 
 そのまま OK をクリックします。
 
-#### インストール中
+### インストール中
 
 ![installing](image/installing.png)
 
 この処理は結構長いです。
 
-#### インストール完了
+### インストール完了
 
 ![finish_instlal](image/finish_install.png)
 
