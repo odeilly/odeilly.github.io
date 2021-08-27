@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="ja" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>3.1. Docker Desktop インストール &mdash; Odeilly&#39;s Note  ドキュメント</title>
@@ -185,70 +184,70 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="docker-desktop">
+  <div class="tex2jax_ignore mathjax_ignore section" id="docker-desktop">
 <h1><span class="section-number">3.1. </span>Docker Desktop インストール<a class="headerlink" href="#docker-desktop" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="https://www.docker.com/products/docker-desktop">https://www.docker.com/products/docker-desktop</a></p>
-<section id="windows">
+<div class="section" id="windows">
 <h2><span class="section-number">3.1.1. </span>インストール (Windows)<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<section id="wsl2">
+<div class="section" id="wsl2">
 <h3><span class="section-number">3.1.1.1. </span>WSL2 のインストール<a class="headerlink" href="#wsl2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>参考：<a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/wsl/install-win10">https://docs.microsoft.com/ja-jp/windows/wsl/install-win10</a></p>
-<section id="linux-windows">
+<div class="section" id="linux-windows">
 <h4><span class="section-number">3.1.1.1.1. </span>Linux 用 Windows サブシステムを有効にする<a class="headerlink" href="#linux-windows" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>管理者として PowerShell を開き、以下を実行します。</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 </pre></div>
 </div>
-</section>
-<section id="id1">
+</div>
+<div class="section" id="id1">
 <h4><span class="section-number">3.1.1.1.2. </span>仮想マシンの機能を有効にする<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>管理者として PowerShell を開き、以下を実行します。</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 </pre></div>
 </div>
 <p>Windows を再起動します。</p>
-</section>
-<section id="linux">
+</div>
+<div class="section" id="linux">
 <h4><span class="section-number">3.1.1.1.3. </span>Linux カーネル更新プログラムをパッケージをインストールする<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<section id="id2">
+<div class="section" id="id2">
 <h5><span class="section-number">3.1.1.1.3.1. </span>ダウンロード<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p><a class="reference external" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi</a></p>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h5><span class="section-number">3.1.1.1.3.2. </span>インストール<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p>そのままインストーラを実行します。</p>
-</section>
-</section>
-<section id="id4">
+</div>
+</div>
+<div class="section" id="id4">
 <h4><span class="section-number">3.1.1.1.4. </span>WSL2 を既定のバージョンとして設定する<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>PowerShell を開いて、以下のコマンドを実行します。</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wsl --set-default-version <span class="m">2</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="id5">
+</div>
+</div>
+<div class="section" id="id5">
 <h3><span class="section-number">3.1.1.2. </span>インストーラのダウンロード<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="https://www.docker.com/products/docker-desktop">https://www.docker.com/products/docker-desktop</a></p>
 <p><img alt="download" src="../_images/download.png" /></p>
-</section>
-<section id="id6">
+</div>
+<div class="section" id="id6">
 <h3><span class="section-number">3.1.1.3. </span>インストーラ起動<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><img alt="instller" src="../_images/installer.png" /></p>
 <p>そのまま OK をクリックします。</p>
-</section>
-<section id="id7">
+</div>
+<div class="section" id="id7">
 <h3><span class="section-number">3.1.1.4. </span>インストール中<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><img alt="installing" src="../_images/installing.png" /></p>
 <p>この処理は結構長いです。</p>
-</section>
-<section id="id8">
+</div>
+<div class="section" id="id8">
 <h3><span class="section-number">3.1.1.5. </span>インストール完了<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><img alt="finish_instlal" src="../_images/finish_install.png" /></p>
 <p>Close and restart をクリックし、Windows を再起動します。</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
