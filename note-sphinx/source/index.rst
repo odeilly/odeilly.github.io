@@ -9,6 +9,7 @@ Odeilly's Note's
    sphinx/index
    vscode/index
    docker/index
+   mac/index
 
 .. Indices and tables
 .. ==================
