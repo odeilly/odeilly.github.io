@@ -3,3 +3,4 @@ docs/.buildinfo
 docs/objects.inv
 .vscode/settings.json
 tmp
+note-sphinx/source/_build
