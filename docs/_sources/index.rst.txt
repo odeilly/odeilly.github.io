@@ -10,6 +10,7 @@ Odeilly's Note's
    vscode/index
    docker/index
    mac/index
+   mysql/mysql
 
 .. Indices and tables
 .. ==================
