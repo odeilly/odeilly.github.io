@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>3. Docker &mdash; Odeilly&#39;s Note  ドキュメント</title>
+  <title>3.2. Docker Image &mdash; Odeilly&#39;s Note  ドキュメント</title>
   
 
   
@@ -45,8 +45,8 @@
     
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="3.1. Docker Desktop インストール" href="install.html" />
-    <link rel="prev" title="2.1. Visual Studio Code 拡張機能" href="../vscode/extension.html" /> 
+    <link rel="next" title="4. Mac" href="../mac/index.html" />
+    <link rel="prev" title="3.1. Docker Desktop インストール" href="install.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -95,9 +95,12 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../sphinx/index.html">1. Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vscode/index.html">2. Visual Studio Code</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Docker</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">3. Docker</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="install.html">3.1. Docker Desktop インストール</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html">3.2. Docker Image</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.2. Docker Image</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#smtp">3.2.1. SMTP サーバ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../mac/index.html">4. Mac</a></li>
@@ -149,13 +152,15 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li><span class="section-number">3. </span>Docker</li>
+          <li><a href="index.html"><span class="section-number">3. </span>Docker</a> &raquo;</li>
+        
+      <li><span class="section-number">3.2. </span>Docker Image</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/docker/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/docker/image.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -165,10 +170,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="install.html" class="btn btn-neutral float-right" title="3.1. Docker Desktop インストール" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../mac/index.html" class="btn btn-neutral float-right" title="4. Mac" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
-        <a href="../vscode/extension.html" class="btn btn-neutral float-left" title="2.1. Visual Studio Code 拡張機能" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="install.html" class="btn btn-neutral float-left" title="3.1. Docker Desktop インストール" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
       
   </div>
   
@@ -177,15 +182,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="docker">
-<h1><span class="section-number">3. </span>Docker<a class="headerlink" href="#docker" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference external" href="https://www.docker.com/">https://www.docker.com/</a></p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="install.html">3.1. Docker Desktop インストール</a></li>
-<li class="toctree-l1"><a class="reference internal" href="image.html">3.2. Docker Image</a></li>
-</ul>
+  <div class="tex2jax_ignore mathjax_ignore section" id="docker-image">
+<h1><span class="section-number">3.2. </span>Docker Image<a class="headerlink" href="#docker-image" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="smtp">
+<h2><span class="section-number">3.2.1. </span>SMTP サーバ<a class="headerlink" href="#smtp" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Docker でローカルにテスト用の SMPT サーバを構築する場合には、
+MailHogが便利です。</p>
+<p><a class="reference external" href="https://hub.docker.com/r/mailhog/mailhog">https://hub.docker.com/r/mailhog/mailhog</a></p>
+<p>次のようにしてコンテナを生成します。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run -d -p <span class="m">8025</span>:8025 -p <span class="m">1025</span>:1025 --name smtpserver mailhog/mailhog
+</pre></div>
+</div>
+<p>これで、SMTP サーバが起動し、ポート 1025 でアクセスすることが出来ます。
+また、
+<a class="reference external" href="http://localhost:8025">http://localhost:8025</a>
+にブラウザでアクセスすると、送信されたメールを見ることが出来ます。</p>
+<p>別のポート番号を使いたい場合には、次のようにします。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run -d -p <span class="m">9925</span>:8025 -p <span class="m">8825</span>:1025 --name smtpserver mailhog/mailhog
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -195,8 +210,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="install.html" class="btn btn-neutral float-right" title="3.1. Docker Desktop インストール" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../vscode/extension.html" class="btn btn-neutral float-left" title="2.1. Visual Studio Code 拡張機能" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../mac/index.html" class="btn btn-neutral float-right" title="4. Mac" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="install.html" class="btn btn-neutral float-left" title="3.1. Docker Desktop インストール" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
