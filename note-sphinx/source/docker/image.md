@@ -2,7 +2,7 @@
 
 ## SMTP サーバ
 
-Docker でローカルにテスト用の SMPT サーバを構築する場合には、
+Docker でローカルにテスト用の SMTP サーバを構築する場合には、
 MailHogが便利です。
 
 <https://hub.docker.com/r/mailhog/mailhog>
