@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>3.2. Docker Image &mdash; Odeilly&#39;s Note  ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/odeilly.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="4. Mac" href="../mac/index.html" />
+    <link rel="prev" title="3.1. Docker Desktop インストール" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Odeilly's Note
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../sphinx/index.html">1. Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vscode/index.html">2. Visual Studio Code</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">3. Docker</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install.html">3.1. Docker Desktop インストール</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.2. Docker Image</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#smtp">3.2.1. SMTP サーバ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#redmine">3.2.2. Redmine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mysql">3.2.3. MySQL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mac/index.html">4. Mac</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Odeilly's Note</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">3. </span>Docker</a> &raquo;</li>
+        
+      <li><span class="section-number">3.2. </span>Docker Image</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/docker/image.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../mac/index.html" class="btn btn-neutral float-right" title="4. Mac" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="install.html" class="btn btn-neutral float-left" title="3.1. Docker Desktop インストール" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="docker-image">
+<h1><span class="section-number">3.2. </span>Docker Image<a class="headerlink" href="#docker-image" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="smtp">
+<h2><span class="section-number">3.2.1. </span>SMTP サーバ<a class="headerlink" href="#smtp" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Docker でローカルにテスト用の SMTP サーバを構築する場合には、
+MailHogが便利です。</p>
+<p><a class="reference external" href="https://hub.docker.com/r/mailhog/mailhog">https://hub.docker.com/r/mailhog/mailhog</a></p>
+<p>次のようにしてコンテナを生成します。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run -d -p <span class="m">8025</span>:8025 -p <span class="m">1025</span>:1025 --name smtpserver mailhog/mailhog
+</pre></div>
+</div>
+<p>これで、SMTP サーバが起動し、ポート 1025 でアクセスすることが出来ます。
+また、
+<a class="reference external" href="http://localhost:8025">http://localhost:8025</a>
+にブラウザでアクセスすると、送信されたメールを見ることが出来ます。</p>
+<p>別のポート番号を使いたい場合には、次のようにします。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run -d -p <span class="m">9925</span>:8025 -p <span class="m">8825</span>:1025 --name smtpserver mailhog/mailhog
+</pre></div>
+</div>
+</div>
+<div class="section" id="redmine">
+<h2><span class="section-number">3.2.2. </span>Redmine<a class="headerlink" href="#redmine" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>公式のコンテナイメージが DockerHub にあります。</p>
+<p><a class="reference external" href="https://hub.docker.com/_/redmine">https://hub.docker.com/_/redmine</a></p>
+<p>次のようにコンテナを生成します。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run -d --name myredmine -p <span class="m">3000</span>:3000 redmine
+</pre></div>
+</div>
+<p><a class="reference external" href="http://localhost:3000/">http://localhost:3000/</a> にブラウザでアクセスすると、Redmine のページが開きます。
+初期ユーザは以下の通りです。</p>
+<ul class="simple">
+<li><p>ログインID：admin</p></li>
+<li><p>パスワード：admin</p></li>
+</ul>
+</div>
+<div class="section" id="mysql">
+<h2><span class="section-number">3.2.3. </span>MySQL<a class="headerlink" href="#mysql" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>公式のコンテナイメージが DockerHub にあります。</p>
+<p><a class="reference external" href="https://hub.docker.com/_/mysql">https://hub.docker.com/_/mysql</a></p>
+<p>次のようにコンテナを生成します。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker pull mysql:8 --platform linux/x86_64
+docker run --name mysql1 -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>パスワード -d mysql:8
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../mac/index.html" class="btn btn-neutral float-right" title="4. Mac" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="install.html" class="btn btn-neutral float-left" title="3.1. Docker Desktop インストール" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Odeilly.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
