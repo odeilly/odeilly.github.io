@@ -190,7 +190,8 @@
 MailHogが便利です。</p>
 <p><a class="reference external" href="https://hub.docker.com/r/mailhog/mailhog">https://hub.docker.com/r/mailhog/mailhog</a></p>
 <p>次のようにしてコンテナを生成します。</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run -d -p <span class="m">8025</span>:8025 -p <span class="m">1025</span>:1025 --name smtpserver mailhog/mailhog
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker pull mailhog/mailhog
+docker run -d -p <span class="m">8025</span>:8025 -p <span class="m">1025</span>:1025 --name smtpserver mailhog/mailhog
 </pre></div>
 </div>
 <p>これで、SMTP サーバが起動し、ポート 1025 でアクセスすることが出来ます。

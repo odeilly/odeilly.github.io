@@ -10,6 +10,7 @@ MailHogが便利です。
 次のようにしてコンテナを生成します。
 
 ```sh
+docker pull mailhog/mailhog
 docker run -d -p 8025:8025 -p 1025:1025 --name smtpserver mailhog/mailhog
 ```
 
