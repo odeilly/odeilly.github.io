@@ -6,3 +6,4 @@ Mac
    :caption: Contents:
 
    basic
+   mysql
