@@ -99,6 +99,7 @@
 <li class="toctree-l2"><a class="reference internal" href="install.html">3.1. Docker Desktop インストール</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">3.2. Docker Image</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#smtp">3.2.1. SMTP サーバ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#redmine">3.2.2. Redmine</a></li>
 </ul>
 </li>
 </ul>
@@ -190,8 +191,7 @@
 MailHogが便利です。</p>
 <p><a class="reference external" href="https://hub.docker.com/r/mailhog/mailhog">https://hub.docker.com/r/mailhog/mailhog</a></p>
 <p>次のようにしてコンテナを生成します。</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker pull mailhog/mailhog
-docker run -d -p <span class="m">8025</span>:8025 -p <span class="m">1025</span>:1025 --name smtpserver mailhog/mailhog
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run -d -p <span class="m">8025</span>:8025 -p <span class="m">1025</span>:1025 --name smtpserver mailhog/mailhog
 </pre></div>
 </div>
 <p>これで、SMTP サーバが起動し、ポート 1025 でアクセスすることが出来ます。
@@ -202,6 +202,21 @@ docker run -d -p <span class="m">8025</span>:8025 -p <span class="m">1025</span>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run -d -p <span class="m">9925</span>:8025 -p <span class="m">8825</span>:1025 --name smtpserver mailhog/mailhog
 </pre></div>
 </div>
+</div>
+<div class="section" id="redmine">
+<h2><span class="section-number">3.2.2. </span>Redmine<a class="headerlink" href="#redmine" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>公式のコンテナイメージが DockerHub にあります。</p>
+<p><a class="reference external" href="https://hub.docker.com/_/redmine">https://hub.docker.com/_/redmine</a></p>
+<p>次のようにコンテナを生成します。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run -d --name myredmine -p <span class="m">3000</span>:3000 redmine
+</pre></div>
+</div>
+<p><a class="reference external" href="http://localhost:3000/">http://localhost:3000/</a> にブラウザでアクセスすると、Redmine のページが開きます。
+初期ユーザは以下の通りです。</p>
+<ul class="simple">
+<li><p>ログインID：admin</p></li>
+<li><p>パスワード：admin</p></li>
+</ul>
 </div>
 </div>
 

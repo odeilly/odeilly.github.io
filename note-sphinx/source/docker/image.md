@@ -10,7 +10,6 @@ MailHogが便利です。
 次のようにしてコンテナを生成します。
 
 ```sh
-docker pull mailhog/mailhog
 docker run -d -p 8025:8025 -p 1025:1025 --name smtpserver mailhog/mailhog
 ```
 
@@ -24,3 +23,21 @@ docker run -d -p 8025:8025 -p 1025:1025 --name smtpserver mailhog/mailhog
 ```sh
 docker run -d -p 9925:8025 -p 8825:1025 --name smtpserver mailhog/mailhog
 ```
+
+## Redmine
+
+公式のコンテナイメージが DockerHub にあります。
+
+<https://hub.docker.com/_/redmine>
+
+次のようにコンテナを生成します。
+
+```sh
+docker run -d --name myredmine -p 3000:3000 redmine
+```
+
+<http://localhost:3000/> にブラウザでアクセスすると、Redmine のページが開きます。
+初期ユーザは以下の通りです。
+
+- ログインID：admin
+- パスワード：admin
