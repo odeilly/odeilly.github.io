@@ -100,6 +100,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">3.2. Docker Image</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#smtp">3.2.1. SMTP サーバ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#redmine">3.2.2. Redmine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mysql">3.2.3. MySQL</a></li>
 </ul>
 </li>
 </ul>
@@ -217,6 +218,16 @@ MailHogが便利です。</p>
 <li><p>ログインID：admin</p></li>
 <li><p>パスワード：admin</p></li>
 </ul>
+</div>
+<div class="section" id="mysql">
+<h2><span class="section-number">3.2.3. </span>MySQL<a class="headerlink" href="#mysql" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>公式のコンテナイメージが DockerHub にあります。</p>
+<p><a class="reference external" href="https://hub.docker.com/_/mysql">https://hub.docker.com/_/mysql</a></p>
+<p>次のようにコンテナを生成します。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker pull mysql:8 --platform linux/x86_64
+docker run --name mysql1 -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>パスワード -d mysql:8
+</pre></div>
+</div>
 </div>
 </div>
 

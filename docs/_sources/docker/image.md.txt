@@ -41,3 +41,16 @@ docker run -d --name myredmine -p 3000:3000 redmine
 
 - ログインID：admin
 - パスワード：admin
+
+## MySQL
+
+公式のコンテナイメージが DockerHub にあります。
+
+<https://hub.docker.com/_/mysql>
+
+次のようにコンテナを生成します。
+
+```sh
+docker pull mysql:8 --platform linux/x86_64
+docker run --name mysql1 -e MYSQL_ROOT_PASSWORD=パスワード -d mysql:8
+```
