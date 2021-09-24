@@ -54,3 +54,16 @@ docker run -d --name myredmine -p 3000:3000 redmine
 docker pull mysql:8 --platform linux/x86_64
 docker run --name mysql1 -e MYSQL_ROOT_PASSWORD=パスワード -d mysql:8
 ```
+
+MySQL クライアントを使ってアクセスできるローカル環境を構築するには、
+次のようにします。
+
+```sh
+docker run --name mysql1 -e MYSQL_ROOT_PASSWORD=パスワード -d -p 127.0.0.1:3306:3306 mysql:8
+```
+
+`mysql` コマンドでアクセスできるようになります。
+
+```sh
+mysql -uroot -h 127.0.0.1 -p
+```

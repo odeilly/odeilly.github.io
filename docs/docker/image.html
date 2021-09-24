@@ -229,6 +229,15 @@ MailHogが便利です。</p>
 docker run --name mysql1 -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>パスワード -d mysql:8
 </pre></div>
 </div>
+<p>MySQL クライアントを使ってアクセスできるローカル環境を構築するには、
+次のようにします。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker run --name mysql1 -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>パスワード -d -p <span class="m">127</span>.0.0.1:3306:3306 mysql:8
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mysql</span></code> コマンドでアクセスできるようになります。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mysql -uroot -h <span class="m">127</span>.0.0.1 -p
+</pre></div>
+</div>
 </div>
 </div>
 
