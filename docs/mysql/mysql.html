@@ -115,6 +115,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">5.3. 外部キーの例</a></li>
 </ul>
 </li>
 </ul>
@@ -275,6 +276,38 @@ mysql&gt;
 </pre></div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2><span class="section-number">5.3. </span>外部キーの例<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span> <span class="k">database</span> <span class="n">sample1_db</span><span class="p">;</span>
+
+<span class="n">use</span> <span class="n">sample1_db</span><span class="p">;</span>
+
+<span class="k">create</span> <span class="k">table</span> <span class="k">user</span><span class="p">(</span>
+    <span class="n">user_id</span> <span class="nb">integer</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>
+    <span class="n">user_name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span>
+<span class="p">);</span>
+
+<span class="k">create</span> <span class="k">table</span> <span class="n">device</span><span class="p">(</span>
+    <span class="n">device_id</span> <span class="nb">integer</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>
+    <span class="n">device_name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+    <span class="n">user_id</span> <span class="nb">integer</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+    <span class="k">foreign</span> <span class="k">key</span> <span class="p">(</span><span class="n">user_id</span><span class="p">)</span> <span class="k">references</span> <span class="k">user</span> <span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="k">user</span> <span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;user1&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="k">user</span> <span class="k">values</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;user2&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="k">user</span> <span class="k">values</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;user3&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="k">user</span> <span class="k">values</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;user4&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="k">user</span> <span class="k">values</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;user5&#39;</span><span class="p">);</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">device</span> <span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;device1&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">device</span> <span class="k">values</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;device2&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">device</span> <span class="k">values</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;device3&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">device</span> <span class="k">values</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;device4&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">device</span> <span class="k">values</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;device5&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</pre></div>
 </div>
 </div>
 </div>

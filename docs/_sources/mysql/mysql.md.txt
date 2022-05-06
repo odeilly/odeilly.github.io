@@ -88,3 +88,35 @@ mysql>
 ```sh
 show create table テーブル名;
 ```
+
+## 外部キーの例
+
+```sql
+create database sample1_db;
+
+use sample1_db;
+
+create table user(
+    user_id integer primary key,
+    user_name varchar(20) not null
+);
+
+create table device(
+    device_id integer primary key,
+    device_name varchar(30) not null,
+    user_id integer not null,
+    foreign key (user_id) references user (user_id)
+);
+
+insert into user values(1, 'user1');
+insert into user values(2, 'user2');
+insert into user values(3, 'user3');
+insert into user values(4, 'user4');
+insert into user values(5, 'user5');
+
+insert into device values(1, 'device1', 1);
+insert into device values(2, 'device2', 5);
+insert into device values(3, 'device3', 1);
+insert into device values(4, 'device4', 3);
+insert into device values(5, 'device5', 3);
+```
