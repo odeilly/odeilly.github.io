@@ -1,0 +1,26 @@
+img {
+    border-color: lightgray;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.vp-page .theme-default-content {
+    width: 80%;
+    max-width: none;
+}
+
+.vp-page-meta {
+    width: 80%;
+    max-width: none;
+}
+
+.vp-page-meta .git-info {
+    border-top-color: lightgray;
+    border-top-width: 1px;
+    border-top-style: solid;
+    text-align: start;
+}
+
+footer {
+    color: gray;
+}
