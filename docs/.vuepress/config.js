@@ -7,7 +7,7 @@ import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
 
 export default defineUserConfig({
 
-  title: "Odeilly Note",
+  title: "Odeilly's Note",
   description: "",
   lang: "ja",
   bundler: viteBundler(),
