@@ -13,7 +13,7 @@ export default defineUserConfig({
   bundler: viteBundler(),
 
   theme: defaultTheme({
-    contributors: false,
+    // contributors: false,
   }),
 
   plugins: [
