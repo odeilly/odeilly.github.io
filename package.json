@@ -9,7 +9,7 @@
     "docs:build": "vuepress build docs"
   },
   "keywords": [],
-  "author": "Odeillyaaa",
+  "author": "Odeilly",
   "license": "ISC",
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.18",
