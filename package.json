@@ -1,5 +1,5 @@
 {
-  "name": "vuepress-sample",
+  "name": "odeilly.github.io",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "docs:build": "vuepress build docs"
   },
   "keywords": [],
-  "author": "",
+  "author": "Odeilly",
   "license": "ISC",
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.18",
@@ -20,8 +20,5 @@
     "vue": "^3.5.12",
     "vuepress": "2.0.0-rc.18",
     "vuepress-plugin-md-enhance": "2.0.0-rc.59"
-  },
-  "dependencies": {
-    "vuepress-sample": "file:"
   }
 }

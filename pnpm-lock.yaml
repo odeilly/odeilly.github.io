@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      vuepress-sample:
-        specifier: 'file:'
-        version: 'file:'
     devDependencies:
       '@vuepress/bundler-vite':
         specifier: 2.0.0-rc.18
@@ -1549,9 +1545,6 @@ packages:
         optional: true
       sass-loader:
         optional: true
-
-  'vuepress-sample@file:':
-    resolution: {directory: '', type: directory}
 
   vuepress-shared@2.0.0-rc.59:
     resolution: {integrity: sha512-NUGEX8e4TQ2L6F7ooLDELRtUWiHxE5ztP1rJxyg9FzKZ6MiINB5b669LcQSh/xAlY4fm9p80Y4C/52+zmNDEoA==}
@@ -3098,8 +3091,6 @@ snapshots:
       - '@vue/composition-api'
       - markdown-it
       - typescript
-
-  'vuepress-sample@file:': {}
 
   vuepress-shared@2.0.0-rc.59(vuepress@2.0.0-rc.18(@vuepress/bundler-vite@2.0.0-rc.18(@types/node@22.7.9)(sass-embedded@1.80.4))(vue@3.5.12)):
     dependencies:
