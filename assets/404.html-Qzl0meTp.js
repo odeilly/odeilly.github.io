@@ -1,0 +1,1 @@
+import{_ as e,c as a,a as o,o as l}from"./app-GJ7FRoVn.js";const n={};function r(s,t){return l(),a("div",null,t[0]||(t[0]=[o("p",null,"404 Not Found",-1)]))}const _=e(n,[["render",r],["__file","404.html.vue"]]),i=JSON.parse('{"path":"/404.html","title":"","lang":"ja","frontmatter":{"layout":"NotFound"},"headers":[],"git":{},"filePathRelative":null}');export{_ as comp,i as data};
