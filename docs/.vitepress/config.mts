@@ -23,5 +23,7 @@ export default defineConfig({
             ]
         },
     ],
+
+    externalLinkIcon: true,
   }
 })
