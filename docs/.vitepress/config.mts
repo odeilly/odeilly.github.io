@@ -13,6 +13,15 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/odeilly/' }
-    ]
+    ],
+
+    sidebar: [
+        {
+            text: 'Java',
+            items: [
+                { text: '参考', link: '/java/reference' },
+            ]
+        },
+    ],
   }
 })
