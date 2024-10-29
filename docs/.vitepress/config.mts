@@ -22,12 +22,14 @@ export default defineConfig({
     sidebar: [
       {
         text: 'VitePress',
+        collapsed: true,
         items: [
           { text: '参考', link: '/vitepress/reference' },
       ]
       },
       {
         text: 'Java',
+        collapsed: true,
         items: [
           { text: '参考', link: '/java/reference' },
         ]
