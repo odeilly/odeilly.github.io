@@ -1,3 +1,8 @@
+---
+prev: false
+next: false
+---
+
 # 参考 (Java)
 
 ## API リファレンス
