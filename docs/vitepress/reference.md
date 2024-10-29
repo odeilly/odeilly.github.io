@@ -25,11 +25,18 @@ next: false
 ## その他
 
 - [VitePressとは？基本的な使い方、デプロイ手順を解説します！](https://ma-vericks.com/blog/vitepress/) (2024/3/31)
-- [メンバーズクリエイターズブログ](https://creators.members.co.jp/tag/vitepress/)
+- [静的サイトジェネレーター「VitePress 1.0」正式リリース。VueとViteを採用し、高速なWebサイトを構築](https://www.publickey1.jp/blog/24/vitepress_10vueviteweb.html) (2024/3/26)
+- [メンバーズクリエイターズブログ](https://creators.members.co.jp/2021/09/knowledge_051/) (2021/9/30)
 
 ## VitePress で作成されているサイト
 
 - [Vue.js](https://vuejs.org/)
+- [VueUse](https://vueuse.org/)
+- [Vite](https://vite.dev/)
+- [Vitest](https://vitest.dev/)
+- [D3](https://d3js.org/)
 - [Mermaid](https://mermaid.js.org/)
-- [Pina](https://pinia.vuejs.org/)
+- [Pinia](https://pinia.vuejs.org/)
 - [UnoCSS](https://unocss.dev/)
+- [Rollup](https://rollupjs.org/)
+- [Iconify](https://iconify.design/)
