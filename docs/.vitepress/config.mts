@@ -39,5 +39,6 @@ export default defineConfig({
 
   sitemap: {
     hostname: 'https://odeilly.github.io/',
+    lastmodDateOnly: false,
   },
 })
