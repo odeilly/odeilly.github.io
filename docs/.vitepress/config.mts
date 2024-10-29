@@ -35,5 +35,9 @@ export default defineConfig({
     ],
 
     externalLinkIcon: true,
-  }
+  },
+
+  sitemap: {
+    hostname: 'https://odeilly.github.io/',
+  },
 })
