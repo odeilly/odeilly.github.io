@@ -17,6 +17,12 @@ export default defineConfig({
 
     sidebar: [
         {
+            text: 'VitePress',
+            items: [
+                { text: '参考', link: '/vitepress/reference' },
+            ]
+        },
+        {
             text: 'Java',
             items: [
                 { text: '参考', link: '/java/reference' },
