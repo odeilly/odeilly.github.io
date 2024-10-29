@@ -8,6 +8,8 @@ next: false
 ## VitePress
 
 - [公式サイト](https://vitepress.dev/)
+- [GitHub](https://github.com/vuejs/vitepress/)
+  - [Changelog](https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md)
 
 ## Qiita
 
