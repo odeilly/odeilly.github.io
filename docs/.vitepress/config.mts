@@ -35,6 +35,7 @@ export default defineConfig({
         text: 'VitePress',
         collapsed: true,
         items: [
+          { text: 'コードブロック', link: '/vitepress/code_block'},
           { text: 'Netlify にデプロイ', link: '/vitepress/netlify' },
           { text: '参考', link: '/vitepress/reference' },
       ]
