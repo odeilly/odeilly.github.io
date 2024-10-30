@@ -5,6 +5,8 @@ next: false
 
 # コードブロック
 
+[参考](https://vitepress.dev/guide/markdown#syntax-highlighting-in-code-blocks)
+
 VitePressは、コードブロックに[Shiki](https://shiki.style/)を利用しています。
 
 言語を指定すると自動でコードハイライトされます。
