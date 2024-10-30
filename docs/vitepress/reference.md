@@ -29,6 +29,7 @@ next: false
 - [VitePressとは？基本的な使い方、デプロイ手順を解説します！](https://ma-vericks.com/blog/vitepress/) (2024/3/31)
 - [静的サイトジェネレーター「VitePress 1.0」正式リリース。VueとViteを採用し、高速なWebサイトを構築](https://www.publickey1.jp/blog/24/vitepress_10vueviteweb.html) (2024/3/26)
 - [メンバーズクリエイターズブログ](https://creators.members.co.jp/2021/09/knowledge_051/) (2021/9/30)
+- [VitePressでこのサイトを作ってみたの解説](https://kamome-web.netlify.app/movie/vitepress.html)
 
 ## VitePress で作成されているサイト
 
