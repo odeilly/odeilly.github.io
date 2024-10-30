@@ -11,7 +11,7 @@ next: false
 
 ![Deploy Setting](images/deploy_setting.png)
 
-今回作ったサイト。
+今回作ったサイト：
 <https://odeilly.netlify.app/>
 
 ## 参考
