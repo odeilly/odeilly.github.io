@@ -8,10 +8,11 @@ next: false
 ## VitePress
 
 - [公式サイト](https://vitepress.dev/)
-  - このサイトも VitePress で作られており、GitHub でソースコードが公開されている。
-    - <https://github.com/vuejs/vitepress>
-- [GitHub](https://github.com/vuejs/vitepress/)
+  ::: info
+  公式サイトも VitePress で作られており、GitHub でソースコードが公開されている。
+  - [GitHub](https://github.com/vuejs/vitepress/)
   - [Changelog](https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md)
+  :::
 
 ## Qiita
 
