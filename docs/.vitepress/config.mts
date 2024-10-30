@@ -24,6 +24,7 @@ export default defineConfig({
         text: 'VitePress',
         collapsed: true,
         items: [
+          { text: 'Netlify にデプロイ', link: '/vitepress/Netlify' },
           { text: '参考', link: '/vitepress/reference' },
       ]
       },
