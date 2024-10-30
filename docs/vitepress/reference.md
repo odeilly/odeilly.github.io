@@ -21,6 +21,7 @@ next: false
 
 - [https://zenn.dev/topics/vitepress](https://zenn.dev/topics/vitepress)
   - [VitePressとCloudflare Pagesで爆速で技術文書を公開する](https://zenn.dev/urth/articles/1d1430d2e15f74) (2024/8/26)
+  - [VitePressとNetlifyでお問い合わせフォーム付きのドキュメントサイトを作ろう](https://zenn.dev/sikkim/articles/290e49ef0289d7) (2024/4/8)
   - [VitePress v1.0 公式リリースにつき簡単にまとめた](https://zenn.dev/rlab/articles/77a702dd61a08a) (2024/3/31)
   - [VitePressでのブログ構築](https://zenn.dev/takos/articles/fc283027a89863) (2023/8/11)
 
