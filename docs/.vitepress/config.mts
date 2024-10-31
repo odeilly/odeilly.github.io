@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { DefaultTheme, defineConfig } from 'vitepress'
 
 export default defineConfig({
 
@@ -12,12 +12,12 @@ export default defineConfig({
 
   markdown: {
     codeTransformers: [
-        {
-            // We use `[!!code` in demo to prevent transformation, here we revert it back.
-            postprocess(code) {
-                return code.replace(/\[\!\!code/g, '[!code')
-            }
+      {
+        // We use `[!!code` in demo to prevent transformation, here we revert it back.
+        postprocess(code) {
+          return code.replace(/\[\!\!code/g, '[!code')
         }
+      }
     ],
   },
 
@@ -32,20 +32,16 @@ export default defineConfig({
 
     sidebar: [
       {
+        base: '/vitepress/',
         text: 'VitePress',
         collapsed: true,
-        items: [
-          { text: 'コードブロック', link: '/vitepress/code_block'},
-          { text: 'Netlify にデプロイ', link: '/vitepress/netlify' },
-          { text: '参考', link: '/vitepress/reference' },
-      ]
+        items: sidebarVitePress(),
       },
       {
+        base: '/java/',
         text: 'Java',
         collapsed: true,
-        items: [
-          { text: '参考', link: '/java/reference' },
-        ]
+        items: sidebarJava(),
       },
     ],
 
@@ -57,3 +53,17 @@ export default defineConfig({
     lastmodDateOnly: false,
   },
 })
+
+function sidebarVitePress(): DefaultTheme.SidebarItem[] {
+  return [
+    { text: 'コードブロック', link: 'code_block'},
+    { text: 'Netlify にデプロイ', link: 'netlify' },
+    { text: '参考', link: 'reference' },
+  ]
+}
+
+function sidebarJava(): DefaultTheme.SidebarItem[] {
+  return [
+    { text: '参考', link: 'reference' },
+  ]
+}
