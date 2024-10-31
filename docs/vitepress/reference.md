@@ -8,6 +8,7 @@ next: false
 ## VitePress
 
 - [公式サイト](https://vitepress.dev/)
+
   ::: info
   公式サイトも VitePress で作られており、GitHub でソースコードが公開されている。
   - [GitHub](https://github.com/vuejs/vitepress/)
