@@ -30,20 +30,25 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/odeilly/' }
     ],
 
-    sidebar: [
-      {
-        base: '/vitepress/',
-        text: 'VitePress',
-        collapsed: true,
-        items: sidebarVitePress(),
-      },
-      {
-        base: '/java/',
-        text: 'Java',
-        collapsed: true,
-        items: sidebarJava(),
-      },
-    ],
+    // sidebar: [
+    //   {
+    //     base: '/vitepress/',
+    //     text: 'VitePress',
+    //     collapsed: true,
+    //     items: sidebarVitePress(),
+    //   },
+    //   {
+    //     base: '/java/',
+    //     text: 'Java',
+    //     collapsed: true,
+    //     items: sidebarJava(),
+    //   },
+    // ],
+    sidebar: {
+      '/vitepress/': { base: '/vitepress/', items: sidebarVitePress() },
+      '/java/': { base: '/java/', items: sidebarJava() },
+    },
+
 
     externalLinkIcon: true,
   },
@@ -56,14 +61,26 @@ export default defineConfig({
 
 function sidebarVitePress(): DefaultTheme.SidebarItem[] {
   return [
-    { text: 'コードブロック', link: 'code_block'},
-    { text: 'Netlify にデプロイ', link: 'netlify' },
-    { text: '参考', link: 'reference' },
+    {
+      text: 'VitePress',
+      collapsed: true,
+      items: [
+        { text: 'コードブロック', link: 'code_block'},
+        { text: 'Netlify にデプロイ', link: 'netlify' },
+        { text: '参考', link: 'reference' },
+      ],
+    },
   ]
 }
 
 function sidebarJava(): DefaultTheme.SidebarItem[] {
   return [
-    { text: '参考', link: 'reference' },
+    {
+      text: 'Java',
+      collapsed: true,
+      items: [
+        { text: '参考', link: 'reference' },
+      ],
+    },
   ]
 }
