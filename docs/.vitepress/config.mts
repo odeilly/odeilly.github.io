@@ -1,5 +1,32 @@
 import { DefaultTheme, defineConfig } from 'vitepress'
 
+const sidebarHome: DefaultTheme.SidebarItem[] = [
+  { text: 'VitePress', link: 'vitepress/code_block' },
+  { text: 'Java', link: 'java/reference' },
+]
+
+const sidebarVitePress: DefaultTheme.SidebarItem[] = [
+  {
+    text: 'VitePress',
+    collapsed: true,
+    items: [
+      { text: 'コードブロック', link: 'code_block'},
+      { text: 'Netlify にデプロイ', link: 'netlify' },
+      { text: '参考', link: 'reference' },
+    ],
+  },
+]
+
+const sidebarJava: DefaultTheme.SidebarItem[] = [
+  {
+    text: 'Java',
+    collapsed: true,
+    items: [
+      { text: '参考', link: 'reference' },
+    ],
+  },
+]
+
 export default defineConfig({
 
   base: '/',
@@ -31,9 +58,9 @@ export default defineConfig({
     ],
 
     sidebar: {
-      '/index': { base: '/', items: sidebarHome() },
-      '/vitepress/': { base: '/vitepress/', items: sidebarVitePress() },
-      '/java/': { base: '/java/', items: sidebarJava() },
+      '/index': { base: '/', items: sidebarHome },
+      '/vitepress/': { base: '/vitepress/', items: sidebarVitePress },
+      '/java/': { base: '/java/', items: sidebarJava },
     },
 
 
@@ -45,36 +72,3 @@ export default defineConfig({
     lastmodDateOnly: false,
   },
 })
-
-function sidebarHome(): DefaultTheme.SidebarItem[] {
-  return [
-    { text: 'VitePress', link: 'vitepress/code_block' },
-    { text: 'Java', link: 'java/reference' },
-  ]
-}
-
-function sidebarVitePress(): DefaultTheme.SidebarItem[] {
-  return [
-    {
-      text: 'VitePress',
-      collapsed: true,
-      items: [
-        { text: 'コードブロック', link: 'code_block'},
-        { text: 'Netlify にデプロイ', link: 'netlify' },
-        { text: '参考', link: 'reference' },
-      ],
-    },
-  ]
-}
-
-function sidebarJava(): DefaultTheme.SidebarItem[] {
-  return [
-    {
-      text: 'Java',
-      collapsed: true,
-      items: [
-        { text: '参考', link: 'reference' },
-      ],
-    },
-  ]
-}
