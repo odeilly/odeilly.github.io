@@ -31,6 +31,7 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/index': { base: '/', items: sidebarHome() },
       '/vitepress/': { base: '/vitepress/', items: sidebarVitePress() },
       '/java/': { base: '/java/', items: sidebarJava() },
     },
@@ -44,6 +45,13 @@ export default defineConfig({
     lastmodDateOnly: false,
   },
 })
+
+function sidebarHome(): DefaultTheme.SidebarItem[] {
+  return [
+    { text: 'VitePress', link: 'vitepress/code_block' },
+    { text: 'Java', link: 'java/reference' },
+  ]
+}
 
 function sidebarVitePress(): DefaultTheme.SidebarItem[] {
   return [
