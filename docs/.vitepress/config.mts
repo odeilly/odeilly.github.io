@@ -7,6 +7,7 @@ const sidebarHome: DefaultTheme.SidebarItem[] = [
 
 const sidebarVitePress: DefaultTheme.SidebarItem[] = [
   {
+    base: '/vitepress/',
     text: 'VitePress',
     collapsed: true,
     items: [
@@ -19,6 +20,7 @@ const sidebarVitePress: DefaultTheme.SidebarItem[] = [
 
 const sidebarJava: DefaultTheme.SidebarItem[] = [
   {
+    base: '/java/',
     text: 'Java',
     collapsed: true,
     items: [
@@ -29,8 +31,8 @@ const sidebarJava: DefaultTheme.SidebarItem[] = [
 
 const sidebarAll: DefaultTheme.Sidebar = {
   '/index': { base: '/', items: sidebarHome },
-  '/vitepress/': { base: '/vitepress/', items: sidebarVitePress },
-  '/java/': { base: '/java/', items: sidebarJava },
+  '/vitepress/': { base: '/', items: sidebarVitePress },
+  '/java/': { base: '/', items: sidebarJava },
 }
 
 export default defineConfig({
