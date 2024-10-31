@@ -30,20 +30,6 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/odeilly/' }
     ],
 
-    // sidebar: [
-    //   {
-    //     base: '/vitepress/',
-    //     text: 'VitePress',
-    //     collapsed: true,
-    //     items: sidebarVitePress(),
-    //   },
-    //   {
-    //     base: '/java/',
-    //     text: 'Java',
-    //     collapsed: true,
-    //     items: sidebarJava(),
-    //   },
-    // ],
     sidebar: {
       '/vitepress/': { base: '/vitepress/', items: sidebarVitePress() },
       '/java/': { base: '/java/', items: sidebarJava() },
