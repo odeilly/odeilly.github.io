@@ -10,7 +10,7 @@ const sidebarVitePress: DefaultTheme.SidebarItem[] = [
     text: 'VitePress',
     collapsed: true,
     items: [
-      { text: 'コードブロック', link: 'code_block'},
+      { text: 'コードブロック', link: 'code_block' },
       { text: 'Netlify にデプロイ', link: 'netlify' },
       { text: '参考', link: 'reference' },
     ],
