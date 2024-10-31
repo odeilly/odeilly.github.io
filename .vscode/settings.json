@@ -1,5 +1,7 @@
 {
-    "[javascript]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "[java]": {
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
     },
