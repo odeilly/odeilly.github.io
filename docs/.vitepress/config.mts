@@ -27,6 +27,12 @@ const sidebarJava: DefaultTheme.SidebarItem[] = [
   },
 ]
 
+const sidebarAll: DefaultTheme.Sidebar = {
+  '/index': { base: '/', items: sidebarHome },
+  '/vitepress/': { base: '/vitepress/', items: sidebarVitePress },
+  '/java/': { base: '/java/', items: sidebarJava },
+}
+
 export default defineConfig({
 
   base: '/',
@@ -57,12 +63,7 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/odeilly/' }
     ],
 
-    sidebar: {
-      '/index': { base: '/', items: sidebarHome },
-      '/vitepress/': { base: '/vitepress/', items: sidebarVitePress },
-      '/java/': { base: '/java/', items: sidebarJava },
-    },
-
+    sidebar: sidebarAll,
 
     externalLinkIcon: true,
   },
