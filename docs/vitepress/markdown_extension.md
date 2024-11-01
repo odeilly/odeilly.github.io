@@ -13,6 +13,7 @@ next: false
 
 ```sh
 pnpm add -D markdown-it-plantuml
+pnpm add @types/markdown-it-plantuml
 ```
 
 ### 設定
