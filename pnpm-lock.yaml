@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      markdown-it-plantuml:
+        specifier: ^1.4.1
+        version: 1.4.1
       vitepress:
         specifier: ^1.4.3
         version: 1.4.3(@algolia/client-search@4.24.0)(postcss@8.4.47)(search-insights@2.17.2)
@@ -563,6 +566,9 @@ packages:
 
   mark.js@8.11.1:
     resolution: {integrity: sha512-1I+1qpDt4idfgLQG+BNWmrqku+7/2bi5nLf4YwF8y8zXvmfiTBY3PV3ZibfrjBueCByROpuBjLLFCajqkgYoLQ==}
+
+  markdown-it-plantuml@1.4.1:
+    resolution: {integrity: sha512-13KgnZaGYTHBp4iUmGofzZSBz+Zj6cyqfR0SXUIc9wgWTto5Xhn7NjaXYxY0z7uBeTUMlc9LMQq5uP4OM5xCHg==}
 
   mdast-util-to-hast@13.2.0:
     resolution: {integrity: sha512-QGYKEuUsYT9ykKBCMOEDLsU5JRObWQusAolFMeko/tYPufNkRffBAQjIE+99jbA87xv6FgmjLtwjh9wBWajwAA==}
@@ -1276,6 +1282,8 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.0
 
   mark.js@8.11.1: {}
+
+  markdown-it-plantuml@1.4.1: {}
 
   mdast-util-to-hast@13.2.0:
     dependencies:
