@@ -1,12 +1,14 @@
 {
   "devDependencies": {
     "@types/markdown-it-plantuml": "^1.4.5",
-    "markdown-it-plantuml": "^1.4.1",
     "vitepress": "^1.4.3"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs --port 9100",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "markdown-it-plantuml": "^1.4.1"
   }
 }
