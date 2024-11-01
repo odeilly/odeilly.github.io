@@ -7,7 +7,10 @@ next: false
 
 ## PlantUML
 
-[参考](https://nanova.me/posts/vitepress-migration)
+参考
+
+- [markdown-it-plantuml](https://github.com/gmunguia/markdown-it-plantuml)
+- [VitePress migration from VuePress](https://nanova.me/posts/vitepress-migration)
 
 ### プラグイン
 
