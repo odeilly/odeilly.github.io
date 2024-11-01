@@ -15,7 +15,7 @@ next: false
 ### プラグイン
 
 ```sh
-pnpm add -D markdown-it-plantuml
+pnpm add markdown-it-plantuml
 pnpm add @types/markdown-it-plantuml
 ```
 
