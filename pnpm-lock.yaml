@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@types/markdown-it-plantuml':
+        specifier: ^1.4.5
+        version: 1.4.5
       markdown-it-plantuml:
         specifier: ^1.4.1
         version: 1.4.1
@@ -379,6 +382,9 @@ packages:
 
   '@types/linkify-it@5.0.0':
     resolution: {integrity: sha512-sVDA58zAw4eWAffKOaQH5/5j3XeayukzDk+ewSsnv3p4yJEZHCCzMDiZM8e0OUrRvmpGZ85jf4yDHkHsgBNr9Q==}
+
+  '@types/markdown-it-plantuml@1.4.5':
+    resolution: {integrity: sha512-QTEJOz9UJSJhLNTYXbjg3p/MsEY3TIgzVH3r1zf/tfXOclf/E2lmP8ZXOkv7RdD4agnMROO4h/3IFWCElEvR8A==}
 
   '@types/markdown-it@14.1.2':
     resolution: {integrity: sha512-promo4eFwuiW+TfGxhi+0x3czqTYJkG8qB17ZUJiVF10Xm7NLVRSLUsfRTU/6h1e24VvRnXCx+hG7li58lkzog==}
@@ -1051,6 +1057,10 @@ snapshots:
       '@types/unist': 3.0.3
 
   '@types/linkify-it@5.0.0': {}
+
+  '@types/markdown-it-plantuml@1.4.5':
+    dependencies:
+      '@types/markdown-it': 14.1.2
 
   '@types/markdown-it@14.1.2':
     dependencies:

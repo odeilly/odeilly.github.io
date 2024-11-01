@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@types/markdown-it-plantuml": "^1.4.5",
     "markdown-it-plantuml": "^1.4.1",
     "vitepress": "^1.4.3"
   },
