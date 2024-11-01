@@ -73,6 +73,13 @@ export default defineConfig({
     sidebar: sidebarAll,
 
     externalLinkIcon: true,
+
+    lastUpdated: {
+      formatOptions: {
+        dateStyle: 'medium',
+      }
+    },
+
   },
 
   sitemap: {
