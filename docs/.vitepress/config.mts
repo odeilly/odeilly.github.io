@@ -54,7 +54,7 @@ export default defineConfig({
     codeTransformers: [
       {
         // We use `[!!code` in demo to prevent transformation, here we revert it back.
-        postprocess(code) {
+        postprocess: code => {
           return code.replace(/\[\!\!code/g, '[!code')
         }
       }
