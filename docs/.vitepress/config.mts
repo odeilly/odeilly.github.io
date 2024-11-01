@@ -1,4 +1,5 @@
 import { DefaultTheme, defineConfig } from 'vitepress'
+import MarkdownItPlantuml from 'markdown-it-plantuml'
 
 const sidebarHome: DefaultTheme.SidebarItem[] = [
   { text: 'VitePress', link: 'vitepress/code_block' },
@@ -12,6 +13,7 @@ const sidebarVitePress: DefaultTheme.SidebarItem[] = [
     collapsed: true,
     items: [
       { text: 'コードブロック', link: 'code_block' },
+      { text: 'Markdown の拡張', link: 'markdown_extension' },
       { text: 'Netlify にデプロイ', link: 'netlify' },
       { text: '参考', link: 'reference' },
     ],
@@ -46,6 +48,9 @@ export default defineConfig({
   lastUpdated: true,
 
   markdown: {
+    config: md => {
+      md.use(MarkdownItPlantuml)
+    },
     codeTransformers: [
       {
         // We use `[!!code` in demo to prevent transformation, here we revert it back.
