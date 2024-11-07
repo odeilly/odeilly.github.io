@@ -9,6 +9,7 @@ next: false
 
 - [https://qiita.com/tags/vscode](https://qiita.com/tags/vscode)
 - [https://qiita.com/tags/visualstudiocode](https://qiita.com/tags/visualstudiocode)
+  - [VSCodeの設定の切り替えや共有に便利なプロファイル機能を活用しよう](https://qiita.com/loftkun/items/cf44155510e4a2e18637) (2023/12/19)
 
 ## Zenn
 
