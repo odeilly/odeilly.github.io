@@ -38,6 +38,7 @@ const sidebarVSCode: DefaultTheme.SidebarItem[] = [
     text: 'VSCode',
     collapsed: true,
     items: [
+      { text: 'コマンドラインオプション', link: 'command_option' },
       { text: '参考', link: 'reference' },
     ],
   },
