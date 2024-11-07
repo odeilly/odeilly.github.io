@@ -8,6 +8,7 @@ next: false
 ## Quiita
 
 - [https://qiita.com/tags/vscode](https://qiita.com/tags/vscode)
+- [https://qiita.com/tags/visualstudiocode](https://qiita.com/tags/visualstudiocode)
 
 ## Zenn
 
