@@ -4,6 +4,7 @@ import MarkdownItPlantuml from 'markdown-it-plantuml'
 const sidebarHome: DefaultTheme.SidebarItem[] = [
   { text: 'VitePress', link: 'vitepress/code_block' },
   { text: 'Java', link: 'java/reference' },
+  { text: 'VSCode', link: 'vscode/reference' },
 ]
 
 const sidebarVitePress: DefaultTheme.SidebarItem[] = [
@@ -31,10 +32,22 @@ const sidebarJava: DefaultTheme.SidebarItem[] = [
   },
 ]
 
+const sidebarVSCode: DefaultTheme.SidebarItem[] = [
+  {
+    base: '/vscode/',
+    text: 'VSCode',
+    collapsed: true,
+    items: [
+      { text: '参考', link: 'reference' },
+    ],
+  },
+]
+
 const sidebarAll: DefaultTheme.Sidebar = {
   '/index': { base: '/', items: sidebarHome },
   '/vitepress/': { base: '/', items: sidebarVitePress },
   '/java/': { base: '/', items: sidebarJava },
+  '/vscode/': { base: '/', items: sidebarVSCode },
 }
 
 export default defineConfig({
