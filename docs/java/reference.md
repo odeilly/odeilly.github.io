@@ -17,3 +17,7 @@ next: false
 - [Java コーディング標準 (オブジェクト倶楽部)](https://objectclub.jp/community/codingstandard/CodingStd.pdf) (2006/4/26)
 - [電通国際情報際サービス版 Java コーディング規約 2004](https://objectclub.jp/community/codingstandard/JavaCodingStandard2004.pdf) (2004)
 - [Code Conventions for the Java Programming Language](https://www.oracle.com/java/technologies/javase/codeconventions-contents.html) (1999/4/20)
+
+## Qiita
+
+- [Spring Data JPAによるソート（複合キーのソート付き）](https://qiita.com/shikazuki/items/c864ac51dcbdf52554cf) (2018/6/17)
