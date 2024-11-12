@@ -1,54 +1,56 @@
 import { DefaultTheme, defineConfig } from 'vitepress'
 import MarkdownItPlantuml from 'markdown-it-plantuml'
 
-const sidebarHome: DefaultTheme.SidebarItem[] = [
-  { text: 'VitePress', link: 'vitepress/code_block' },
-  { text: 'Java', link: 'java/reference' },
-  { text: 'VSCode', link: 'vscode/reference' },
-]
+const mySideBar = {
+  home: [
+    { text: 'VitePress', link: 'vitepress/code_block' },
+    { text: 'Java', link: 'java/reference' },
+    { text: 'VSCode', link: 'vscode/reference' },
+  ],
 
-const sidebarVitePress: DefaultTheme.SidebarItem[] = [
-  {
-    base: '/vitepress/',
-    text: 'VitePress',
-    collapsed: true,
-    items: [
-      { text: 'コードブロック', link: 'code_block' },
-      { text: 'Markdown の拡張', link: 'markdown_extension' },
-      { text: 'Netlify にデプロイ', link: 'netlify' },
-      { text: '参考', link: 'reference' },
-    ],
-  },
-]
+  vitePress: [
+     {
+      base: '/vitepress/',
+      text: 'VitePress',
+      collapsed: true,
+      items: [
+        { text: 'コードブロック', link: 'code_block' },
+        { text: 'Markdown の拡張', link: 'markdown_extension' },
+        { text: 'Netlify にデプロイ', link: 'netlify' },
+        { text: '参考', link: 'reference' },
+      ],
+    },
+  ],
 
-const sidebarJava: DefaultTheme.SidebarItem[] = [
-  {
-    base: '/java/',
-    text: 'Java',
-    collapsed: true,
-    items: [
-      { text: '参考', link: 'reference' },
-    ],
-  },
-]
+  java: [
+     {
+      base: '/java/',
+      text: 'Java',
+      collapsed: true,
+      items: [
+        { text: '参考', link: 'reference' },
+      ],
+    },
+  ],
 
-const sidebarVSCode: DefaultTheme.SidebarItem[] = [
-  {
-    base: '/vscode/',
-    text: 'VSCode',
-    collapsed: true,
-    items: [
-      { text: 'コマンドラインオプション', link: 'command_option' },
-      { text: '参考', link: 'reference' },
-    ],
-  },
-]
+  vscode: [
+    {
+      base: '/vscode/',
+      text: 'VSCode',
+      collapsed: true,
+      items: [
+        { text: 'コマンドラインオプション', link: 'command_option' },
+        { text: '参考', link: 'reference' },
+      ],
+    },
+  ],
+}
 
 const sidebarAll: DefaultTheme.Sidebar = {
-  '/index': { base: '/', items: sidebarHome },
-  '/vitepress/': { base: '/', items: sidebarVitePress },
-  '/java/': { base: '/', items: sidebarJava },
-  '/vscode/': { base: '/', items: sidebarVSCode },
+  '/index': { base: '/', items: mySideBar.home },
+  '/vitepress/': { base: '/', items: mySideBar.vitePress },
+  '/java/': { base: '/', items: mySideBar.java },
+  '/vscode/': { base: '/', items: mySideBar.vscode },
 }
 
 export default defineConfig({
