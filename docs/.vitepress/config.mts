@@ -2,7 +2,7 @@ import { DefaultTheme, defineConfig } from 'vitepress'
 import MarkdownItPlantuml from 'markdown-it-plantuml'
 
 const mySideBar = {
-  home: [
+  home:  [
     { text: 'VitePress', link: 'vitepress/code_block' },
     { text: 'Java', link: 'java/reference' },
     { text: 'VSCode', link: 'vscode/reference' },
