@@ -1,1 +1,61 @@
-site_name: My Docs
+site_name: Odeilly Note
+
+# use_directory_urls: false
+# site_url: ""
+site_url: "https://odeilly.github.io/"
+
+theme:
+  name: material
+  language: ja
+#  logo: images/logo.svg
+#  favicon: images/favicon.png
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: ダークモード
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: ライトモード
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - toc.integrate
+    - content.code.copy        # コードコピー ボタン
+    - content.tabs.link        # タブ連動
+    - navigation.external      # 外部リンク検知
+
+markdown_extensions:
+  - admonition                 # 補足/警告などのボックス
+  - pymdownx.details           # 折りたたみ
+  - pymdownx.superfences       # コードフェンス拡張（Mermaid など）
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - tables
+  - attr_list                  # {#id .class} や target/_blank 付与
+  - toc:
+      permalink: true
+  - pymdownx.tabbed:
+      alternate_style: true    # タブをモダンな見た目に
+  - pymdownx.superfences       # コードブロック内でもOKにする
+
+extra:
+  generator: false
+
+copyright: "&copy; Odeilly"
+
+plugins:
+  - search:
+      lang: 'ja'
+  - open-in-new-tab:
+      add_icon: true
+
+extra_javascript:
+  - js/add-noreferrer.js
+
+# nav:
+#   - Home: index.md
+#   - About: about.md
