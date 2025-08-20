@@ -5,10 +5,11 @@
 ### ローカルアカウント作成方法
 
 1. 初期セットアップ中に「Shift」＋「F10」キーを押してコマンドプロンプトを開く。
-2. コマンドプロンプトで「start ms-cxh:localonly」と入力する。
+2. コマンドプロンプトで `start ms-cxh:localonly` と入力する。
 
-- 参考
-  - [「Windows 11」でローカルアカウント作成手段が利用不可に--別の回避策は残存](https://japan.zdnet.com/article/35231204/) (2025/4/1)
+!!! info "参考"
+    - [「Windows 11」でローカルアカウント作成手段が利用不可に--別の回避策は残存](https://japan.zdnet.com/article/35231204/) (2025/4/1)
+    - [Windows 11 初期設定⼿順 (愛媛大学総合情報メディアセンター)](https://www.cite.ehime-u.ac.jp/wp-content/uploads/docs/Windows11_FirstSettings_Bypass_2025.pdf) (2025/4/11)
 
 ### その他設定
 
