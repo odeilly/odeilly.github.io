@@ -17,3 +17,9 @@ python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
 ```
+
+## インストール済みパッケージを requirements.txt に保存
+
+```sh
+pip freeze > requirements.txt
+```
