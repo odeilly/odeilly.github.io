@@ -22,7 +22,7 @@ theme:
         icon: material/weather-sunny
         name: ライトモード
   features:
-    - navigation.instant
+    # - navigation.instant
     - navigation.sections
     - navigation.top
     - navigation.footer
@@ -55,12 +55,20 @@ plugins:
       lang: 'ja'
   - open-in-new-tab:
       add_icon: true
+  - blogging:
+      dirs:
+        - blog/article
+      size: 10
+      locale: ja
 
 extra_javascript:
   - js/add-noreferrer.js
 
 extra_css:
   - stylesheets/extra.css
+
+time_format: '%Y-%m-%d'
+meta_time_format: '%Y-%m-%d'
 
 # nav:
 #   - Home: index.md
