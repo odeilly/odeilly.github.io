@@ -27,3 +27,4 @@ pip3 freeze > requirements.txt
 ## 参考
 
 - [ブログとしてMkDocsを使う](https://be-hase.com/blog/article/2022/04/blog_using_mkdocs/)
+  - [MkDocs Blogging Plugin](https://liang2kl.github.io/mkdocs-blogging-plugin/)
