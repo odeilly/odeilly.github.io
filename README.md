@@ -7,7 +7,7 @@
 ```sh
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ### Windows
@@ -15,11 +15,11 @@ pip install -r requirements.txt
 ```sh
 python3 -m venv venv
 venv\Scripts\activate
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## インストール済みパッケージを requirements.txt に保存
 
 ```sh
-pip freeze > requirements.txt
+pip3 freeze > requirements.txt
 ```
