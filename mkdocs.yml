@@ -9,6 +9,9 @@ theme:
   language: ja
 #  logo: images/logo.svg
 #  favicon: images/favicon.png
+  font:
+    text: Noto Sans JP
+    code: JetBrains Mono
   palette:
     - scheme: default
       toggle:
@@ -55,6 +58,9 @@ plugins:
 
 extra_javascript:
   - js/add-noreferrer.js
+
+extra_css:
+  - stylesheets/extra.css
 
 # nav:
 #   - Home: index.md
