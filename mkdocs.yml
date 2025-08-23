@@ -61,6 +61,7 @@ plugins:
       draft_on_serve: true
       post_url_format: "{date}/{slug}"
       post_url_date_format: "yyyy/MM/dd"
+      post_excerpt: required
   - tags
 
 extra_javascript:
