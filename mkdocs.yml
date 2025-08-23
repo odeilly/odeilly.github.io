@@ -57,7 +57,7 @@ plugins:
       add_icon: true
   - blog:
       draft_on_save: true
-      post_date_format: long
+      post_date_format: "y年M月d日 (EEE)"
       draft_on_serve: true
   - tags
 
