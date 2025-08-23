@@ -59,6 +59,7 @@ plugins:
       draft_on_save: true
       post_date_format: "y年M月d日 (EEE)"
       draft_on_serve: true
+      post_url_format: "{date}/{slug}"
   - tags
 
 extra_javascript:
