@@ -55,21 +55,16 @@ plugins:
       lang: 'ja'
   - open-in-new-tab:
       add_icon: true
-  - blogging:
-      dirs:
-        - blog/article
-      size: 10
-      locale: ja
+  - blog:
+      draft_on_save: true
+      post_date_format: long
+      draft_on_serve: true
+  - tags
 
 extra_javascript:
   - js/add-noreferrer.js
 
-extra_css:
-  - stylesheets/extra.css
-
-time_format: '%Y-%m-%d'
-meta_time_format: '%Y-%m-%d'
-
-# nav:
-#   - Home: index.md
-#   - About: about.md
+nav:
+  - Home: index.md
+  - Blog: blog/index.md
+  - Tags: tags.md
