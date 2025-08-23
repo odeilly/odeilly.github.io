@@ -1,5 +1,6 @@
 ---
-date: 2025-08-03
+date: 2025-08-23
+slug: first_post
 categories:
   - 技術
   - 日常

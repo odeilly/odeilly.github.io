@@ -60,6 +60,7 @@ plugins:
       post_date_format: "y年M月d日 (EEE)"
       draft_on_serve: true
       post_url_format: "{date}/{slug}"
+      post_url_date_format: "yyyy/MM/dd"
   - tags
 
 extra_javascript:
