@@ -64,6 +64,9 @@ plugins:
 extra_javascript:
   - js/add-noreferrer.js
 
+extra_css:
+  - stylesheets/extra.css
+
 nav:
   - Home: index.md
   - Blog: blog/index.md
