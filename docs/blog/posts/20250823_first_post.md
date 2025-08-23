@@ -13,3 +13,5 @@ draft: true
 # はじめての投稿
 
 MkDocs と Material のブログ機能で記事を書いてみました。
+
+<!-- more -->
