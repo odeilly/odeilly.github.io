@@ -15,13 +15,11 @@ Mac ではショートカットキーを使って簡単にスクリーンショ�
 
 <!-- more -->
 
----
-
 ## 基本操作
 
 ### 1. 画面全体を撮る
 
-```
+```txt
 command (⌘) + shift + 3
 ```
 
@@ -29,7 +27,7 @@ command (⌘) + shift + 3
 
 ### 2. 画面の一部を選んで撮る
 
-```
+```txt
 command (⌘) + shift + 4
 ```
 
@@ -38,7 +36,7 @@ command (⌘) + shift + 4
 
 ### 3. 特定のウィンドウを撮る
 
-```
+```txt
 command (⌘) + shift + 4 → スペースキー
 ```
 
@@ -48,7 +46,7 @@ command (⌘) + shift + 4 → スペースキー
 
 ## macOS Mojave (10.14) 以降
 
-```
+```txt
 command (⌘) + shift + 5
 ```
 
@@ -75,9 +73,11 @@ command (⌘) + shift + 5
 ファイル保存ではなくクリップボードにコピーされます。
 
 例:
-```
+
+```txt
 command (⌘) + control + shift + 3
 ```
+
 → 画面全体をコピー（`command + V` で貼り付け可能）
 
 ---
