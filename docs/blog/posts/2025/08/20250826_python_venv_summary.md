@@ -36,7 +36,7 @@ python -m venv venv
 - `python -m venv venv` の最後の `venv` は環境名（任意）。
 - 実行すると以下のディレクトリが作成される：
 
-    ```
+    ```text
     venv/
     ├─ bin/ (Linux/Mac)
     ├─ Scripts/ (Windows)
