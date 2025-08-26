@@ -8,11 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://odeilly.github.io/blog/2025/08/26/git_cheatsheet/">
+        <link rel="canonical" href="https://odeilly.github.io/blog/2025/08/26/python_venv_summary/">
       
       
-        <link rel="prev" href="../python_venv_summary/">
+        <link rel="prev" href="../../24/mac_screenshot/">
       
+      
+        <link rel="next" href="../git_cheatsheet/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -20,7 +22,7 @@
     
     
       
-        <title>Git 基礎チートシート - ODEILLY NOTE</title>
+        <title>Python 仮想環境 （venv） まとめ - ODEILLY NOTE</title>
       
     
     
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git" class="md-skip">
+        <a href="#python-venv" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Git 基礎チートシート
+              Python 仮想環境 （venv） まとめ
             
           </span>
         </div>
@@ -391,16 +393,16 @@
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. リポジトリの準備
+      1. 仮想環境とは？
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#2-venv" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 作業の流れ
+      2. venv の作成
     </span>
   </a>
   
@@ -409,25 +411,91 @@
         <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      3. リモートから最新を取得
+      3. 仮想環境の有効化・無効化
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3. 仮想環境の有効化・無効化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      有効化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      無効化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
-      4. ブランチ操作
+      4. パッケージ管理
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="4. パッケージ管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      インストール
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      確認
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirementstxt" class="md-nav__link">
+    <span class="md-ellipsis">
+      requirements.txt に保存
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirementstxt_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      requirements.txt から再現
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
-      5. 履歴・差分の確認
+      5. よくある活用方法
     </span>
   </a>
   
@@ -436,7 +504,7 @@
         <li class="md-nav__item">
   <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
-      6. 取り消し
+      6. 注意点
     </span>
   </a>
   
@@ -445,7 +513,7 @@
         <li class="md-nav__item">
   <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
-      7. よくある操作の流れ（基本パターン）
+      7. よく使うコマンドまとめ
     </span>
   </a>
   
@@ -469,72 +537,134 @@
       
       
       
-        <a href="../../../../../tags/#tag:git" class="md-tag">Git</a>
+        <a href="../../../../../tags/#tag:python" class="md-tag">Python</a>
       
     
   </nav>
 
 
 
-<h1 id="git">Git 基礎チートシート<a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
-<p>Git の基本コマンドをまとめたチートシートです。
-<strong>日常的に使う操作を中心に厳選</strong>してあります。</p>
+<h1 id="python-venv">Python 仮想環境 （venv） まとめ<a class="headerlink" href="#python-venv" title="Permanent link">&para;</a></h1>
+<p>Python の仮想環境（venv）を使えば、プロジェクトごとに独立した環境を作り、ライブラリの競合を防げます。
+この記事では、<code>venv</code> の基本から作成・有効化・パッケージ管理までをシンプルに解説します。</p>
 <!-- more -->
 
-<h2 id="1">1. リポジトリの準備<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>init<span class="w">                  </span><span class="c1"># 新しいリポジトリを作成</span>
-git<span class="w"> </span>clone<span class="w"> </span>URL<span class="w">             </span><span class="c1"># 既存リポジトリを取得</span>
+<h2 id="1">1. 仮想環境とは？<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>仮想環境</strong>とは、プロジェクトごとに独立した Python 実行環境を作成できる仕組み。</li>
+<li>目的:<ul>
+<li>他プロジェクトと依存ライブラリのバージョンが衝突しないようにする。</li>
+<li>システム全体に影響を与えずにパッケージを管理できる。</li>
+</ul>
+</li>
+<li>例:<ul>
+<li>プロジェクトA → Django 3.2</li>
+<li>プロジェクトB → Django 4.0</li>
+<li>それぞれを独立した環境で利用可能。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-venv">2. venv の作成<a class="headerlink" href="#2-venv" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 任意のフォルダに移動して</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
 </code></pre></div>
-<h2 id="2">2. 作業の流れ<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<ol>
+<ul>
+<li><code>python -m venv venv</code> の最後の <code>venv</code> は環境名（任意）。</li>
 <li>
-<p>変更を確認
-   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>status
-</code></pre></div></p>
+<p>実行すると以下のディレクトリが作成される：</p>
+<div class="highlight"><pre><span></span><code>venv/
+├─ bin/ (Linux/Mac)
+├─ Scripts/ (Windows)
+├─ lib/
+├─ pyvenv.cfg
+</code></pre></div>
+</li>
+</ul>
+<h2 id="3">3. 仮想環境の有効化・無効化<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="_1">有効化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Windows (PowerShell):</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">.\</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
+</code></pre></div>
 </li>
 <li>
-<p>変更をステージに追加
-   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>&lt;ファイル名&gt;<span class="w">   </span><span class="c1"># 指定ファイルを追加</span>
-git<span class="w"> </span>add<span class="w"> </span>.<span class="w">              </span><span class="c1"># 全ての変更を追加</span>
-</code></pre></div></p>
+<p><strong>Windows (cmd):</strong></p>
+<div class="highlight"><pre><span></span><code>venv\Scripts\activate.bat
+</code></pre></div>
 </li>
 <li>
-<p>コミットを作成
-   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;変更内容を説明するメッセージ&quot;</span>
-</code></pre></div></p>
+<p><strong>Linux / Mac:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+</code></pre></div>
+</li>
+</ul>
+<p>有効化されると、プロンプトに <code>(venv)</code> などの環境名が表示される。</p>
+<h3 id="_2">無効化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>deactivate
+</code></pre></div>
+<h2 id="4">4. パッケージ管理<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="_3">インストール<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>requests
+</code></pre></div>
+<h3 id="_4">確認<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>list
+</code></pre></div>
+<h3 id="requirementstxt">requirements.txt に保存<a class="headerlink" href="#requirementstxt" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+</code></pre></div>
+<h3 id="requirementstxt_1">requirements.txt から再現<a class="headerlink" href="#requirementstxt_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+<h2 id="5">5. よくある活用方法<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>プロジェクトごとの環境切り分け</strong><ul>
+<li>Webアプリ開発、データ分析、機械学習などで別々の環境を作る。</li>
+</ul>
+</li>
+<li><strong>他人や別環境への共有</strong><ul>
+<li><code>requirements.txt</code> を GitHub にコミット → 他人が同じ環境を再現可能。</li>
+</ul>
+</li>
+</ul>
+<h2 id="6">6. 注意点<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>グローバル環境でインストールしたライブラリは <code>venv</code> に影響しない。</p>
+<p>（必要なら仮想環境ごとに再インストールする）</p>
 </li>
 <li>
-<p>リモートに送信
-   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
-</code></pre></div></p>
+<p>Python 本体のバージョンは、作成時に指定したものが使われる。</p>
 </li>
-</ol>
-<h2 id="3">3. リモートから最新を取得<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main<span class="w">      </span><span class="c1"># 取得してマージ</span>
+<li>
+<p><code>venv</code> は軽量で標準ライブラリに含まれているため追加インストール不要。</p>
+</li>
+</ul>
+<h2 id="7">7. よく使うコマンドまとめ<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code># 仮想環境の作成
+python -m venv venv
+
+# 有効化（Linux/Mac）
+source venv/bin/activate
+
+# 有効化（Windows PowerShell）
+.\venv\Scripts\Activate.ps1
+
+# 無効化
+deactivate
+
+# パッケージのインストール
+pip install ライブラリ名
+
+# インストール済みパッケージ一覧
+pip list
+
+# 環境を requirements.txt に保存
+pip freeze &gt; requirements.txt
+
+# requirements.txt から環境を復元
+pip install -r requirements.txt
 </code></pre></div>
-<h2 id="4">4. ブランチ操作<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>branch<span class="w">                </span><span class="c1"># ブランチ一覧</span>
-git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feature<span class="w">     </span><span class="c1"># 新規作成＆移動</span>
-git<span class="w"> </span>switch<span class="w"> </span>main<span class="w">           </span><span class="c1"># mainブランチへ移動</span>
-git<span class="w"> </span>merge<span class="w"> </span>feature<span class="w">         </span><span class="c1"># マージ</span>
-git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>feature<span class="w">     </span><span class="c1"># 不要ブランチを削除</span>
-</code></pre></div>
-<h2 id="5">5. 履歴・差分の確認<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--graph<span class="w"> </span><span class="c1"># 履歴を見やすく表示</span>
-git<span class="w"> </span>diff<span class="w">                  </span><span class="c1"># 差分確認</span>
-</code></pre></div>
-<h2 id="6">6. 取り消し<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>&lt;file&gt;<span class="w">          </span><span class="c1"># ステージから外す</span>
-git<span class="w"> </span>checkout<span class="w"> </span>--<span class="w"> </span>&lt;file&gt;<span class="w">    </span><span class="c1"># 変更を破棄</span>
-git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w">        </span><span class="c1"># コミットメッセージ修正</span>
-</code></pre></div>
-<h2 id="7">7. よくある操作の流れ（基本パターン）<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
-<ol>
-<li><code>git pull origin main</code> （最新を取得）</li>
-<li>作業して <code>git add .</code></li>
-<li><code>git commit -m "作業内容"</code></li>
-<li><code>git push origin main</code></li>
-</ol>
 
 
 
@@ -579,7 +709,7 @@ git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w">
       <nav class="md-footer__inner md-grid" aria-label="フッター" >
         
           
-          <a href="../python_venv_summary/" class="md-footer__link md-footer__link--prev" aria-label="前: Python 仮想環境 （venv） まとめ">
+          <a href="../../24/mac_screenshot/" class="md-footer__link md-footer__link--prev" aria-label="前: Macでスクリーンショットを撮る方法">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -589,11 +719,27 @@ git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w">
                 前
               </span>
               <div class="md-ellipsis">
-                Python 仮想環境 （venv） まとめ
+                Macでスクリーンショットを撮る方法
               </div>
             </div>
           </a>
         
+        
+          
+          <a href="../git_cheatsheet/" class="md-footer__link md-footer__link--next" aria-label="次: Git 基礎チートシート">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                次
+              </span>
+              <div class="md-ellipsis">
+                Git 基礎チートシート
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
         
       </nav>
     
