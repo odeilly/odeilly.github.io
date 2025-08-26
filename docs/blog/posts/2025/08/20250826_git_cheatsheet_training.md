@@ -4,7 +4,7 @@ slug: git_cheatsheet
 categories:
   - 技術
 tags:
-  - Mac
+  - Git
 # draft: true
 ---
 
@@ -47,6 +47,7 @@ git clone URL             # 既存リポジトリを取得
 
 
 ## 3. リモートから最新を取得
+
 ```bash
 git pull origin main      # 取得してマージ
 ```
@@ -69,6 +70,7 @@ git diff                  # 差分確認
 ```
 
 ## 6. 取り消し
+
 ```bash
 git reset <file>          # ステージから外す
 git checkout -- <file>    # 変更を破棄
@@ -76,6 +78,7 @@ git commit --amend        # コミットメッセージ修正
 ```
 
 ## 7. よくある操作の流れ（基本パターン）
+
 1. `git pull origin main` （最新を取得）
 2. 作業して `git add .`
 3. `git commit -m "作業内容"`
