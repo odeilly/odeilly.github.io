@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://odeilly.github.io/blog/2025/08/24/mac_screenshot/">
+        <link rel="canonical" href="https://odeilly.github.io/blog/2025/08/26/git_cheatsheet/">
       
       
-        <link rel="prev" href="../../23/win11_settings/">
+        <link rel="prev" href="../../24/mac_screenshot/">
       
-      
-        <link rel="next" href="../../26/git_cheatsheet/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>Macでスクリーンショットを撮る方法 - ODEILLY NOTE</title>
+        <title>Git 基礎チートシート - ODEILLY NOTE</title>
       
     
     
@@ -78,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mac" class="md-skip">
+        <a href="#git" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -114,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Macでスクリーンショットを撮る方法
+              Git 基礎チートシート
             
           </span>
         </div>
@@ -340,7 +338,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-08-24 00:00:00+00:00" class="md-ellipsis">2025年8月24日 (日)</time>
+                        <time datetime="2025-08-26 00:00:00+00:00" class="md-ellipsis">2025年8月26日 (火)</time>
                       </div>
                     </li>
                     
@@ -391,78 +389,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      基本操作
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="基本操作">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 画面全体を撮る
+      1. リポジトリの準備
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 画面の一部を選んで撮る
+      2. 作業の流れ
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      3. 特定のウィンドウを撮る
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#macos-mojave-1014" class="md-nav__link">
-    <span class="md-ellipsis">
-      macOS Mojave (10.14) 以降
+      3. リモートから最新を取得
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
-      保存場所
+      4. ブランチ操作
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
-      クリップボードにコピーする
+      5. 履歴・差分の確認
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
-      まとめ
+      6. 取り消し
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. よくある操作の流れ（基本パターン）
     </span>
   </a>
   
@@ -493,62 +476,65 @@
 
 
 
-<h1 id="mac">Macでスクリーンショットを撮る方法<a class="headerlink" href="#mac" title="Permanent link">&para;</a></h1>
-<p>Mac ではショートカットキーを使って簡単にスクリーンショットを撮影できます。
-用途に応じて使い分けましょう。</p>
+<h1 id="git">Git 基礎チートシート<a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
+<p>Git の基本コマンドをまとめたチートシートです。
+<strong>日常的に使う操作を中心に厳選</strong>してあります。</p>
 <!-- more -->
 
-<h2 id="_1">基本操作<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<h3 id="1">1. 画面全体を撮る<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>command (⌘) + shift + 3
+<h2 id="1">1. リポジトリの準備<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>init<span class="w">                  </span><span class="c1"># 新しいリポジトリを作成</span>
+git<span class="w"> </span>clone<span class="w"> </span>URL<span class="w">             </span><span class="c1"># 既存リポジトリを取得</span>
 </code></pre></div>
-<p>画面全体のスクリーンショットが撮影されます。</p>
-<h3 id="2">2. 画面の一部を選んで撮る<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>command (⌘) + shift + 4
+<h2 id="2">2. 作業の流れ<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>変更を確認
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>status
+</code></pre></div></p>
+</li>
+<li>
+<p>変更をステージに追加
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>&lt;ファイル名&gt;<span class="w">   </span><span class="c1"># 指定ファイルを追加</span>
+git<span class="w"> </span>add<span class="w"> </span>.<span class="w">              </span><span class="c1"># 全ての変更を追加</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>コミットを作成
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;変更内容を説明するメッセージ&quot;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>リモートに送信
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div></p>
+</li>
+</ol>
+<h2 id="3">3. リモートから最新を取得<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main<span class="w">      </span><span class="c1"># 取得してマージ</span>
 </code></pre></div>
-<p>マウスカーソルが十字に変わるので、ドラッグして範囲を選択します。
-範囲を選択すると、その部分だけ撮影されます。</p>
-<h3 id="3">3. 特定のウィンドウを撮る<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>command (⌘) + shift + 4 → スペースキー
+<h2 id="4">4. ブランチ操作<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>branch<span class="w">                </span><span class="c1"># ブランチ一覧</span>
+git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feature<span class="w">     </span><span class="c1"># 新規作成＆移動</span>
+git<span class="w"> </span>switch<span class="w"> </span>main<span class="w">           </span><span class="c1"># mainブランチへ移動</span>
+git<span class="w"> </span>merge<span class="w"> </span>feature<span class="w">         </span><span class="c1"># マージ</span>
+git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>feature<span class="w">     </span><span class="c1"># 不要ブランチを削除</span>
 </code></pre></div>
-<p>カーソルがカメラのアイコンに変わり、クリックしたウィンドウが撮影されます。</p>
-<hr />
-<h2 id="macos-mojave-1014">macOS Mojave (10.14) 以降<a class="headerlink" href="#macos-mojave-1014" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>command (⌘) + shift + 5
+<h2 id="5">5. 履歴・差分の確認<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--graph<span class="w"> </span><span class="c1"># 履歴を見やすく表示</span>
+git<span class="w"> </span>diff<span class="w">                  </span><span class="c1"># 差分確認</span>
 </code></pre></div>
-<p>画面下に「スクリーンショットコントロールバー」が表示されます。
-ここから以下が可能です:</p>
-<ul>
-<li>画面全体の撮影</li>
-<li>ウィンドウ単位の撮影</li>
-<li>範囲を指定して撮影</li>
-<li>画面録画（動画の撮影）</li>
-</ul>
-<hr />
-<h2 id="_2">保存場所<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<ul>
-<li>デフォルトでは <strong>デスクトップ</strong> に保存されます。</li>
-<li>「スクリーンショット」アプリ（<code>command + shift + 5</code> → オプション）から保存先を変更できます。</li>
-</ul>
-<hr />
-<h2 id="_3">クリップボードにコピーする<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>どの操作でも <strong>control</strong> キーを同時に押すと、
-ファイル保存ではなくクリップボードにコピーされます。</p>
-<p>例:</p>
-<div class="highlight"><pre><span></span><code>command (⌘) + control + shift + 3
+<h2 id="6">6. 取り消し<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>&lt;file&gt;<span class="w">          </span><span class="c1"># ステージから外す</span>
+git<span class="w"> </span>checkout<span class="w"> </span>--<span class="w"> </span>&lt;file&gt;<span class="w">    </span><span class="c1"># 変更を破棄</span>
+git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w">        </span><span class="c1"># コミットメッセージ修正</span>
 </code></pre></div>
-<p>→ 画面全体をコピー（<code>command + V</code> で貼り付け可能）</p>
-<hr />
-<h2 id="_4">まとめ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>全体</strong> → <code>⌘ + shift + 3</code></li>
-<li><strong>範囲</strong> → <code>⌘ + shift + 4</code></li>
-<li><strong>ウィンドウ</strong> → <code>⌘ + shift + 4</code> → スペース</li>
-<li><strong>コントロールバー（録画も可）</strong> → <code>⌘ + shift + 5</code></li>
-<li><strong>クリップボードにコピー</strong> → <code>control</code> を追加</li>
-</ul>
-<hr />
-<p>これでスクリーンショット操作はバッチリです。</p>
+<h2 id="7">7. よくある操作の流れ（基本パターン）<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<ol>
+<li><code>git pull origin main</code> （最新を取得）</li>
+<li>作業して <code>git add .</code></li>
+<li><code>git commit -m "作業内容"</code></li>
+<li><code>git push origin main</code></li>
+</ol>
 
 
 
@@ -593,7 +579,7 @@
       <nav class="md-footer__inner md-grid" aria-label="フッター" >
         
           
-          <a href="../../23/win11_settings/" class="md-footer__link md-footer__link--prev" aria-label="前: Windows 11 の初期設定メモ">
+          <a href="../../24/mac_screenshot/" class="md-footer__link md-footer__link--prev" aria-label="前: Macでスクリーンショットを撮る方法">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -603,27 +589,11 @@
                 前
               </span>
               <div class="md-ellipsis">
-                Windows 11 の初期設定メモ
+                Macでスクリーンショットを撮る方法
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../../26/git_cheatsheet/" class="md-footer__link md-footer__link--next" aria-label="次: Git 基礎チートシート">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                次
-              </span>
-              <div class="md-ellipsis">
-                Git 基礎チートシート
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
