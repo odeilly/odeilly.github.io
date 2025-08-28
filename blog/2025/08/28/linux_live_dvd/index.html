@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://odeilly.github.io/blog/2025/08/26/git_cheatsheet/">
+        <link rel="canonical" href="https://odeilly.github.io/blog/2025/08/28/linux_live_dvd/">
       
       
-        <link rel="prev" href="../python_venv_summary/">
+        <link rel="prev" href="../../26/git_cheatsheet/">
       
-      
-        <link rel="next" href="../../28/linux_live_dvd/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>Git 基礎チートシート - ODEILLY NOTE</title>
+        <title>Debian/Knoppix Live DVDとレスキュー用途まとめ - ODEILLY NOTE</title>
       
     
     
@@ -78,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git" class="md-skip">
+        <a href="#debianknoppix-live-dvd" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -114,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Git 基礎チートシート
+              Debian/Knoppix Live DVDとレスキュー用途まとめ
             
           </span>
         </div>
@@ -340,7 +338,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-08-26 00:00:00+00:00" class="md-ellipsis">2025年8月26日 (火)</time>
+                        <time datetime="2025-08-28 00:00:00+00:00" class="md-ellipsis">2025年8月28日 (木)</time>
                       </div>
                     </li>
                     
@@ -391,45 +389,75 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#1-debiandvd" class="md-nav__link">
     <span class="md-ellipsis">
-      1. リポジトリの準備
+      1. DebianはDVD起動できるか
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#2-dvdlive" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 作業の流れ
+      2. インストールせずDVDで使う（Liveモード）
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2. インストールせずDVDで使う（Liveモード）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意点
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      3. リモートから最新を取得
+      3. レスキュー用途での利用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. レスキュー用途での利用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debian" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debianでレスキューする手段
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-knoppix" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Knoppixでモニタ認識できない場合の代替
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#5-dd" class="md-nav__link">
     <span class="md-ellipsis">
-      4. ブランチ操作
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 履歴・差分の確認
+      5. ddコマンドによるゼロ埋め
     </span>
   </a>
   
@@ -438,16 +466,25 @@
         <li class="md-nav__item">
   <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
-      6. 取り消し
+      6. 古いモニタでの利用
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
+  <a href="#7-knoppix" class="md-nav__link">
     <span class="md-ellipsis">
-      7. よくある操作の流れ（基本パターン）
+      7. Knoppixのコンソール起動
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      まとめ
     </span>
   </a>
   
@@ -471,72 +508,126 @@
       
       
       
-        <a href="../../../../../tags/#tag:git" class="md-tag">Git</a>
+        <a href="../../../../../tags/#tag:debian" class="md-tag">Debian</a>
+      
+    
+      
+      
+      
+        <a href="../../../../../tags/#tag:knoppix" class="md-tag">Knoppix</a>
+      
+    
+      
+      
+      
+        <a href="../../../../../tags/#tag:linux" class="md-tag">Linux</a>
       
     
   </nav>
 
 
 
-<h1 id="git">Git 基礎チートシート<a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
-<p>Git の基本コマンドをまとめたチートシートです。
-<strong>日常的に使う操作を中心に厳選</strong>してあります。</p>
+<h1 id="debianknoppix-live-dvd">Debian/Knoppix Live DVDとレスキュー用途まとめ<a class="headerlink" href="#debianknoppix-live-dvd" title="Permanent link">&para;</a></h1>
 <!-- more -->
 
-<h2 id="1">1. リポジトリの準備<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>init<span class="w">                  </span><span class="c1"># 新しいリポジトリを作成</span>
-git<span class="w"> </span>clone<span class="w"> </span>URL<span class="w">             </span><span class="c1"># 既存リポジトリを取得</span>
-</code></pre></div>
-<h2 id="2">2. 作業の流れ<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h2 id="1-debiandvd">1. DebianはDVD起動できるか<a class="headerlink" href="#1-debiandvd" title="Permanent link">&para;</a></h2>
+<ul>
+<li>DebianはDVDから起動（ブート）可能。</li>
+<li>公式サイトで「DVDイメージ」が配布されている。</li>
+<li>ネットワークなしでもインストール可能で、大容量パッケージを収録。</li>
+<li>現在はUSBブートが主流だが、DVD起動もサポート。</li>
+</ul>
+<h2 id="2-dvdlive">2. インストールせずDVDで使う（Liveモード）<a class="headerlink" href="#2-dvdlive" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Debianには「Live DVDイメージ」があり、インストールせずに起動可能。</li>
+<li>KnoppixのようにDVDから直接デスクトップ環境を試せる。</li>
+<li>デスクトップ環境はGNOME、KDE、Xfce、LXDE、Cinnamon、MATEなど。</li>
+</ul>
+<h3 id="_1">注意点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Knoppixほどレスキュー機能が豊富ではない。</li>
+<li>設定やデータは再起動で消える（永続化はUSBが必要）。</li>
+</ul>
+<h2 id="3">3. レスキュー用途での利用<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Debian Live DVDやインストーラの「Rescueモード」で修復可能。</li>
+<li>ただしKnoppixに比べレスキュー特化ツールは少ない。</li>
+</ul>
+<h3 id="debian">Debianでレスキューする手段<a class="headerlink" href="#debian" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>変更を確認</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>status
-</code></pre></div>
+<p><strong>Debian Live Rescueイメージ</strong>
+    軽量でテキスト中心のレスキュー向け。</p>
 </li>
 <li>
-<p>変更をステージに追加</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>&lt;ファイル名&gt;<span class="w">   </span><span class="c1"># 指定ファイルを追加</span>
-git<span class="w"> </span>add<span class="w"> </span>.<span class="w">              </span><span class="c1"># 全ての変更を追加</span>
-</code></pre></div>
+<p><strong>インストーラのRescueモード</strong>
+    GRUB再インストールやファイルシステム修復が可能。</p>
 </li>
 <li>
-<p>コミットを作成</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;変更内容を説明するメッセージ&quot;</span>
-</code></pre></div>
-</li>
-<li>
-<p>リモートに送信</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
-</code></pre></div>
+<p><strong>専用ディストリ</strong></p>
+<ul>
+<li>SystemRescue（旧SystemRescueCD）：レスキュー特化ツール多数。</li>
+<li>Rescatux：GRUB修復に強い。</li>
+<li>Knoppix：多機能で定番。</li>
+</ul>
 </li>
 </ol>
-<h2 id="3">3. リモートから最新を取得<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main<span class="w">      </span><span class="c1"># 取得してマージ</span>
+<h2 id="4-knoppix">4. Knoppixでモニタ認識できない場合の代替<a class="headerlink" href="#4-knoppix" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>SystemRescue</strong>：新しいカーネルでハード対応が強い。</li>
+<li><strong>Rescatux</strong>：ブート修復に特化。</li>
+<li><strong>Ubuntu Live</strong>：新しいハード認識に強い。</li>
+<li><strong>Debian Live</strong>：保守的で古い環境に安定。</li>
+</ul>
+<h2 id="5-dd">5. ddコマンドによるゼロ埋め<a class="headerlink" href="#5-dd" title="Permanent link">&para;</a></h2>
+<p>どのLive環境でも <code>dd</code> が使えればゼロ埋め可能。</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/sdX<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
 </code></pre></div>
-<h2 id="4">4. ブランチ操作<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>branch<span class="w">                </span><span class="c1"># ブランチ一覧</span>
-git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feature<span class="w">     </span><span class="c1"># 新規作成＆移動</span>
-git<span class="w"> </span>switch<span class="w"> </span>main<span class="w">           </span><span class="c1"># mainブランチへ移動</span>
-git<span class="w"> </span>merge<span class="w"> </span>feature<span class="w">         </span><span class="c1"># マージ</span>
-git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>feature<span class="w">     </span><span class="c1"># 不要ブランチを削除</span>
+<ul>
+<li><code>if=/dev/zero</code> : 入力はゼロデータ</li>
+<li><code>of=/dev/sdX</code> : 出力先ディスク</li>
+<li><code>bs=1M</code> : 1MB単位で書き込み</li>
+<li><code>status=progress</code> : 進行状況表示</li>
+</ul>
+<p>⚠ 注意: 実行すると対象ディスクは完全消去され復旧不可。</p>
+<h2 id="6">6. 古いモニタでの利用<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>新しいドライバが逆に不具合を出す場合がある。</li>
+<li>起動オプション例:<ul>
+<li><code>nomodeset</code> → ドライバ無効化してVESAで表示</li>
+<li><code>vga=normal</code> → 標準VGAモード</li>
+</ul>
+</li>
+<li>コンソールのみで作業するならモニタの相性問題は軽減される。</li>
+</ul>
+<h2 id="7-knoppix">7. Knoppixのコンソール起動<a class="headerlink" href="#7-knoppix" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ブートプロンプトで次を入力：</li>
+</ul>
+<div class="highlight"><pre><span></span><code>knoppix 2
 </code></pre></div>
-<h2 id="5">5. 履歴・差分の確認<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--graph<span class="w"> </span><span class="c1"># 履歴を見やすく表示</span>
-git<span class="w"> </span>diff<span class="w">                  </span><span class="c1"># 差分確認</span>
-</code></pre></div>
-<h2 id="6">6. 取り消し<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>&lt;file&gt;<span class="w">          </span><span class="c1"># ステージから外す</span>
-git<span class="w"> </span>checkout<span class="w"> </span>--<span class="w"> </span>&lt;file&gt;<span class="w">    </span><span class="c1"># 変更を破棄</span>
-git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w">        </span><span class="c1"># コミットメッセージ修正</span>
-</code></pre></div>
-<h2 id="7">7. よくある操作の流れ（基本パターン）<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
-<ol>
-<li><code>git pull origin main</code> （最新を取得）</li>
-<li>作業して <code>git add .</code></li>
-<li><code>git commit -m "作業内容"</code></li>
-<li><code>git push origin main</code></li>
-</ol>
+<ul>
+<li>
+<p>ランレベル2で起動 → コンソール専用モード。</p>
+</li>
+<li>
+<p>追加オプション：</p>
+<ul>
+<li><code>knoppix vga=normal</code> : 標準VGA</li>
+<li><code>knoppix nomodeset</code> : ドライバ無効化</li>
+<li><code>knoppix no3d</code> : 3Dアクセラレーション無効化</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="_2">まとめ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>DebianもDVD起動＆Live利用可能。</li>
+<li>レスキュー用途ならSystemRescueやRescatuxも有力。</li>
+<li><strong>ddによるゼロ埋めはどのLive環境でも可能</strong>。</li>
+<li>古いモニタ環境では<code>nomodeset</code>やコンソール起動が有効。</li>
+<li>Knoppixも「knoppix 2」でコンソール起動できる。</li>
+</ul>
 
 
 
@@ -581,7 +672,7 @@ git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w">
       <nav class="md-footer__inner md-grid" aria-label="フッター" >
         
           
-          <a href="../python_venv_summary/" class="md-footer__link md-footer__link--prev" aria-label="前: Python 仮想環境 （venv） まとめ">
+          <a href="../../26/git_cheatsheet/" class="md-footer__link md-footer__link--prev" aria-label="前: Git 基礎チートシート">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -591,27 +682,11 @@ git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w">
                 前
               </span>
               <div class="md-ellipsis">
-                Python 仮想環境 （venv） まとめ
+                Git 基礎チートシート
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../../28/linux_live_dvd/" class="md-footer__link md-footer__link--next" aria-label="次: Debian/Knoppix Live DVDとレスキュー用途まとめ">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                次
-              </span>
-              <div class="md-ellipsis">
-                Debian/Knoppix Live DVDとレスキュー用途まとめ
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
