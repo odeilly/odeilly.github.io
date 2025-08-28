@@ -17,38 +17,24 @@ tags:
 ## 1. DebianはDVD起動できるか
 
 - DebianはDVDから起動（ブート）可能。
-- 公式サイトで「DVDイメージ」が配布されている。
+- [公式サイト](https://www.debian.or.jp/)で「DVDイメージ」が配布されている。
 - ネットワークなしでもインストール可能で、大容量パッケージを収録。
 - 現在はUSBブートが主流だが、DVD起動もサポート。
 
 ## 2. インストールせずDVDで使う（Liveモード）
 
-- Debianには「Live DVDイメージ」があり、インストールせずに起動可能。
+- Debianには「[Live DVDイメージ](https://www.debian.org/CD/live/index.en.html)」があり、インストールせずに起動可能。
 - KnoppixのようにDVDから直接デスクトップ環境を試せる。
 - デスクトップ環境はGNOME、KDE、Xfce、LXDE、Cinnamon、MATEなど。
 
-### 注意点
-
-- Knoppixほどレスキュー機能が豊富ではない。
-- 設定やデータは再起動で消える（永続化はUSBが必要）。
+!!! warning "注意"
+    - Knoppixほどレスキュー機能が豊富ではない。
+    - 設定やデータは再起動で消える（永続化はUSBが必要）。
 
 ## 3. レスキュー用途での利用
 
 - Debian Live DVDやインストーラの「Rescueモード」で修復可能。
 - ただしKnoppixに比べレスキュー特化ツールは少ない。
-
-### Debianでレスキューする手段
-
-1. **Debian Live Rescueイメージ**
-    軽量でテキスト中心のレスキュー向け。
-
-2. **インストーラのRescueモード**
-    GRUB再インストールやファイルシステム修復が可能。
-
-3. **専用ディストリ**
-    - SystemRescue（旧SystemRescueCD）：レスキュー特化ツール多数。
-    - Rescatux：GRUB修復に強い。
-    - Knoppix：多機能で定番。
 
 ## 4. Knoppixでモニタ認識できない場合の代替
 
@@ -70,7 +56,8 @@ sudo dd if=/dev/zero of=/dev/sdX bs=1M status=progress
 - `bs=1M` : 1MB単位で書き込み
 - `status=progress` : 進行状況表示
 
-⚠ 注意: 実行すると対象ディスクは完全消去され復旧不可。
+!!! warning "注意"
+    注意: 実行すると対象ディスクは完全消去され復旧不可。
 
 ## 6. 古いモニタでの利用
 
