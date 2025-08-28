@@ -404,21 +404,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. インストールせずDVDで使う（Liveモード）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      注意点
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -427,21 +412,6 @@
       3. レスキュー用途での利用
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="3. レスキュー用途での利用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#debian" class="md-nav__link">
-    <span class="md-ellipsis">
-      Debianでレスキューする手段
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -482,7 +452,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       まとめ
     </span>
@@ -533,45 +503,28 @@
 <h2 id="1-debiandvd">1. DebianはDVD起動できるか<a class="headerlink" href="#1-debiandvd" title="Permanent link">&para;</a></h2>
 <ul>
 <li>DebianはDVDから起動（ブート）可能。</li>
-<li>公式サイトで「DVDイメージ」が配布されている。</li>
+<li><a href="https://www.debian.or.jp/">公式サイト</a>で「DVDイメージ」が配布されている。</li>
 <li>ネットワークなしでもインストール可能で、大容量パッケージを収録。</li>
 <li>現在はUSBブートが主流だが、DVD起動もサポート。</li>
 </ul>
 <h2 id="2-dvdlive">2. インストールせずDVDで使う（Liveモード）<a class="headerlink" href="#2-dvdlive" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Debianには「Live DVDイメージ」があり、インストールせずに起動可能。</li>
+<li>Debianには「<a href="https://www.debian.org/CD/live/index.en.html">Live DVDイメージ</a>」があり、インストールせずに起動可能。</li>
 <li>KnoppixのようにDVDから直接デスクトップ環境を試せる。</li>
 <li>デスクトップ環境はGNOME、KDE、Xfce、LXDE、Cinnamon、MATEなど。</li>
 </ul>
-<h3 id="_1">注意点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
 <ul>
 <li>Knoppixほどレスキュー機能が豊富ではない。</li>
 <li>設定やデータは再起動で消える（永続化はUSBが必要）。</li>
 </ul>
+</div>
 <h2 id="3">3. レスキュー用途での利用<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Debian Live DVDやインストーラの「Rescueモード」で修復可能。</li>
 <li>ただしKnoppixに比べレスキュー特化ツールは少ない。</li>
 </ul>
-<h3 id="debian">Debianでレスキューする手段<a class="headerlink" href="#debian" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p><strong>Debian Live Rescueイメージ</strong>
-    軽量でテキスト中心のレスキュー向け。</p>
-</li>
-<li>
-<p><strong>インストーラのRescueモード</strong>
-    GRUB再インストールやファイルシステム修復が可能。</p>
-</li>
-<li>
-<p><strong>専用ディストリ</strong></p>
-<ul>
-<li>SystemRescue（旧SystemRescueCD）：レスキュー特化ツール多数。</li>
-<li>Rescatux：GRUB修復に強い。</li>
-<li>Knoppix：多機能で定番。</li>
-</ul>
-</li>
-</ol>
 <h2 id="4-knoppix">4. Knoppixでモニタ認識できない場合の代替<a class="headerlink" href="#4-knoppix" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>SystemRescue</strong>：新しいカーネルでハード対応が強い。</li>
@@ -589,7 +542,10 @@
 <li><code>bs=1M</code> : 1MB単位で書き込み</li>
 <li><code>status=progress</code> : 進行状況表示</li>
 </ul>
-<p>⚠ 注意: 実行すると対象ディスクは完全消去され復旧不可。</p>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>注意: 実行すると対象ディスクは完全消去され復旧不可。</p>
+</div>
 <h2 id="6">6. 古いモニタでの利用<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
 <ul>
 <li>新しいドライバが逆に不具合を出す場合がある。</li>
@@ -620,7 +576,7 @@
 </li>
 </ul>
 <hr />
-<h2 id="_2">まとめ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_1">まとめ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li>DebianもDVD起動＆Live利用可能。</li>
 <li>レスキュー用途ならSystemRescueやRescatuxも有力。</li>
