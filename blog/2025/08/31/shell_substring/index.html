@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://odeilly.github.io/blog/2025/08/28/linux_live_dvd/">
+        <link rel="canonical" href="https://odeilly.github.io/blog/2025/08/31/shell_substring/">
       
       
-        <link rel="prev" href="../../26/git_cheatsheet/">
+        <link rel="prev" href="../../28/linux_live_dvd/">
       
-      
-        <link rel="next" href="../../31/shell_substring/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>Debian/Knoppix Live DVDとレスキュー用途まとめ - ODEILLY NOTE</title>
+        <title>シェルスクリプトで部分文字列を取得する方法 - ODEILLY NOTE</title>
       
     
     
@@ -78,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#debianknoppix-live-dvd" class="md-skip">
+        <a href="#_1" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -114,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Debian/Knoppix Live DVDとレスキュー用途まとめ
+              シェルスクリプトで部分文字列を取得する方法
             
           </span>
         </div>
@@ -340,7 +338,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-08-28 00:00:00+00:00" class="md-ellipsis">2025年8月28日 (木)</time>
+                        <time datetime="2025-08-31 00:00:00+00:00" class="md-ellipsis">2025年8月31日 (日)</time>
                       </div>
                     </li>
                     
@@ -391,70 +389,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-debiandvd" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. DebianはDVD起動できるか
+      1. パラメータ展開（推奨）
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-dvdlive" class="md-nav__link">
+  <a href="#2-cut" class="md-nav__link">
     <span class="md-ellipsis">
-      2. インストールせずDVDで使う（Liveモード）
+      2. cut コマンドを使う
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#3-expr-substr" class="md-nav__link">
     <span class="md-ellipsis">
-      3. レスキュー用途での利用
+      3. expr substr を使う
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-knoppix" class="md-nav__link">
+  <a href="#4-grep-sed" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Knoppixでモニタ認識できない場合の代替
+      4. 正規表現で grep / sed
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-dd" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. ddコマンドによるゼロ埋め
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. 古いモニタでの利用
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-knoppix" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Knoppixのコンソール起動
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       まとめ
     </span>
@@ -480,111 +451,63 @@
       
       
       
-        <a href="../../../../../tags/#tag:debian" class="md-tag">Debian</a>
-      
-    
-      
-      
-      
-        <a href="../../../../../tags/#tag:knoppix" class="md-tag">Knoppix</a>
-      
-    
-      
-      
-      
-        <a href="../../../../../tags/#tag:linux" class="md-tag">Linux</a>
+        <a href="../../../../../tags/#tag:shell" class="md-tag">Shell</a>
       
     
   </nav>
 
 
 
-<h1 id="debianknoppix-live-dvd">Debian/Knoppix Live DVDとレスキュー用途まとめ<a class="headerlink" href="#debianknoppix-live-dvd" title="Permanent link">&para;</a></h1>
+<h1 id="_1">シェルスクリプトで部分文字列を取得する方法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>シェルスクリプト（bash想定）で文字列から部分文字列を取得する方法を紹介します。
+用途や環境に応じて使い分けると便利です。</p>
 <!-- more -->
 
-<h2 id="1-debiandvd">1. DebianはDVD起動できるか<a class="headerlink" href="#1-debiandvd" title="Permanent link">&para;</a></h2>
-<ul>
-<li>DebianはDVDから起動（ブート）可能。</li>
-<li><a href="https://www.debian.or.jp/">公式サイト</a>で「DVDイメージ」が配布されている。</li>
-<li>ネットワークなしでもインストール可能で、大容量パッケージを収録。</li>
-<li>現在はUSBブートが主流だが、DVD起動もサポート。</li>
-</ul>
-<h2 id="2-dvdlive">2. インストールせずDVDで使う（Liveモード）<a class="headerlink" href="#2-dvdlive" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Debianには「<a href="https://www.debian.org/CD/live/index.en.html">Live DVDイメージ</a>」があり、インストールせずに起動可能。</li>
-<li>KnoppixのようにDVDから直接デスクトップ環境を試せる。</li>
-<li>デスクトップ環境はGNOME、KDE、Xfce、LXDE、Cinnamon、MATEなど。</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">注意</p>
-<ul>
-<li>Knoppixほどレスキュー機能が豊富ではない。</li>
-<li>設定やデータは再起動で消える（永続化はUSBが必要）。</li>
-</ul>
-</div>
-<h2 id="3">3. レスキュー用途での利用<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Debian Live DVDやインストーラの「Rescueモード」で修復可能。</li>
-<li>ただしKnoppixに比べレスキュー特化ツールは少ない。</li>
-</ul>
-<h2 id="4-knoppix">4. Knoppixでモニタ認識できない場合の代替<a class="headerlink" href="#4-knoppix" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>SystemRescue</strong>：新しいカーネルでハード対応が強い。</li>
-<li><strong>Rescatux</strong>：ブート修復に特化。</li>
-<li><strong>Ubuntu Live</strong>：新しいハード認識に強い。</li>
-<li><strong>Debian Live</strong>：保守的で古い環境に安定。</li>
-</ul>
-<h2 id="5-dd">5. ddコマンドによるゼロ埋め<a class="headerlink" href="#5-dd" title="Permanent link">&para;</a></h2>
-<p>どのLive環境でも <code>dd</code> が使えればゼロ埋め可能。</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/sdX<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
+<h2 id="1">1. パラメータ展開（推奨）<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>bash でよく使う方法です。</p>
+<div class="highlight"><pre><span></span><code><span class="nv">str</span><span class="o">=</span><span class="s2">&quot;HelloWorld&quot;</span>
+<span class="c1"># 先頭から5文字を取得</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">str</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">5</span><span class="si">}</span><span class="s2">&quot;</span><span class="w">   </span><span class="c1"># Hello</span>
+
+<span class="c1"># 3文字目から4文字取得（インデックスは0始まり）</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">str</span><span class="p">:</span><span class="nv">2</span><span class="p">:</span><span class="nv">4</span><span class="si">}</span><span class="s2">&quot;</span><span class="w">   </span><span class="c1"># lloW</span>
 </code></pre></div>
 <ul>
-<li><code>if=/dev/zero</code> : 入力はゼロデータ</li>
-<li><code>of=/dev/sdX</code> : 出力先ディスク</li>
-<li><code>bs=1M</code> : 1MB単位で書き込み</li>
-<li><code>status=progress</code> : 進行状況表示</li>
+<li><code>${変数:開始位置:長さ}</code> の形で指定できます。</li>
+<li>開始位置は 0 から始まります。</li>
+<li>長さを省略すると「末尾まで」になります。</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">注意</p>
-<p>注意: 実行すると対象ディスクは完全消去され復旧不可。</p>
-</div>
-<h2 id="6">6. 古いモニタでの利用<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
-<ul>
-<li>新しいドライバが逆に不具合を出す場合がある。</li>
-<li>起動オプション例:<ul>
-<li><code>nomodeset</code> → ドライバ無効化してVESAで表示</li>
-<li><code>vga=normal</code> → 標準VGAモード</li>
-</ul>
-</li>
-<li>コンソールのみで作業するならモニタの相性問題は軽減される。</li>
-</ul>
-<h2 id="7-knoppix">7. Knoppixのコンソール起動<a class="headerlink" href="#7-knoppix" title="Permanent link">&para;</a></h2>
-<ul>
-<li>ブートプロンプトで次を入力：</li>
-</ul>
-<div class="highlight"><pre><span></span><code>knoppix 2
+<h2 id="2-cut">2. <code>cut</code> コマンドを使う<a class="headerlink" href="#2-cut" title="Permanent link">&para;</a></h2>
+<p>ファイル処理っぽく使いたい場合に便利です。</p>
+<div class="highlight"><pre><span></span><code><span class="nv">str</span><span class="o">=</span><span class="s2">&quot;HelloWorld&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-c1-5<span class="w">   </span><span class="c1"># Hello</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-c3-6<span class="w">   </span><span class="c1"># lloW</span>
 </code></pre></div>
 <ul>
-<li>
-<p>ランレベル2で起動 → コンソール専用モード。</p>
-</li>
-<li>
-<p>追加オプション：</p>
-<ul>
-<li><code>knoppix vga=normal</code> : 標準VGA</li>
-<li><code>knoppix nomodeset</code> : ドライバ無効化</li>
-<li><code>knoppix no3d</code> : 3Dアクセラレーション無効化</li>
+<li><code>-c1-5</code> は「1文字目から5文字目まで」。</li>
 </ul>
-</li>
-</ul>
-<hr />
-<h2 id="_1">まとめ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="3-expr-substr">3. <code>expr substr</code> を使う<a class="headerlink" href="#3-expr-substr" title="Permanent link">&para;</a></h2>
+<p>古い方法ですが、POSIX互換シェルで使えます。</p>
+<div class="highlight"><pre><span></span><code><span class="nv">str</span><span class="o">=</span><span class="s2">&quot;HelloWorld&quot;</span>
+expr<span class="w"> </span>substr<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span><span class="w">   </span><span class="c1"># Hello</span>
+expr<span class="w"> </span>substr<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w">   </span><span class="c1"># lloW</span>
+</code></pre></div>
 <ul>
-<li>DebianもDVD起動＆Live利用可能。</li>
-<li>レスキュー用途ならSystemRescueやRescatuxも有力。</li>
-<li><strong>ddによるゼロ埋めはどのLive環境でも可能</strong>。</li>
-<li>古いモニタ環境では<code>nomodeset</code>やコンソール起動が有効。</li>
-<li>Knoppixも「knoppix 2」でコンソール起動できる。</li>
+<li>開始位置は 1 始まり。</li>
+<li>最後の引数は「長さ」です。</li>
+</ul>
+<h2 id="4-grep-sed">4. 正規表現で <code>grep</code> / <code>sed</code><a class="headerlink" href="#4-grep-sed" title="Permanent link">&para;</a></h2>
+<p>パターンに基づいて取りたい場合。</p>
+<div class="highlight"><pre><span></span><code><span class="nv">str</span><span class="o">=</span><span class="s2">&quot;HelloWorld&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-oE<span class="w"> </span><span class="s1">&#39;^.....&#39;</span><span class="w">   </span><span class="c1"># Hello</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;s/^(.{2})(.{4}).*/\2/&#39;</span><span class="w">   </span><span class="c1"># lloW</span>
+</code></pre></div>
+<h2 id="_2">まとめ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>シンプルに部分文字列を取る</strong> → <code>${var:start:length}</code></li>
+<li><strong>ファイル処理風に文字数指定</strong> → <code>cut</code></li>
+<li><strong>古い環境やPOSIX準拠が必要</strong> → <code>expr substr</code></li>
+<li><strong>パターン抽出</strong> → <code>grep</code> / <code>sed</code></li>
 </ul>
 
 
@@ -630,7 +553,7 @@
       <nav class="md-footer__inner md-grid" aria-label="フッター" >
         
           
-          <a href="../../26/git_cheatsheet/" class="md-footer__link md-footer__link--prev" aria-label="前: Git 基礎チートシート">
+          <a href="../../28/linux_live_dvd/" class="md-footer__link md-footer__link--prev" aria-label="前: Debian/Knoppix Live DVDとレスキュー用途まとめ">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -640,27 +563,11 @@
                 前
               </span>
               <div class="md-ellipsis">
-                Git 基礎チートシート
+                Debian/Knoppix Live DVDとレスキュー用途まとめ
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../../31/shell_substring/" class="md-footer__link md-footer__link--next" aria-label="次: シェルスクリプトで部分文字列を取得する方法">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                次
-              </span>
-              <div class="md-ellipsis">
-                シェルスクリプトで部分文字列を取得する方法
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
