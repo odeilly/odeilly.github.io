@@ -26,7 +26,8 @@ theme:
     - navigation.sections
     - navigation.top
     - navigation.footer
-    - toc.integrate
+    - toc.follow
+    # - toc.integrate
     - content.code.copy        # コードコピー ボタン
     - content.tabs.link        # タブ連動
     - navigation.external      # 外部リンク検知
