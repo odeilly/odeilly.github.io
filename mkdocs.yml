@@ -45,6 +45,7 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true    # タブをモダンな見た目に
   - pymdownx.superfences       # コードブロック内でもOKにする
+  - md_in_html
 
 extra:
   generator: false
@@ -63,6 +64,7 @@ plugins:
       post_url_date_format: "yyyy/MM/dd"
       post_excerpt: required
   - tags
+  - macros
 
 extra_javascript:
   - js/add-noreferrer.js
