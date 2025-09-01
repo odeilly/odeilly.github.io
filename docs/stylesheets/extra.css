@@ -21,3 +21,9 @@ h2 {
 article.md-content__inner {
   padding-bottom: 40px;
 }
+
+/* ナビの行高を少し広げる */
+.md-nav__link .md-ellipsis,
+.md-nav__item .md-ellipsis {
+  line-height: 1.45; /* 1.35〜1.5 の範囲で調整 */
+}
