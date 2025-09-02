@@ -558,26 +558,24 @@
 <h2 id="6">6. 古いモニタでの利用<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
 <ul>
 <li>新しいドライバが逆に不具合を出す場合がある。</li>
-<li>起動オプション例:<ul>
-<li><code>nomodeset</code> → ドライバ無効化してVESAで表示</li>
-<li><code>vga=normal</code> → 標準VGAモード</li>
-</ul>
-</li>
+<li>起動オプション例:
+    - <code>nomodeset</code> → ドライバ無効化してVESAで表示
+    - <code>vga=normal</code> → 標準VGAモード</li>
 <li>コンソールのみで作業するならモニタの相性問題は軽減される。</li>
 </ul>
 <h2 id="7-knoppix">7. Knoppixのコンソール起動<a class="headerlink" href="#7-knoppix" title="Permanent link">&para;</a></h2>
 <ul>
-<li>ブートプロンプトで次を入力：</li>
-</ul>
+<li>
+<p>ブートプロンプトで次を入力：</p>
 <div class="highlight"><pre><span></span><code>knoppix 2
 </code></pre></div>
-<ul>
-<li>
-<p>ランレベル2で起動 → コンソール専用モード。</p>
 </li>
-<li>
-<p>追加オプション：</p>
+</ul>
 <ul>
+<li>ランレベル2で起動 → コンソール専用モード。</li>
+</ul>
+<ul>
+<li>追加オプション：<ul>
 <li><code>knoppix vga=normal</code> : 標準VGA</li>
 <li><code>knoppix nomodeset</code> : ドライバ無効化</li>
 <li><code>knoppix no3d</code> : 3Dアクセラレーション無効化</li>

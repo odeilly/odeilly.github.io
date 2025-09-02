@@ -559,17 +559,13 @@
 <h2 id="1">1. 仮想環境とは？<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>仮想環境</strong>とは、プロジェクトごとに独立した Python 実行環境を作成できる仕組み。</li>
-<li>目的:<ul>
-<li>他プロジェクトと依存ライブラリのバージョンが衝突しないようにする。</li>
-<li>システム全体に影響を与えずにパッケージを管理できる。</li>
-</ul>
-</li>
-<li>例:<ul>
-<li>プロジェクトA → Django 3.2</li>
-<li>プロジェクトB → Django 4.0</li>
-<li>それぞれを独立した環境で利用可能。</li>
-</ul>
-</li>
+<li>目的:
+    - 他プロジェクトと依存ライブラリのバージョンが衝突しないようにする。
+    - システム全体に影響を与えずにパッケージを管理できる。</li>
+<li>例:
+    - プロジェクトA → Django 3.2
+    - プロジェクトB → Django 4.0
+    - それぞれを独立した環境で利用可能。</li>
 </ul>
 <h2 id="2-venv">2. venv の作成<a class="headerlink" href="#2-venv" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># 任意のフォルダに移動して</span>
@@ -577,9 +573,7 @@ python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </s
 </code></pre></div>
 <ul>
 <li><code>python -m venv venv</code> の最後の <code>venv</code> は環境名（任意）。</li>
-<li>
-<p>実行すると以下のディレクトリが作成される：</p>
-<div class="highlight"><pre><span></span><code>venv/
+<li>実行すると以下のディレクトリが作成される：<div class="highlight"><pre><span></span><code>venv/
 ├─ bin/ (Linux/Mac)
 ├─ Scripts/ (Windows)
 ├─ lib/
@@ -590,19 +584,17 @@ python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </s
 <h2 id="3">3. 仮想環境の有効化・無効化<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <h3 id="_1">有効化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p><strong>Windows (PowerShell):</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">.\</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
+<li><strong>Windows (PowerShell):</strong><div class="highlight"><pre><span></span><code><span class="p">.\</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
 </code></pre></div>
 </li>
-<li>
-<p><strong>Windows (cmd):</strong></p>
-<div class="highlight"><pre><span></span><code>venv\Scripts\activate.bat
+</ul>
+<ul>
+<li><strong>Windows (cmd):</strong><div class="highlight"><pre><span></span><code>venv\Scripts\activate.bat
 </code></pre></div>
 </li>
-<li>
-<p><strong>Linux / Mac:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+</ul>
+<ul>
+<li><strong>Linux / Mac:</strong><div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>venv/bin/activate
 </code></pre></div>
 </li>
 </ul>
@@ -625,27 +617,21 @@ python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </s
 </code></pre></div>
 <h2 id="5">5. よくある活用方法<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>プロジェクトごとの環境切り分け</strong><ul>
-<li>Webアプリ開発、データ分析、機械学習などで別々の環境を作る。</li>
-</ul>
-</li>
-<li><strong>他人や別環境への共有</strong><ul>
-<li><code>requirements.txt</code> を GitHub にコミット → 他人が同じ環境を再現可能。</li>
-</ul>
-</li>
+<li><strong>プロジェクトごとの環境切り分け</strong>
+    - Webアプリ開発、データ分析、機械学習などで別々の環境を作る。</li>
+<li><strong>他人や別環境への共有</strong>
+    - <code>requirements.txt</code> を GitHub にコミット → 他人が同じ環境を再現可能。</li>
 </ul>
 <h2 id="6">6. 注意点<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p>グローバル環境でインストールしたライブラリは <code>venv</code> に影響しない。</p>
-<p>（必要なら仮想環境ごとに再インストールする）</p>
+<li>グローバル環境でインストールしたライブラリは <code>venv</code> に影響しない。<p>（必要なら仮想環境ごとに再インストールする）</p>
 </li>
-<li>
-<p>Python 本体のバージョンは、作成時に指定したものが使われる。</p>
-</li>
-<li>
-<p><code>venv</code> は軽量で標準ライブラリに含まれているため追加インストール不要。</p>
-</li>
+</ul>
+<ul>
+<li>Python 本体のバージョンは、作成時に指定したものが使われる。</li>
+</ul>
+<ul>
+<li><code>venv</code> は軽量で標準ライブラリに含まれているため追加インストール不要。</li>
 </ul>
 <h2 id="7">7. よく使うコマンドまとめ<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code># 仮想環境の作成
