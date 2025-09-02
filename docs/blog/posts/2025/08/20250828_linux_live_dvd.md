@@ -7,7 +7,7 @@ tags:
   - Linux
   - Debian
   - Knoppix
-# draft: true
+draft: false
 ---
 
 # Debian/Knoppix Live DVDとレスキュー用途まとめ

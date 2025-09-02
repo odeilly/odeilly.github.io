@@ -5,7 +5,7 @@ categories:
   - 技術
 tags:
   - Shell
-# draft: true
+draft: false
 ---
 
 # シェルスクリプトで部分文字列を取得する方法

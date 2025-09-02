@@ -5,7 +5,7 @@ categories:
   - 技術
 tags:
   - Mac
-# draft: true
+draft: false
 ---
 
 # Macでスクリーンショットを撮る方法

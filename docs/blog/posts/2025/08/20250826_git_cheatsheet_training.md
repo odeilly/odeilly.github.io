@@ -5,7 +5,7 @@ categories:
   - 技術
 tags:
   - Git
-# draft: true
+draft: false
 ---
 
 # Git 基礎チートシート

@@ -5,7 +5,7 @@ categories:
   - 技術
 tags:
   - Python
-# draft: true
+draft: false
 ---
 
 # Python 仮想環境 （venv） まとめ
