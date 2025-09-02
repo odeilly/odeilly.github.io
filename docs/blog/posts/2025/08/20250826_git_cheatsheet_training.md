@@ -26,28 +26,28 @@ git clone URL             # 既存リポジトリを取得
 
 1. 変更を確認
 
-      ```bash
-      git status
-      ```
+   ```bash
+   git status
+   ```
 
 2. 変更をステージに追加
 
-      ```bash
-      git add <ファイル名>   # 指定ファイルを追加
-      git add .              # 全ての変更を追加
-      ```
+   ```bash
+   git add <ファイル名>   # 指定ファイルを追加
+   git add .              # 全ての変更を追加
+   ```
 
 3. コミットを作成
 
-      ```bash
-      git commit -m "変更内容を説明するメッセージ"
-      ```
+   ```bash
+   git commit -m "変更内容を説明するメッセージ"
+   ```
 
 4. リモートに送信
 
-      ```bash
-      git push origin main
-      ```
+   ```bash
+   git push origin main
+   ```
 
 
 ## 3. リモートから最新を取得

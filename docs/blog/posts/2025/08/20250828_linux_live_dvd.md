@@ -71,16 +71,16 @@ sudo dd if=/dev/zero of=/dev/sdX bs=1M status=progress
 
 - ブートプロンプトで次を入力：
 
-```text
-knoppix 2
-```
+  ```text
+  knoppix 2
+  ```
 
 - ランレベル2で起動 → コンソール専用モード。
 
 - 追加オプション：
-    - `knoppix vga=normal` : 標準VGA
-    - `knoppix nomodeset` : ドライバ無効化
-    - `knoppix no3d` : 3Dアクセラレーション無効化
+  - `knoppix vga=normal` : 標準VGA
+  - `knoppix nomodeset` : ドライバ無効化
+  - `knoppix no3d` : 3Dアクセラレーション無効化
 
 ---
 
