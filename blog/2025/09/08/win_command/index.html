@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://odeilly.github.io/blog/2025/08/31/shell_substring/">
+        <link rel="canonical" href="https://odeilly.github.io/blog/2025/09/08/win_command/">
       
       
-        <link rel="prev" href="../../28/linux_live_dvd/">
+        <link rel="prev" href="../../../08/31/shell_substring/">
       
-      
-        <link rel="next" href="../../../09/08/win_command/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>シェルスクリプトで部分文字列を取得する方法 - ODEILLY NOTE</title>
+        <title>Windows コマンド - ODEILLY NOTE</title>
       
     
     
@@ -78,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#windows" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -114,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              シェルスクリプトで部分文字列を取得する方法
+              Windows コマンド
             
           </span>
         </div>
@@ -330,47 +328,128 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. パラメータ展開（推奨）
+      拡張子の表示・非表示
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-cut" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. cut コマンドを使う
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-expr-substr" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. expr substr を使う
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-grep-sed" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 正規表現で grep / sed
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="拡張子の表示・非表示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      まとめ
+      拡張子を表示する
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      拡張子を非表示にする
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      隠しファイルの表示・非表示
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="隠しファイルの表示・非表示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      隠しファイルを表示する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      隠しファイルを非表示にする
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      画面ロックまでの時間
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wmic" class="md-nav__link">
+    <span class="md-ellipsis">
+      wmic コマンド
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="wmic コマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pc" class="md-nav__link">
+    <span class="md-ellipsis">
+      PC のシリアル番号
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      PC の製品名
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -411,7 +490,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-08-31 00:00:00+00:00" class="md-ellipsis">2025年8月31日 (日)</time>
+                        <time datetime="2025-09-08 00:00:00+00:00" class="md-ellipsis">2025年9月8日 (月)</time>
                       </div>
                     </li>
                     
@@ -460,63 +539,53 @@
       
       
       
-        <a href="../../../../../tags/#tag:shell" class="md-tag">Shell</a>
+        <a href="../../../../../tags/#tag:windows" class="md-tag">Windows</a>
       
     
   </nav>
 
 
 
-<h1 id="_1">シェルスクリプトで部分文字列を取得する方法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>シェルスクリプト（bash想定）で文字列から部分文字列を取得する方法を紹介します。
-用途や環境に応じて使い分けると便利です。</p>
+<h1 id="windows">Windows コマンド<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h1>
+<p>Windows コマンドの備忘録です。</p>
 <!-- more -->
 
-<h2 id="1">1. パラメータ展開（推奨）<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>bash でよく使う方法です。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">str</span><span class="o">=</span><span class="s2">&quot;HelloWorld&quot;</span>
-<span class="c1"># 先頭から5文字を取得</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">str</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">5</span><span class="si">}</span><span class="s2">&quot;</span><span class="w">   </span><span class="c1"># Hello</span>
-
-<span class="c1"># 3文字目から4文字取得（インデックスは0始まり）</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">str</span><span class="p">:</span><span class="nv">2</span><span class="p">:</span><span class="nv">4</span><span class="si">}</span><span class="s2">&quot;</span><span class="w">   </span><span class="c1"># lloW</span>
+<h2 id="_1">拡張子の表示・非表示<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">拡張子を表示する<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>reg add &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced&quot; /v &quot;HideFileExt&quot; /d &quot;0&quot; /t  REG_DWORD /f
 </code></pre></div>
-<ul>
-<li><code>${変数:開始位置:長さ}</code> の形で指定できます。</li>
-<li>開始位置は 0 から始まります。</li>
-<li>長さを省略すると「末尾まで」になります。</li>
-</ul>
-<h2 id="2-cut">2. <code>cut</code> コマンドを使う<a class="headerlink" href="#2-cut" title="Permanent link">&para;</a></h2>
-<p>ファイル処理っぽく使いたい場合に便利です。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">str</span><span class="o">=</span><span class="s2">&quot;HelloWorld&quot;</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-c1-5<span class="w">   </span><span class="c1"># Hello</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-c3-6<span class="w">   </span><span class="c1"># lloW</span>
+<h3 id="_3">拡張子を非表示にする<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>reg add &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced&quot; /v &quot;HideFileExt&quot; /d &quot;1&quot; /t  REG_DWORD /f
 </code></pre></div>
-<ul>
-<li><code>-c1-5</code> は「1文字目から5文字目まで」。</li>
-</ul>
-<h2 id="3-expr-substr">3. <code>expr substr</code> を使う<a class="headerlink" href="#3-expr-substr" title="Permanent link">&para;</a></h2>
-<p>古い方法ですが、POSIX互換シェルで使えます。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">str</span><span class="o">=</span><span class="s2">&quot;HelloWorld&quot;</span>
-expr<span class="w"> </span>substr<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span><span class="w">   </span><span class="c1"># Hello</span>
-expr<span class="w"> </span>substr<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w">   </span><span class="c1"># lloW</span>
+<h3 id="_4">参考<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><a href="https://win2012r2.com/2022/05/19/enable-file-extention-using-powershell/">https://win2012r2.com/2022/05/19/enable-file-extention-using-powershell/</a></p>
+<h2 id="_5">隠しファイルの表示・非表示<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">隠しファイルを表示する<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>reg add &quot;HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced&quot; /v &quot;Hidden&quot; /t REG_DWORD /d &quot;1&quot; /f
 </code></pre></div>
-<ul>
-<li>開始位置は 1 始まり。</li>
-<li>最後の引数は「長さ」です。</li>
-</ul>
-<h2 id="4-grep-sed">4. 正規表現で <code>grep</code> / <code>sed</code><a class="headerlink" href="#4-grep-sed" title="Permanent link">&para;</a></h2>
-<p>パターンに基づいて取りたい場合。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">str</span><span class="o">=</span><span class="s2">&quot;HelloWorld&quot;</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-oE<span class="w"> </span><span class="s1">&#39;^.....&#39;</span><span class="w">   </span><span class="c1"># Hello</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$str</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;s/^(.{2})(.{4}).*/\2/&#39;</span><span class="w">   </span><span class="c1"># lloW</span>
+<h3 id="_7">隠しファイルを非表示にする<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>reg add &quot;HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced&quot; /v &quot;Hidden&quot; /t REG_DWORD /d &quot;2&quot; /f
 </code></pre></div>
-<h2 id="_2">まとめ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_8">画面ロックまでの時間<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>コマンドプロンプトを管理者権限で起動します。
+<code>/d</code> オプションでロックされるまでの待機時間 (秒) を設定します。
+以下のコマンドは、300秒 (5分) を指定しています。</p>
+<div class="highlight"><pre><span></span><code>reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v InactivityTimeoutSecs /t REG_DWORD /d 300 /f
+</code></pre></div>
+<h2 id="wmic">wmic コマンド<a class="headerlink" href="#wmic" title="Permanent link">&para;</a></h2>
+<p>wmic こまんどを使うと、PC の情報を表示することができます。</p>
+<h3 id="pc">PC のシリアル番号<a class="headerlink" href="#pc" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>wmic bios get serialnumber
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>wmic csproduct get identifyingnumber
+</code></pre></div>
+<h3 id="pc_1">PC の製品名<a class="headerlink" href="#pc_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>wmic baseboard get product
+</code></pre></div>
+<h3 id="_9">参考<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>シンプルに部分文字列を取る</strong> → <code>${var:start:length}</code></li>
-<li><strong>ファイル処理風に文字数指定</strong> → <code>cut</code></li>
-<li><strong>古い環境やPOSIX準拠が必要</strong> → <code>expr substr</code></li>
-<li><strong>パターン抽出</strong> → <code>grep</code> / <code>sed</code></li>
+<li><a href="https://www.intel.co.jp/content/www/jp/ja/support/articles/000025060/intel-nuc.html">https://www.intel.co.jp/content/www/jp/ja/support/articles/000025060/intel-nuc.html</a></li>
+<li><a href="https://genchan.net/it/pc/windows/12535/">https://genchan.net/it/pc/windows/12535/</a></li>
 </ul>
 
 
@@ -562,7 +631,7 @@ expr<span class="w"> </span>substr<span class="w"> </span><span class="s2">&quot
       <nav class="md-footer__inner md-grid" aria-label="フッター" >
         
           
-          <a href="../../28/linux_live_dvd/" class="md-footer__link md-footer__link--prev" aria-label="前: Debian/Knoppix Live DVDとレスキュー用途まとめ">
+          <a href="../../../08/31/shell_substring/" class="md-footer__link md-footer__link--prev" aria-label="前: シェルスクリプトで部分文字列を取得する方法">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -572,27 +641,11 @@ expr<span class="w"> </span>substr<span class="w"> </span><span class="s2">&quot
                 前
               </span>
               <div class="md-ellipsis">
-                Debian/Knoppix Live DVDとレスキュー用途まとめ
+                シェルスクリプトで部分文字列を取得する方法
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../../../09/08/win_command/" class="md-footer__link md-footer__link--next" aria-label="次: Windows コマンド">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                次
-              </span>
-              <div class="md-ellipsis">
-                Windows コマンド
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
