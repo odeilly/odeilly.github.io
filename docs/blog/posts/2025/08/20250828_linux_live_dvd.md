@@ -63,8 +63,8 @@ sudo dd if=/dev/zero of=/dev/sdX bs=1M status=progress
 
 - 新しいドライバが逆に不具合を出す場合がある。
 - 起動オプション例:
-    - `nomodeset` → ドライバ無効化してVESAで表示
-    - `vga=normal` → 標準VGAモード
+  - `nomodeset` → ドライバ無効化してVESAで表示
+  - `vga=normal` → 標準VGAモード
 - コンソールのみで作業するならモニタの相性問題は軽減される。
 
 ## 7. Knoppixのコンソール起動
