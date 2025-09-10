@@ -412,37 +412,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#wmic" class="md-nav__link">
+  <a href="#pc-powershell" class="md-nav__link">
     <span class="md-ellipsis">
-      wmic コマンド
+      PC 情報取得コマンド一覧（PowerShell）
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="wmic コマンド">
+    <nav class="md-nav" aria-label="PC 情報取得コマンド一覧（PowerShell）">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pc" class="md-nav__link">
-    <span class="md-ellipsis">
-      PC のシリアル番号
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pc_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      PC の製品名
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
-      参考
+      概要
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      コマンド一覧
     </span>
   </a>
   
@@ -572,21 +563,72 @@
 以下のコマンドは、300秒 (5分) を指定しています。</p>
 <div class="highlight"><pre><span></span><code>reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v InactivityTimeoutSecs /t REG_DWORD /d 300 /f
 </code></pre></div>
-<h2 id="wmic">wmic コマンド<a class="headerlink" href="#wmic" title="Permanent link">&para;</a></h2>
-<p>wmic こまんどを使うと、PC の情報を表示することができます。</p>
-<h3 id="pc">PC のシリアル番号<a class="headerlink" href="#pc" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>wmic bios get serialnumber
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>wmic csproduct get identifyingnumber
-</code></pre></div>
-<h3 id="pc_1">PC の製品名<a class="headerlink" href="#pc_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>wmic baseboard get product
-</code></pre></div>
-<h3 id="_9">参考<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://www.intel.co.jp/content/www/jp/ja/support/articles/000025060/intel-nuc.html">https://www.intel.co.jp/content/www/jp/ja/support/articles/000025060/intel-nuc.html</a></li>
-<li><a href="https://genchan.net/it/pc/windows/12535/">https://genchan.net/it/pc/windows/12535/</a></li>
-</ul>
+<h2 id="pc-powershell">PC 情報取得コマンド一覧（PowerShell）<a class="headerlink" href="#pc-powershell" title="Permanent link">&para;</a></h2>
+<h3 id="_9">概要<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>Windows 11 以降では <code>wmic</code> コマンドが非推奨になっています。
+代わりに <strong>PowerShell の CIM コマンドレット</strong>を利用することが推奨されます。
+以下は PC の基本情報を取得する代表的なコマンドの一覧です。</p>
+<h3 id="_10">コマンド一覧<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>クラス / プロパティ</th>
+<th>コマンド例</th>
+<th>出力例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>シリアル番号</td>
+<td><code>Win32_BIOS.SerialNumber</code></td>
+<td><code>(Get-CimInstance Win32_BIOS).SerialNumber</code></td>
+<td><code>ABC1234XYZ</code></td>
+</tr>
+<tr>
+<td>製品名（モデル名）</td>
+<td><code>Win32_ComputerSystem.Model</code></td>
+<td><code>(Get-CimInstance Win32_ComputerSystem).Model</code></td>
+<td><code>ThinkPad X1 Carbon Gen 10</code></td>
+</tr>
+<tr>
+<td>メーカー名</td>
+<td><code>Win32_ComputerSystem.Manufacturer</code></td>
+<td><code>(Get-CimInstance Win32_ComputerSystem).Manufacturer</code></td>
+<td><code>LENOVO</code></td>
+</tr>
+<tr>
+<td>OS 名</td>
+<td><code>Win32_OperatingSystem.Caption</code></td>
+<td><code>(Get-CimInstance Win32_OperatingSystem).Caption</code></td>
+<td><code>Microsoft Windows 11 Pro</code></td>
+</tr>
+<tr>
+<td>OS バージョン</td>
+<td><code>Win32_OperatingSystem.Version</code></td>
+<td><code>(Get-CimInstance Win32_OperatingSystem).Version</code></td>
+<td><code>10.0.22631</code></td>
+</tr>
+<tr>
+<td>CPU 名</td>
+<td><code>Win32_Processor.Name</code></td>
+<td><code>(Get-CimInstance Win32_Processor).Name</code></td>
+<td><code>Intel(R) Core(TM) i7-1360P</code></td>
+</tr>
+<tr>
+<td>メモリ容量</td>
+<td><code>Win32_ComputerSystem.TotalPhysicalMemory</code></td>
+<td><code>"{0:N0} GB" -f ((Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB)</code></td>
+<td><code>32 GB</code></td>
+</tr>
+<tr>
+<td>ディスク容量（C: ドライブ）</td>
+<td><code>Win32_LogicalDisk.Size</code> / <code>FreeSpace</code></td>
+<td><code>Get-CimInstance Win32_LogicalDisk -Filter "DeviceID='C:'" \| Select-Object @{Name='Size(GB)';Expression={[math]::Round($_.Size/1GB,0)}}, @{Name='Free(GB)';Expression={[math]::Round($_.FreeSpace/1GB,0)}}</code></td>
+<td><code>Size(GB): 512</code><br><code>Free(GB): 320</code></td>
+</tr>
+</tbody>
+</table>
 
 
 
