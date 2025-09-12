@@ -496,7 +496,6 @@
 <div class="highlight"><pre><span></span><code>zip<span class="w"> </span>-r<span class="w"> </span>archive.zip<span class="w"> </span>dir1<span class="w"> </span>dir2
 </code></pre></div>
 <h3 id="2">2. 隠しファイルや不要ファイルを除外する<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>隠しファイルやシンボリックリンクも含めたいとき:</p>
 <div class="highlight"><pre><span></span><code>zip<span class="w"> </span>-r<span class="w"> </span>archive.zip<span class="w"> </span>dir1<span class="w"> </span>dir2<span class="w"> </span>-x<span class="w"> </span><span class="s2">&quot;*.DS_Store&quot;</span>
 </code></pre></div>
 <p>（<code>-x</code> は除外パターン。上記は macOS の <code>.DS_Store</code> を除外する例）</p>
