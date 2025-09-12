@@ -35,8 +35,6 @@ zip -r archive.zip dir1 dir2
 
 ### 2. 隠しファイルや不要ファイルを除外する
 
-隠しファイルやシンボリックリンクも含めたいとき:
-
 ``` bash
 zip -r archive.zip dir1 dir2 -x "*.DS_Store"
 ```
