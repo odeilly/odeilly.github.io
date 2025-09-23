@@ -626,8 +626,14 @@
 <tr>
 <td>ディスク容量（C: ドライブ）</td>
 <td><code>Win32_LogicalDisk.Size</code> / <code>FreeSpace</code></td>
-<td><code>Get-CimInstance Win32_LogicalDisk -Filter "DeviceID='C:'" \| Select-Object @{Name='Size(GB)';Expression={[math]::Round($_.Size/1GB,0)}}, @{Name='Free(GB)';Expression={[math]::Round($_.FreeSpace/1GB,0)}}</code></td>
+<td><code>Get-CimInstance Win32_LogicalDisk -Filter "DeviceID='C:'" | Select-Object @{Name='Size(GB)';Expression={[math]::Round($_.Size/1GB,0)}}, @{Name='Free(GB)';Expression={[math]::Round($_.FreeSpace/1GB,0)}}</code></td>
 <td><code>Size(GB): 512</code><br><code>Free(GB): 320</code></td>
+</tr>
+<tr>
+<td>コンピュータ名</td>
+<td><code>Win32_ComputerSystem.Name</code></td>
+<td><code>(Get-CimInstance Win32_ComputerSystem).Name</code></td>
+<td><code>MY_PC_001</code></td>
 </tr>
 </tbody>
 </table>
