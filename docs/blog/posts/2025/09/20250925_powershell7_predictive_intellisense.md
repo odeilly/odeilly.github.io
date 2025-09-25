@@ -1,4 +1,5 @@
 ---
+slug: powershell7_predictive_intellisense
 date: 2025-09-25
 tags:
   - Windows
