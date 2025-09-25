@@ -2,58 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://odeilly.github.io/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-25</lastmod>
     </url>
     <url>
          <loc>https://odeilly.github.io/tags/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-25</lastmod>
     </url>
     <url>
          <loc>https://odeilly.github.io/blog/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-25</lastmod>
     </url>
     <url>
          <loc>https://odeilly.github.io/blog/2025/08/23/win11_settings/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-25</lastmod>
     </url>
     <url>
          <loc>https://odeilly.github.io/blog/2025/08/24/mac_screenshot/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-25</lastmod>
     </url>
     <url>
          <loc>https://odeilly.github.io/blog/2025/08/26/git_cheatsheet/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-25</lastmod>
     </url>
     <url>
          <loc>https://odeilly.github.io/blog/2025/08/26/python_venv_summary/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-25</lastmod>
     </url>
     <url>
          <loc>https://odeilly.github.io/blog/2025/08/28/linux_live_dvd/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-25</lastmod>
     </url>
     <url>
          <loc>https://odeilly.github.io/blog/2025/08/31/shell_substring/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-25</lastmod>
     </url>
     <url>
          <loc>https://odeilly.github.io/blog/2025/09/08/win_command/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-25</lastmod>
     </url>
     <url>
          <loc>https://odeilly.github.io/blog/2025/09/11/zip_command/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-25</lastmod>
     </url>
     <url>
          <loc>https://odeilly.github.io/blog/2025/09/23/win_startup/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-25</lastmod>
+    </url>
+    <url>
+         <loc>https://odeilly.github.io/blog/2025/09/25/powershell-7-%E3%81%AE-predictive-intellisense/</loc>
+         <lastmod>2025-09-25</lastmod>
     </url>
     <url>
          <loc>https://odeilly.github.io/blog/archive/2025/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-25</lastmod>
     </url>
     <url>
          <loc>https://odeilly.github.io/blog/category/%E6%8A%80%E8%A1%93/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-25</lastmod>
     </url>
 </urlset>

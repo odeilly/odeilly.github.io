@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://odeilly.github.io/blog/2025/09/23/win_startup/">
+        <link rel="canonical" href="https://odeilly.github.io/blog/2025/09/25/powershell-7-%E3%81%AE-predictive-intellisense/">
       
       
-        <link rel="prev" href="../../11/zip_command/">
+        <link rel="prev" href="../../23/win_startup/">
       
-      
-        <link rel="next" href="../../25/powershell-7-%E3%81%AE-predictive-intellisense/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>Windows 11 でログイン時に自動起動するアプリを追加する方法 - ODEILLY NOTE</title>
+        <title>PowerShell 7 の Predictive IntelliSense - ODEILLY NOTE</title>
       
     
     
@@ -78,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#windows-11" class="md-skip">
+        <a href="#powershell-7-predictive-intellisense" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -114,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Windows 11 でログイン時に自動起動するアプリを追加する方法
+              PowerShell 7 の Predictive IntelliSense
             
           </span>
         </div>
@@ -332,7 +330,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      手順
+      概要
     </span>
   </a>
   
@@ -341,7 +339,25 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      補足
+      候補の出どころ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      設定確認と変更
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      使い方の例
     </span>
   </a>
   
@@ -384,7 +400,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-09-23 00:00:00+00:00" class="md-ellipsis">2025年9月23日 (火)</time>
+                        <time datetime="2025-09-25 00:00:00+00:00" class="md-ellipsis">2025年9月25日 (木)</time>
                       </div>
                     </li>
                     
@@ -433,6 +449,12 @@
       
       
       
+        <a href="../../../../../tags/#tag:powershell" class="md-tag">PowerShell</a>
+      
+    
+      
+      
+      
         <a href="../../../../../tags/#tag:windows" class="md-tag">Windows</a>
       
     
@@ -440,49 +462,57 @@
 
 
 
-<h1 id="windows-11">Windows 11 でログイン時に自動起動するアプリを追加する方法<a class="headerlink" href="#windows-11" title="Permanent link">&para;</a></h1>
-<p>スタートアップフォルダにショートカットを置く方法です。</p>
+<h1 id="powershell-7-predictive-intellisense">PowerShell 7 の Predictive IntelliSense<a class="headerlink" href="#powershell-7-predictive-intellisense" title="Permanent link">&para;</a></h1>
+<p>PowerShell 7 から導入された <strong>Predictive IntelliSense</strong> は、コマンド入力の効率を大幅に高める機能です。入力中に薄いグレーの文字で予測候補を表示し、簡単なキー操作で補完できます。
+<strong>PowerShell 標準の機能（PSReadLine モジュール）</strong> によるものです。</p>
 <!-- more -->
 
-<h2 id="_1">手順<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p><strong>スタートアップフォルダを開く</strong></p>
+<h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>Windowsキー + R</code> を押して「ファイル名を指定して実行」を開く。</li>
-<li><code>shell:startup</code> と入力し、<strong>Enter</strong> を押す。
-   → ユーザー専用の「スタートアップ」フォルダが開く。</li>
+<li><strong>機能名</strong>: Predictive IntelliSense</li>
+<li><strong>提供元</strong>: PowerShell 7 標準の <code>PSReadLine</code> モジュール</li>
+<li><strong>特徴</strong>:<ul>
+<li>コマンド入力中に <strong>履歴やプラグインから予測候補</strong> を表示</li>
+<li>薄いグレー文字で補完候補をインライン表示</li>
+<li><code>→ (右矢印)</code> で候補を確定</li>
+<li>ドロップダウン形式の候補リスト表示も可能</li>
 </ul>
 </li>
-<li>
-<p><strong>ショートカットを用意する</strong></p>
+</ul>
+<h2 id="_2">候補の出どころ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li>自動起動させたいアプリの <code>.exe</code> ファイルを探す。</li>
-<li>右クリック → <strong>送る → デスクトップ（ショートカットを作成）</strong> を選ぶ。
-   （すでにショートカットがある場合はこの操作は不要）</li>
+<li><strong>History</strong>: これまでに入力したコマンド履歴</li>
+<li><strong>Plugin</strong>: 追加プラグインからの提案<ul>
+<li>例: <code>Az.Tools.Predictor</code> (Azure CLI ライクな補完を提供)</li>
 </ul>
 </li>
-<li>
-<p><strong>ショートカットを移動する</strong></p>
-<ul>
-<li>作成したショートカットを「スタートアップ」フォルダにドラッグ＆ドロップする。</li>
 </ul>
-</li>
-<li>
-<p><strong>動作確認</strong></p>
-<ul>
-<li>一度サインアウトまたは再起動する。</li>
-<li>ログイン後に、対象アプリが自動的に起動すれば成功。</li>
-</ul>
-</li>
-</ol>
-<h2 id="_2">補足<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<ul>
-<li>この方法は「ユーザーごとのスタートアップ」に追加する。</li>
-<li>すべてのユーザーで自動起動したい場合は、以下のフォルダにショートカットを置く。
-  <code>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp</code></li>
-<li>自動起動をやめたいときは、スタートアップフォルダからショートカットを削除するだけでよい。</li>
-</ul>
+<h2 id="_3">設定確認と変更<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>現在の設定を確認する:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-PSReadLineOption</span>
+</code></pre></div>
+<p>予測ソースを切り替える:</p>
+<div class="highlight"><pre><span></span><code><span class="c"># 履歴ベースのみ</span>
+<span class="nb">Set-PSReadLineOption</span> <span class="n">-PredictionSource</span> <span class="nb">History</span>
+
+<span class="c"># 履歴 + プラグイン</span>
+<span class="nb">Set-PSReadLineOption</span> <span class="n">-PredictionSource</span> <span class="n">HistoryAndPlugin</span>
+</code></pre></div>
+<p>表示スタイルを変更する:</p>
+<div class="highlight"><pre><span></span><code><span class="c"># インライン（グレーの薄字）</span>
+<span class="nb">Set-PSReadLineOption</span> <span class="n">-PredictionViewStyle</span> <span class="n">InlineView</span>
+
+<span class="c"># 一覧形式（ドロップダウン）</span>
+<span class="nb">Set-PSReadLineOption</span> <span class="n">-PredictionViewStyle</span> <span class="n">ListView</span>
+</code></pre></div>
+<h2 id="_4">使い方の例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c"># 入力中</span>
+<span class="n">java</span>
+
+<span class="c"># グレー文字で補完候補が表示される</span>
+<span class="n">java</span> <span class="n">-version</span>
+</code></pre></div>
+<p><code>→ (右矢印)</code> を押すと <code>java -version</code> に確定されます。</p>
 
 
 
@@ -527,7 +557,7 @@
       <nav class="md-footer__inner md-grid" aria-label="フッター" >
         
           
-          <a href="../../11/zip_command/" class="md-footer__link md-footer__link--prev" aria-label="前: zip コマンドの使い方 （複数ディレクトリをまとめる）">
+          <a href="../../23/win_startup/" class="md-footer__link md-footer__link--prev" aria-label="前: Windows 11 でログイン時に自動起動するアプリを追加する方法">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -537,27 +567,11 @@
                 前
               </span>
               <div class="md-ellipsis">
-                zip コマンドの使い方 （複数ディレクトリをまとめる）
+                Windows 11 でログイン時に自動起動するアプリを追加する方法
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../../25/powershell-7-%E3%81%AE-predictive-intellisense/" class="md-footer__link md-footer__link--next" aria-label="次: PowerShell 7 の Predictive IntelliSense">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                次
-              </span>
-              <div class="md-ellipsis">
-                PowerShell 7 の Predictive IntelliSense
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
