@@ -1,6 +1,6 @@
 ---
 slug: disk_cleanup
-date: 2025-10-03
+date: 2025-10-02
 tags:
   - Windows
 categories:
