@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://odeilly.github.io/blog/2025/09/25/powershell7_predictive_intellisense/">
+        <link rel="canonical" href="https://odeilly.github.io/blog/2025/10/03/disk_cleanup/">
       
       
-        <link rel="prev" href="../../23/win_startup/">
+        <link rel="prev" href="../../../09/25/powershell7_predictive_intellisense/">
       
-      
-        <link rel="next" href="../../../10/03/disk_cleanup/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>PowerShell 7 の Predictive IntelliSense - ODEILLY NOTE</title>
+        <title>Windows 11 でディスク クリーンアップを活用する方法 - ODEILLY NOTE</title>
       
     
     
@@ -78,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#powershell-7-predictive-intellisense" class="md-skip">
+        <a href="#windows-11" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -114,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PowerShell 7 の Predictive IntelliSense
+              Windows 11 でディスク クリーンアップを活用する方法
             
           </span>
         </div>
@@ -332,7 +330,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      概要
+      ディスク クリーンアップとは？
     </span>
   </a>
   
@@ -341,7 +339,7 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      候補の出どころ
+      起動方法
     </span>
   </a>
   
@@ -350,7 +348,16 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      設定確認と変更
+      基本操作の流れ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows-11_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      削除できる主な項目（Windows 11 日本語版）
     </span>
   </a>
   
@@ -359,7 +366,40 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      使い方の例
+      注意点
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      自動化する方法：ストレージ センサー
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自動化する方法：ストレージ センサー">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      設定手順
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      まとめ
     </span>
   </a>
   
@@ -402,7 +442,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-09-25 00:00:00+00:00" class="md-ellipsis">2025年9月25日 (木)</time>
+                        <time datetime="2025-10-03 00:00:00+00:00" class="md-ellipsis">2025年10月3日 (金)</time>
                       </div>
                     </li>
                     
@@ -451,12 +491,6 @@
       
       
       
-        <a href="../../../../../tags/#tag:powershell" class="md-tag">PowerShell</a>
-      
-    
-      
-      
-      
         <a href="../../../../../tags/#tag:windows" class="md-tag">Windows</a>
       
     
@@ -464,57 +498,89 @@
 
 
 
-<h1 id="powershell-7-predictive-intellisense">PowerShell 7 の Predictive IntelliSense<a class="headerlink" href="#powershell-7-predictive-intellisense" title="Permanent link">&para;</a></h1>
-<p>PowerShell 7 から導入された <strong>Predictive IntelliSense</strong> は、コマンド入力の効率を大幅に高める機能です。入力中に薄いグレーの文字で予測候補を表示し、簡単なキー操作で補完できます。
-<strong>PowerShell 標準の機能（PSReadLine モジュール）</strong> によるものです。</p>
+<h1 id="windows-11">Windows 11 でディスク クリーンアップを活用する方法<a class="headerlink" href="#windows-11" title="Permanent link">&para;</a></h1>
+<p>Windows を長く使っていると、知らないうちに不要なファイルがたまってディスク容量を圧迫していきます。
+特に Windows のアップグレードで作られる <strong><code>$WINDOWS.~BT</code></strong> や <strong><code>$WINDOWS.~WS</code></strong> フォルダは、数 GB 単位になることもあります。</p>
+<p>そんなときに役立つのが、Windows 標準搭載の <strong>「ディスク クリーンアップ」</strong> です。
+この記事では、Windows 11 環境での使い方や注意点をわかりやすくまとめます。</p>
 <!-- more -->
 
-<h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">ディスク クリーンアップとは？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>機能名</strong>: Predictive IntelliSense</li>
-<li><strong>提供元</strong>: PowerShell 7 標準の <code>PSReadLine</code> モジュール</li>
-<li><strong>特徴</strong>:<ul>
-<li>コマンド入力中に <strong>履歴やプラグインから予測候補</strong> を表示</li>
-<li>薄いグレー文字で補完候補をインライン表示</li>
-<li><code>→ (右矢印)</code> で候補を確定</li>
-<li>ドロップダウン形式の候補リスト表示も可能</li>
+<li>Windows 標準のメンテナンスツール</li>
+<li>一時ファイルや古い Windows インストールファイルを安全に削除できる</li>
+<li>C ドライブの容量不足を解消し、システムを軽快に保つことができる</li>
+</ul>
+<h2 id="_2">起動方法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Windowsキー + S</strong> で検索バーを開く</li>
+<li>「<strong>ディスク クリーンアップ</strong>」と入力して起動<ul>
+<li>または <code>cleanmgr</code> と入力して Enter</li>
 </ul>
 </li>
-</ul>
-<h2 id="_2">候補の出どころ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>History</strong>: これまでに入力したコマンド履歴</li>
-<li><strong>Plugin</strong>: 追加プラグインからの提案<ul>
-<li>例: <code>Az.Tools.Predictor</code> (Azure CLI ライクな補完を提供)</li>
+</ol>
+<h2 id="_3">基本操作の流れ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ol>
+<li>（<strong>複数ドライブがある場合のみ</strong>）「ドライブの選択」画面が表示されるので <strong>Cドライブ</strong> を選んで OK<ul>
+<li>Cドライブしかない環境ではこの画面は表示されず、直接クリーンアップ画面に進みます</li>
 </ul>
 </li>
+<li>一覧が表示されたら <strong>「システム ファイルのクリーンアップ」</strong> をクリック</li>
+<li>再度（表示されれば） <strong>Cドライブ</strong> を選択</li>
+<li>削除したい項目にチェックを入れる<ul>
+<li>特に容量が大きいのは <strong>「以前の Windows のインストール」</strong></li>
+<li><code>$WINDOWS.~BT</code> や <code>$WINDOWS.~WS</code> はここに含まれます</li>
 </ul>
-<h2 id="_3">設定確認と変更<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>現在の設定を確認する:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">Get-PSReadLineOption</span>
-</code></pre></div>
-<p>予測ソースを切り替える:</p>
-<div class="highlight"><pre><span></span><code><span class="c"># 履歴ベースのみ</span>
-<span class="nb">Set-PSReadLineOption</span> <span class="n">-PredictionSource</span> <span class="nb">History</span>
-
-<span class="c"># 履歴 + プラグイン</span>
-<span class="nb">Set-PSReadLineOption</span> <span class="n">-PredictionSource</span> <span class="n">HistoryAndPlugin</span>
-</code></pre></div>
-<p>表示スタイルを変更する:</p>
-<div class="highlight"><pre><span></span><code><span class="c"># インライン（グレーの薄字）</span>
-<span class="nb">Set-PSReadLineOption</span> <span class="n">-PredictionViewStyle</span> <span class="n">InlineView</span>
-
-<span class="c"># 一覧形式（ドロップダウン）</span>
-<span class="nb">Set-PSReadLineOption</span> <span class="n">-PredictionViewStyle</span> <span class="n">ListView</span>
-</code></pre></div>
-<h2 id="_4">使い方の例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c"># 入力中</span>
-<span class="n">java</span>
-
-<span class="c"># グレー文字で補完候補が表示される</span>
-<span class="n">java</span> <span class="n">-version</span>
-</code></pre></div>
-<p><code>→ (右矢印)</code> を押すと <code>java -version</code> に確定されます。</p>
+</li>
+<li><strong>OK → ファイルの削除</strong> を選択して実行</li>
+</ol>
+<h2 id="windows-11_1">削除できる主な項目（Windows 11 日本語版）<a class="headerlink" href="#windows-11_1" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>※ 表示される項目は環境・バージョンによって変わります。太字は容量が大きくなりやすい項目です。</p>
+</blockquote>
+<ul>
+<li><strong>Windows Update のクリーンアップ</strong>：累積更新の不要ファイル。容量大になりがち。</li>
+<li><strong>以前の Windows のインストール</strong>：アップグレード前のシステム一式。<strong>$WINDOWS.~BT / $WINDOWS.~WS を含む</strong>。削除するとロールバック不可。</li>
+<li><strong>一時 Windows インストール ファイル</strong>：セットアップの残骸。<strong>$WINDOWS.~WS 関連</strong>。</li>
+<li>Windows アップグレード ログ ファイル：アップグレード時のログ類。</li>
+<li>配信の最適化ファイル：更新プログラムの配布キャッシュ。</li>
+<li>デバイス ドライバー パッケージ：古いドライバのバックアップ。</li>
+<li>DirectX シェーダー キャッシュ：再生成可能。</li>
+<li>サムネイル：再生成可能。</li>
+<li>システム エラー メモリ ダンプ ファイル／ミニダンプ：ブルースクリーン時の記録。大容量になる場合あり。</li>
+<li>Windows Defender ウイルス対策：定義更新の一時データ。</li>
+<li>一時ファイル：アプリやシステムが作成した不要データ。</li>
+<li>リサイクル ビン：削除済みファイル。</li>
+<li>ダウンロード フォルダー：ユーザーのダウンロードファイル（チェックを入れると削除されるので要注意）。</li>
+<li>言語リソース ファイル：未使用の言語パック。</li>
+</ul>
+<blockquote>
+<p><code>$WINDOWS.~BT</code> / <code>$WINDOWS.~WS</code> は
+<strong>「以前の Windows のインストール」</strong>、<strong>「一時 Windows インストール ファイル」</strong>、<strong>「Windows アップグレード ログ ファイル」</strong> に含まれます。</p>
+</blockquote>
+<h2 id="_4">注意点<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>削除前に知っておきたいポイント：</p>
+<ul>
+<li>アップグレード後 10日以内に削除すると、前の Windows に戻せなくなる</li>
+<li>手動でフォルダを直接削除するのは非推奨（必ずクリーンアップツール経由で）</li>
+<li>実行には数分〜十数分かかることがある</li>
+</ul>
+<h2 id="_5">自動化する方法：ストレージ センサー<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Windows 11 では「ストレージ センサー」を使えば、不要ファイルを自動でクリーンアップできます。</p>
+<h3 id="_6">設定手順<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>設定 → システム → ストレージ → ストレージ センサー</strong></li>
+<li>「ストレージ センサーを自動的に実行する」をオンにする</li>
+<li>実行タイミング（毎日 / 毎週 / 毎月 / 空き容量が少ないとき）を選択</li>
+<li>「今すぐクリーンアップ」で手動実行も可能</li>
+</ol>
+<h2 id="_7">まとめ<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ディスク クリーンアップは <strong>不要ファイルを安全に削除する標準ツール</strong></li>
+<li><code>$WINDOWS.~BT</code> や <code>$WINDOWS.~WS</code> は「以前の Windows インストール」として削除できる</li>
+<li>削除すると「以前のバージョンに戻す」機能は使えなくなる点に注意</li>
+<li>定期的に「ストレージ センサー」を有効化しておくと自動的に掃除できて便利</li>
+</ul>
 
 
 
@@ -559,7 +625,7 @@
       <nav class="md-footer__inner md-grid" aria-label="フッター" >
         
           
-          <a href="../../23/win_startup/" class="md-footer__link md-footer__link--prev" aria-label="前: Windows 11 でログイン時に自動起動するアプリを追加する方法">
+          <a href="../../../09/25/powershell7_predictive_intellisense/" class="md-footer__link md-footer__link--prev" aria-label="前: PowerShell 7 の Predictive IntelliSense">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -569,27 +635,11 @@
                 前
               </span>
               <div class="md-ellipsis">
-                Windows 11 でログイン時に自動起動するアプリを追加する方法
+                PowerShell 7 の Predictive IntelliSense
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../../../10/03/disk_cleanup/" class="md-footer__link md-footer__link--next" aria-label="次: Windows 11 でディスク クリーンアップを活用する方法">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                次
-              </span>
-              <div class="md-ellipsis">
-                Windows 11 でディスク クリーンアップを活用する方法
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
