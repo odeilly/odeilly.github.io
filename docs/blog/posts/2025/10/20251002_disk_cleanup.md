@@ -4,7 +4,7 @@ date: 2025-10-02
 tags:
   - Windows
 categories:
-  - 技術
+  - Tips
 draft: false
 ---
 
