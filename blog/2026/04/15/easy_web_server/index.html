@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://odeilly.github.io/blog/2026/03/14/vscode_settings/">
+        <link rel="canonical" href="https://odeilly.github.io/blog/2026/04/15/easy_web_server/">
       
       
-        <link rel="prev" href="../../../../2025/10/20/windows_godmode_list/">
+        <link rel="prev" href="../../../03/14/vscode_settings/">
       
-      
-        <link rel="next" href="../../../04/15/easy_web_server/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>VSCode の設定備忘録 - ODEILLY NOTE</title>
+        <title>簡易的に Web サーバを立ち上げる方法 (ローカル環境) - ODEILLY NOTE</title>
       
     
     
@@ -78,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vscode" class="md-skip">
+        <a href="#web" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -114,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              VSCode の設定備忘録
+              簡易的に Web サーバを立ち上げる方法 (ローカル環境)
             
           </span>
         </div>
@@ -330,27 +328,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
-      概要
+      Python (最も手軽・定番)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#settingsjson" class="md-nav__link">
+  <a href="#nodejs" class="md-nav__link">
     <span class="md-ellipsis">
-      settings.json
+      Node.js (フロントエンド開発向け)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#keybindingsjson-mac" class="md-nav__link">
+  <a href="#jwebserver-java-18" class="md-nav__link">
     <span class="md-ellipsis">
-      keybindings.json (Mac)
+      jwebserver (Java 18+)
     </span>
   </a>
   
@@ -393,7 +391,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2026-03-14 00:00:00+00:00" class="md-ellipsis">2026年3月14日 (土)</time>
+                        <time datetime="2026-04-15 00:00:00+00:00" class="md-ellipsis">2026年4月15日 (水)</time>
                       </div>
                     </li>
                     
@@ -442,39 +440,59 @@
       
       
       
-        <a href="../../../../../tags/#tag:vscode" class="md-tag">VSCode</a>
+        <a href="../../../../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+        <a href="../../../../../tags/#tag:nodejs" class="md-tag">Node.js</a>
+      
+    
+      
+      
+      
+        <a href="../../../../../tags/#tag:python" class="md-tag">Python</a>
+      
+    
+      
+      
+      
+        <a href="../../../../../tags/#tag:web" class="md-tag">Web</a>
+      
+    
+      
+      
+      
+        <a href="../../../../../tags/#tag:サーバ" class="md-tag">サーバ</a>
       
     
   </nav>
 
 
 
-<h1 id="vscode">VSCode の設定備忘録<a class="headerlink" href="#vscode" title="Permanent link">&para;</a></h1>
-<h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>VSCode を使用する際の設定の備忘録です。</p>
+<h1 id="web">簡易的に Web サーバを立ち上げる方法 (ローカル環境)<a class="headerlink" href="#web" title="Permanent link">&para;</a></h1>
+<p>ローカル環境で簡易的に Web サーバを立ち上げる方法はいくつもあります。
+代表的な方法をまとめます。</p>
 <!-- more -->
 
-<h2 id="settingsjson">settings.json<a class="headerlink" href="#settingsjson" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;editor.minimap.enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">// ミニマップを非表示</span>
-<span class="w">    </span><span class="nt">&quot;workbench.colorTheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Default Light+&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// カラーテーマをデフォルトのライトテーマに設定</span>
-<span class="w">    </span><span class="nt">&quot;workbench.activityBar.location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;top&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// アクティビティバーを上部に配置</span>
-<span class="w">    </span><span class="nt">&quot;explorer.compactFolders&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">// フォルダをコンパクト表示しない</span>
-<span class="w">    </span><span class="nt">&quot;editor.renderWhitespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;all&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 空白文字をすべて表示</span>
-<span class="p">}</span>
+<h2 id="python">Python (最も手軽・定番)<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>サーバ公開したいディレクトリ
+python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8080</span>
 </code></pre></div>
-<h2 id="keybindingsjson-mac">keybindings.json (Mac)<a class="headerlink" href="#keybindingsjson-mac" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cmd+k b&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;workbench.action.toggleSidebarVisibility&quot;</span>
-<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="c1">// サイドバーの表示/非表示を切り替える</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cmd+k t&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;workbench.action.terminal.toggleTerminal&quot;</span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="c1">// ターミナルの表示/非表示を切り替える</span>
-<span class="p">]</span>
+<h2 id="nodejs">Node.js (フロントエンド開発向け)<a class="headerlink" href="#nodejs" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>サーバ公開したいディレクトリ
+npx<span class="w"> </span>serve<span class="w"> </span>.<span class="w"> </span>-l<span class="w"> </span><span class="m">8080</span>
 </code></pre></div>
+<p>または</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>サーバ公開したいディレクトリ
+npx<span class="w"> </span>http-server<span class="w"> </span>.<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>
+</code></pre></div>
+<h2 id="jwebserver-java-18">jwebserver (Java 18+)<a class="headerlink" href="#jwebserver-java-18" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>サーバ公開したいディレクトリ
+jwebserver<span class="w"> </span>--port<span class="w"> </span><span class="m">8080</span>
+</code></pre></div>
+<p>ディレクトリを指定する場合は <code>--directory</code> オプションを使う。</p>
 
 
 
@@ -519,7 +537,7 @@
       <nav class="md-footer__inner md-grid" aria-label="フッター" >
         
           
-          <a href="../../../../2025/10/20/windows_godmode_list/" class="md-footer__link md-footer__link--prev" aria-label="前: Windows 11 GodMode 一覧">
+          <a href="../../../03/14/vscode_settings/" class="md-footer__link md-footer__link--prev" aria-label="前: VSCode の設定備忘録">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -529,27 +547,11 @@
                 前
               </span>
               <div class="md-ellipsis">
-                Windows 11 GodMode 一覧
+                VSCode の設定備忘録
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../../../04/15/easy_web_server/" class="md-footer__link md-footer__link--next" aria-label="次: 簡易的に Web サーバを立ち上げる方法 (ローカル環境)">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                次
-              </span>
-              <div class="md-ellipsis">
-                簡易的に Web サーバを立ち上げる方法 (ローカル環境)
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
