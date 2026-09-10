@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://odeilly.github.io/blog/2026/05/28/7-Zip-Commandline/">
+        <link rel="canonical" href="https://odeilly.github.io/blog/2026/09/10/windows-disk-cleanup/">
       
       
-        <link rel="prev" href="../../../04/15/easy_web_server/">
+        <link rel="prev" href="../../../05/28/7-Zip-Commandline/">
       
-      
-        <link rel="next" href="../../../09/10/windows-disk-cleanup/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>7-Zip をコマンドラインで使う - ODEILLY NOTE</title>
+        <title>Azure Windows 11 VM のディスククリーンアップについて - ODEILLY NOTE</title>
       
     
     
@@ -78,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7-zip" class="md-skip">
+        <a href="#azure-windows-11-vm" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -114,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              7-Zip をコマンドラインで使う
+              Azure Windows 11 VM のディスククリーンアップについて
             
           </span>
         </div>
@@ -332,26 +330,36 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      インストール
+      使用環境
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="インストール">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alt キーでキャンセルされるか？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alt キーでキャンセルされるか？">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      インストーラを使う方法
+      結論
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="結論">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#winget" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      winget を使う方法
+      考えられるケース
     </span>
   </a>
   
@@ -361,39 +369,44 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      環境変数の設定
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      コマンドラインの使い方
+      なぜ空き容量が増えるのか
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="コマンドラインの使い方">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanmgrexe-dism" class="md-nav__link">
+    <span class="md-ellipsis">
+      cleanmgr.exe と DISM の違い
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="cleanmgr.exe と DISM の違い">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#cleanmgrexe" class="md-nav__link">
     <span class="md-ellipsis">
-      圧縮
+      cleanmgr.exe
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#dism" class="md-nav__link">
     <span class="md-ellipsis">
-      解凍
+      DISM
     </span>
   </a>
   
@@ -401,6 +414,51 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      システムファイルのクリーンアップとは
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure VM で推奨する方法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      システム健全性確認
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      さらに削減したい場合
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      実運用での推奨手順
+    </span>
+  </a>
   
 </li>
       
@@ -441,7 +499,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2026-05-28 00:00:00+00:00" class="md-ellipsis">2026年5月28日 (木)</time>
+                        <time datetime="2026-09-10 00:00:00+00:00" class="md-ellipsis">2026年9月10日 (木)</time>
                       </div>
                     </li>
                     
@@ -490,12 +548,6 @@
       
       
       
-        <a href="../../../../../tags/#tag:7-zip" class="md-tag">7-Zip</a>
-      
-    
-      
-      
-      
         <a href="../../../../../tags/#tag:windows" class="md-tag">Windows</a>
       
     
@@ -503,39 +555,166 @@
 
 
 
-<h1 id="7-zip">7-Zip をコマンドラインで使う<a class="headerlink" href="#7-zip" title="Permanent link">&para;</a></h1>
-<p>7-Zip は Windows 用の圧縮・解凍ソフトです。
-GUI で利用することが多いと思いますが、コマンドラインでも利用することができます。</p>
+<h1 id="azure-windows-11-vm">Azure Windows 11 VM のディスククリーンアップについて<a class="headerlink" href="#azure-windows-11-vm" title="Permanent link">&para;</a></h1>
+<p>Azure 上の Windows 11 VM では、ディスククリーンアップ (<code>cleanmgr.exe</code>) が長時間進まないように見えることがあります。</p>
+<p>特に以下の処理で発生しやすいです。</p>
+<ul>
+<li>Windows Update のクリーンアップ</li>
+<li>WinSxS（コンポーネントストア）の整理</li>
+<li>一時ファイルの削除</li>
+<li>Windows Defender によるスキャン</li>
+</ul>
+<p>また、Azure Bastion 経由で接続している場合、画面上では処理が停止したように見えても、バックグラウンドでは削除処理が継続していることがあります。</p>
 <!-- more -->
 
-<h2 id="_1">インストール<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>公式のインストーラを使う方法と、winget を使う方法があります。</p>
-<h3 id="_2">インストーラを使う方法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>公式サイトからダウンロードしてインストーラを実行。</p>
-<p><a href="https://7-zip.opensource.jp/">https://7-zip.opensource.jp/</a></p>
-<h3 id="winget">winget を使う方法<a class="headerlink" href="#winget" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>winget<span class="w"> </span>install<span class="w"> </span>--id<span class="w"> </span>7zip.7zip<span class="w"> </span>--force
+<h2 id="_1">使用環境<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Azure VM</li>
+<li>VM サイズ: Standard D2ads v5<ul>
+<li>2 vCPU</li>
+<li>8 GiB Memory</li>
+</ul>
+</li>
+<li>接続方式: Azure Bastion</li>
+</ul>
+<p>CPU やメモリのスペックから考えると、処理遅延の主因は CPU 不足ではなく、Windows Update や WinSxS のクリーンアップ処理である可能性が高い。</p>
+<h2 id="alt">Alt キーでキャンセルされるか？<a class="headerlink" href="#alt" title="Permanent link">&para;</a></h2>
+<h3 id="_2">結論<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>Alt キー単独でディスククリーンアップがキャンセルされる仕様はない。</p>
+<h4 id="_3">考えられるケース<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Alt + F4 が送信された</li>
+<li>Bastion のキー送信で予期しない操作になった</li>
+<li>ウィンドウだけ閉じた</li>
+<li>実際には削除処理の一部が完了していた</li>
+</ul>
+<p>そのため、</p>
+<div class="highlight"><pre><span></span><code>Alt を押した
+↓
+画面が閉じた
+↓
+再度実行すると空き容量が増えていた
 </code></pre></div>
-<h2 id="_3">環境変数の設定<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>7-Zip をコマンドラインで使うために、システム環境変数Pathに以下を追加します。</p>
-<div class="highlight"><pre><span></span><code>C:\Program Files\7-Zip
+<p>という現象は十分あり得る。</p>
+<h2 id="_4">なぜ空き容量が増えるのか<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>ディスククリーンアップは処理途中で終了しても、</p>
+<ul>
+<li>削除済みのファイル</li>
+<li>完了済みの WinSxS 整理</li>
+</ul>
+<p>は元に戻らない。</p>
+<p>例えば、</p>
+<div class="highlight"><pre><span></span><code>削除予定: 10GB
+
+7GB削除完了
+↓
+途中で終了
+↓
+空き容量は 7GB増加
 </code></pre></div>
-<h2 id="_4">コマンドラインの使い方<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="_5">圧縮<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>7z<span class="w"> </span>a<span class="w"> </span>ファイル名.zip<span class="w"> </span>ファイル<span class="o">(</span>またはフォルダ<span class="o">)</span>のパス
+<p>となる。</p>
+<p>そのため、</p>
+<p>「キャンセルしたのに空き容量が増えている」</p>
+<p>のは異常ではない。</p>
+<h2 id="cleanmgrexe-dism">cleanmgr.exe と DISM の違い<a class="headerlink" href="#cleanmgrexe-dism" title="Permanent link">&para;</a></h2>
+<h3 id="cleanmgrexe">cleanmgr.exe<a class="headerlink" href="#cleanmgrexe" title="Permanent link">&para;</a></h3>
+<p>Windows 標準の総合クリーンアップツール。</p>
+<p>対象例：</p>
+<ul>
+<li>一時ファイル</li>
+<li>ごみ箱</li>
+<li>サムネイルキャッシュ</li>
+<li>配信の最適化ファイル</li>
+<li>Windows Update クリーンアップ</li>
+<li>エラーダンプ</li>
+</ul>
+<p>イメージ：</p>
+<div class="highlight"><pre><span></span><code>cleanmgr
+ ├─ 一時ファイル
+ ├─ ごみ箱
+ ├─ ログ
+ ├─ ダンプ
+ └─ Windows Update クリーンアップ
 </code></pre></div>
-<p>パスワード付きZIPに圧縮する場合は <code>-p</code> オプションを使います。</p>
-<div class="highlight"><pre><span></span><code>7z<span class="w"> </span>a<span class="w"> </span>ファイル名.zip<span class="w"> </span>ファイル<span class="o">(</span>またはフォルダ<span class="o">)</span>のパス<span class="w"> </span>-pパスワード文字列
+<h3 id="dism">DISM<a class="headerlink" href="#dism" title="Permanent link">&para;</a></h3>
+<p>コンポーネントストア（WinSxS）専用のメンテナンスツール。</p>
+<p>実行例：</p>
+<div class="highlight"><pre><span></span><code>DISM /Online /Cleanup-Image /StartComponentCleanup
 </code></pre></div>
-<h3 id="_6">解凍<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>7z<span class="w"> </span>x<span class="w"> </span>圧縮ファイル名.zip
+<p>対象：</p>
+<div class="highlight"><pre><span></span><code>C:\Windows\WinSxS
 </code></pre></div>
-<p>指定したフォルダに解凍する場合は <code>-o</code> オプションを使います。</p>
-<div class="highlight"><pre><span></span><code>7z<span class="w"> </span>x<span class="w"> </span>圧縮ファイル名.zip<span class="w"> </span>-o出力先フォルダのパス
+<p>イメージ：</p>
+<div class="highlight"><pre><span></span><code>DISM
+ └─ WinSxS整理専用
 </code></pre></div>
-<p>パスワード付きZIPを解凍する場合は <code>-p</code> オプションを使います。</p>
-<div class="highlight"><pre><span></span><code>7z<span class="w"> </span>x<span class="w"> </span>圧縮ファイル名.zip<span class="w"> </span>-pパスワード文字列
+<h2 id="_5">システムファイルのクリーンアップとは<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>ディスククリーンアップ画面の</p>
+<div class="highlight"><pre><span></span><code>システム ファイルのクリーンアップ
 </code></pre></div>
+<p>を押すと管理者権限で再スキャンが行われる。</p>
+<p>追加表示される代表項目：</p>
+<ul>
+<li>Windows Update のクリーンアップ</li>
+<li>デバイスドライバーパッケージ</li>
+<li>システムエラーダンプ</li>
+<li>配信の最適化ファイル</li>
+<li>Windows.old</li>
+</ul>
+<p>つまり、</p>
+<div class="highlight"><pre><span></span><code>通常モード
+↓
+ユーザー領域のみ
+
+システムファイルのクリーンアップ
+↓
+OS管理領域も対象
+</code></pre></div>
+<p>という違いがある。</p>
+<h2 id="azure-vm">Azure VM で推奨する方法<a class="headerlink" href="#azure-vm" title="Permanent link">&para;</a></h2>
+<p>まず状態確認。</p>
+<div class="highlight"><pre><span></span><code>DISM /Online /Cleanup-Image /AnalyzeComponentStore
+</code></pre></div>
+<p>結果例：</p>
+<div class="highlight"><pre><span></span><code>Component Store Cleanup Recommended : Yes
+</code></pre></div>
+<p>であれば、</p>
+<div class="highlight"><pre><span></span><code>DISM /Online /Cleanup-Image /StartComponentCleanup
+</code></pre></div>
+<p>を実行する。</p>
+<h2 id="_6">システム健全性確認<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>DISM /Online /Cleanup-Image /RestoreHealth
+</code></pre></div>
+<p>続いて</p>
+<div class="highlight"><pre><span></span><code>sfc /scannow
+</code></pre></div>
+<p>を実行する。</p>
+<h2 id="_7">さらに削減したい場合<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>DISM /Online /Cleanup-Image /StartComponentCleanup /ResetBase
+</code></pre></div>
+<p>効果：</p>
+<ul>
+<li>WinSxS をさらに削減</li>
+</ul>
+<p>注意点：</p>
+<ul>
+<li>過去の Windows Update をアンインストールできなくなる</li>
+</ul>
+<p>検証環境や長期運用 VM で利用されることがある。</p>
+<h2 id="_8">実運用での推奨手順<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>DISM /Online /Cleanup-Image /AnalyzeComponentStore
+
+DISM /Online /Cleanup-Image /RestoreHealth
+
+sfc /scannow
+
+DISM /Online /Cleanup-Image /StartComponentCleanup
+</code></pre></div>
+<p>最後に必要であれば、</p>
+<div class="highlight"><pre><span></span><code>cleanmgr /verylowdisk
+</code></pre></div>
+<p>を実行する。</p>
+<p>Azure VM では <code>cleanmgr.exe</code> よりも、まず <code>DISM</code> によるコンポーネントストア整理を実施する方が安定していることが多い。</p>
 
 
 
@@ -580,7 +759,7 @@ GUI で利用することが多いと思いますが、コマンドラインで�
       <nav class="md-footer__inner md-grid" aria-label="フッター" >
         
           
-          <a href="../../../04/15/easy_web_server/" class="md-footer__link md-footer__link--prev" aria-label="前: 簡易的に Web サーバを立ち上げる方法 (ローカル環境)">
+          <a href="../../../05/28/7-Zip-Commandline/" class="md-footer__link md-footer__link--prev" aria-label="前: 7-Zip をコマンドラインで使う">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -590,27 +769,11 @@ GUI で利用することが多いと思いますが、コマンドラインで�
                 前
               </span>
               <div class="md-ellipsis">
-                簡易的に Web サーバを立ち上げる方法 (ローカル環境)
+                7-Zip をコマンドラインで使う
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../../../09/10/windows-disk-cleanup/" class="md-footer__link md-footer__link--next" aria-label="次: Azure Windows 11 VM のディスククリーンアップについて">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                次
-              </span>
-              <div class="md-ellipsis">
-                Azure Windows 11 VM のディスククリーンアップについて
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
