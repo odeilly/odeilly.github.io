@@ -5,7 +5,7 @@ tags:
   - Windows
 categories:
   - Tips
-draft: false
+draft: true
 ---
 
 # Azure Windows 11 VM のディスククリーンアップについて
