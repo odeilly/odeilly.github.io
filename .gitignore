@@ -1,3 +1,12 @@
-site/
-venv/
-__pycache__/
+*
+
+!/.gitignore
+!/docs/
+!/docs/**
+!/mkdocs.yml
+!/*.md
+!/requirements.txt
+
+!/.vscode/
+!/.vscode/**
+!/.markdownlint.yaml
