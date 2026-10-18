@@ -5,7 +5,8 @@
 !/docs/**
 !/mkdocs.yml
 !/*.md
-!/requirements.txt
+!/pyproject.toml
+!/uv.lock
 
 !/.vscode/
 !/.vscode/**

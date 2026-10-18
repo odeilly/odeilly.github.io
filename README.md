@@ -2,26 +2,26 @@
 
 ## パッケージインストール
 
-### Linux / Mac など
+まず [uv](https://docs.astral.sh/uv/getting-started/installation/) をインストールします。
+その後、リポジトリのルートで次を実行します。
 
 ```sh
-python3 -m venv venv
-source venv/bin/activate
-pip3 install -r requirements.txt
+uv sync
 ```
 
-### Windows
+`.venv` が作成され、`uv.lock` に記載されたパッケージがインストールされます。
+
+## MkDocs の実行
 
 ```sh
-python3 -m venv venv
-venv\Scripts\activate
-pip3 install -r requirements.txt
+uv run mkdocs serve
+uv run mkdocs build
 ```
 
-## インストール済みパッケージを requirements.txt に保存
+## パッケージの追加
 
 ```sh
-pip3 freeze > requirements.txt
+uv add <パッケージ名>
 ```
 
 ## 参考
