@@ -1,6 +1,8 @@
 ---
 slug: mkdocs-tips
-date: 2026-10-14
+date:
+  created: 2026-10-14
+  updated: 2026-10-19
 tags:
   - MkDocs
 categories:
@@ -45,4 +47,95 @@ mkdocs serve -a localhost:9000
 
 ```shell
 mkdocs serve --dirtyreload
+```
+
+## Material for MkDocs アイコンの使い方
+
+### 利用可能なアイコンセット
+
+Material for MkDocs には以下のアイコンセットが標準で含まれている。
+
+- Material Design Icons (`material-`)
+- Font Awesome (`fontawesome-`)
+- Octicons (`octicons-`)
+- Simple Icons (`simple-`)
+
+### アイコン検索
+
+公式のアイコン検索ページで利用可能なアイコンを確認できる。
+
+<https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/>
+
+キーワードを入力するとショートコードを検索できる。
+
+例:
+
+```markdown
+:material-home:
+:material-account:
+:octicons-book-24:
+:fontawesome-solid-house:
+```
+
+### アイコン名のルール
+
+SVG ファイル:
+
+```text
+.icons/material/account-circle.svg
+```
+
+↓
+
+Markdown:
+
+```markdown
+:material-account-circle:
+```
+
+スラッシュ (`/`) をハイフン (`-`) に置き換える。
+
+### Octicons の注意点
+
+Octicons は Material Design Icons とアイコン名が異なる。
+
+例えば以下は利用できる。
+
+```markdown
+:octicons-check-24:
+:octicons-check-circle-24:
+:octicons-checklist-24:
+:octicons-book-24:
+:octicons-code-24:
+```
+
+以下は存在しない可能性がある。
+
+```markdown
+:octicons-checkbox-fill-24:
+```
+
+アイコンが存在しない場合は、
+
+- アイコンが表示されない
+- ショートコードがそのまま表示される
+
+などの現象が発生する。
+
+### mkdocs.yml での利用
+
+ロゴに Material Design Icon を使用する例:
+
+```yaml
+theme:
+  icon:
+    logo: material/school
+```
+
+ロゴに Octicons を使用する例:
+
+```yaml
+theme:
+  icon:
+    logo: octicons/mortar-board-24
 ```
