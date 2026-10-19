@@ -6,7 +6,7 @@
 その後、リポジトリのルートで次を実行します。
 
 ```sh
-uv sync
+uv sync --locked
 ```
 
 `.venv` が作成され、`uv.lock` に記載されたパッケージがインストールされます。
@@ -14,9 +14,9 @@ uv sync
 ## MkDocs の実行
 
 ```sh
-uv run mkdocs serve
-uv run mkdocs build
-uv run mkdocs gh-deploy
+uv run --locked mkdocs serve
+uv run --locked mkdocs build
+uv run --locked mkdocs gh-deploy
 ```
 
 ## パッケージの追加
