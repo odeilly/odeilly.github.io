@@ -352,54 +352,12 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="対処方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-vs-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. VS Code を完全に終了する
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. キャッシュを削除する
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-vs-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. VS Code を再起動する
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      補足
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      今回の結果
+      まとめ
     </span>
   </a>
   
@@ -511,29 +469,20 @@
 <h2 id="_1">発生したエラー<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><code>Error loading webview provided by 'shd101wyy.markdown-preview-enhanced': Error: Could not register service worker: InvalidStateError: Failed to register a ServiceWorker: The document is in an invalid state.</code></p>
 <h2 id="_2">原因<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>VS Code の <strong>Webview / Service Worker のキャッシュ破損</strong> が原因の可能性が高いです。
-Markdown Preview Enhanced の不具合というより、VS Code 側の状態異常で発生します。</p>
+<p>原因は <strong>VS Code の Webview / Service Worker のキャッシュ破損</strong> でした。
+拡張機能そのものの問題というより、VS Code 側のキャッシュ状態が壊れていたようです。</p>
 <h2 id="_3">対処方法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="1-vs-code">1. VS Code を完全に終了する<a class="headerlink" href="#1-vs-code" title="Permanent link">&para;</a></h3>
-<p>ウィンドウを閉じるだけでなく、バックグラウンドの <code>Code</code> プロセスも終了します。</p>
-<h3 id="2">2. キャッシュを削除する<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>Windows では以下のフォルダの中身を削除します。</p>
+<p>Windows では、VS Code を完全に終了したうえで、以下のキャッシュを削除しました。</p>
 <ul>
 <li><code>%APPDATA%\Code\Service Worker</code></li>
 <li><code>%APPDATA%\Code\Cache</code></li>
 <li><code>%APPDATA%\Code\CachedData</code></li>
 <li><code>%APPDATA%\Code\Code Cache</code></li>
 </ul>
-<p>※ フォルダごと削除しても、VS Code が自動で再作成します。</p>
-<h3 id="3-vs-code">3. VS Code を再起動する<a class="headerlink" href="#3-vs-code" title="Permanent link">&para;</a></h3>
-<p>再度 VS Code を起動し、Markdown Preview Enhanced を開きます。</p>
-<h2 id="_4">補足<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ul>
-<li><code>Developer: Reload Window</code> でも直る場合があります。</li>
-<li>再発する場合は、VS Code の更新や拡張機能の競合も確認するとよいです。</li>
-</ul>
-<h2 id="_5">今回の結果<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p><strong>Webview / キャッシュの削除で解消した。</strong></p>
+<p>その後、VS Code を再起動したところ、エラーは解消しました。</p>
+<h2 id="_4">まとめ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>今回のケースでは、<strong>Webview / キャッシュの削除で解決</strong>できました。
+同じようなエラーが出た場合は、まず VS Code のキャッシュを疑ってみるとよさそうです。</p>
 
 
 
