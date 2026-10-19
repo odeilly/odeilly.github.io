@@ -362,6 +362,66 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#material-for-mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Material for MkDocs アイコンの使い方
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Material for MkDocs アイコンの使い方">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      利用可能なアイコンセット
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      アイコン検索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      アイコン名のルール
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octicons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Octicons の注意点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdocsyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      mkdocs.yml での利用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -402,6 +462,13 @@
                         <time datetime="2026-10-14 00:00:00+00:00" class="md-ellipsis">2026年10月14日 (水)</time>
                       </div>
                     </li>
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 13h1.5v2.82l2.44 1.41-.75 1.3L15 16.69zm4-5H5v11h4.67c-.43-.91-.67-1.93-.67-3a7 7 0 0 1 7-7c1.07 0 2.09.24 3 .67zM5 21a2 2 0 0 1-2-2V5c0-1.11.89-2 2-2h1V1h2v2h8V1h2v2h1a2 2 0 0 1 2 2v6.1c1.24 1.26 2 2.99 2 4.9a7 7 0 0 1-7 7c-1.91 0-3.64-.76-4.9-2zm11-9.85A4.85 4.85 0 0 0 11.15 16c0 2.68 2.17 4.85 4.85 4.85A4.85 4.85 0 0 0 20.85 16c0-2.68-2.17-4.85-4.85-4.85"/></svg>
+                          <time datetime="2026-10-19 00:00:00+00:00" class="md-ellipsis">2026年10月19日 (月)</time>
+                        </div>
+                      </li>
                     
                     
                       <li class="md-nav__item">
@@ -477,6 +544,63 @@
 リアルタイムで更新されるページが変更があったページのみになります。
 リロードの時間短くなるので、ページ数の多いドキュメントを作成する場合に有用です。</p>
 <div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>serve<span class="w"> </span>--dirtyreload
+</code></pre></div>
+<h2 id="material-for-mkdocs">Material for MkDocs アイコンの使い方<a class="headerlink" href="#material-for-mkdocs" title="Permanent link">&para;</a></h2>
+<h3 id="_2">利用可能なアイコンセット<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>Material for MkDocs には以下のアイコンセットが標準で含まれている。</p>
+<ul>
+<li>Material Design Icons (<code>material-</code>)</li>
+<li>Font Awesome (<code>fontawesome-</code>)</li>
+<li>Octicons (<code>octicons-</code>)</li>
+<li>Simple Icons (<code>simple-</code>)</li>
+</ul>
+<h3 id="_3">アイコン検索<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>公式のアイコン検索ページで利用可能なアイコンを確認できる。</p>
+<p><a href="https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/">https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/</a></p>
+<p>キーワードを入力するとショートコードを検索できる。</p>
+<p>例:</p>
+<div class="highlight"><pre><span></span><code>:material-home:
+:material-account:
+:octicons-book-24:
+:fontawesome-solid-house:
+</code></pre></div>
+<h3 id="_4">アイコン名のルール<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>SVG ファイル:</p>
+<div class="highlight"><pre><span></span><code>.icons/material/account-circle.svg
+</code></pre></div>
+<p>↓</p>
+<p>Markdown:</p>
+<div class="highlight"><pre><span></span><code>:material-account-circle:
+</code></pre></div>
+<p>スラッシュ (<code>/</code>) をハイフン (<code>-</code>) に置き換える。</p>
+<h3 id="octicons">Octicons の注意点<a class="headerlink" href="#octicons" title="Permanent link">&para;</a></h3>
+<p>Octicons は Material Design Icons とアイコン名が異なる。</p>
+<p>例えば以下は利用できる。</p>
+<div class="highlight"><pre><span></span><code>:octicons-check-24:
+:octicons-check-circle-24:
+:octicons-checklist-24:
+:octicons-book-24:
+:octicons-code-24:
+</code></pre></div>
+<p>以下は存在しない可能性がある。</p>
+<div class="highlight"><pre><span></span><code>:octicons-checkbox-fill-24:
+</code></pre></div>
+<p>アイコンが存在しない場合は、</p>
+<ul>
+<li>アイコンが表示されない</li>
+<li>ショートコードがそのまま表示される</li>
+</ul>
+<p>などの現象が発生する。</p>
+<h3 id="mkdocsyml">mkdocs.yml での利用<a class="headerlink" href="#mkdocsyml" title="Permanent link">&para;</a></h3>
+<p>ロゴに Material Design Icon を使用する例:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">theme</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">icon</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">logo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">material/school</span>
+</code></pre></div>
+<p>ロゴに Octicons を使用する例:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">theme</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">icon</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">logo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">octicons/mortar-board-24</span>
 </code></pre></div>
 
 
