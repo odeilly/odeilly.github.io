@@ -69,10 +69,10 @@ plugins:
   - macros
 
 extra_javascript:
-  - js/add-noreferrer.js
+  - _extra/javascript/add-noreferrer.js
 
 extra_css:
-  - stylesheets/extra.css
+  - _extra/css/extra.css
 
 nav:
   - Home: index.md
