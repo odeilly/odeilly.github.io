@@ -2,7 +2,7 @@
 slug: mkdocs-tips
 date:
   created: 2026-10-14
-  updated: 2026-10-19
+  updated: 2026-10-29
 tags:
   - MkDocs
 categories:
@@ -39,14 +39,14 @@ mkdocs serve -h
 mkdocs serve -a localhost:9000
 ```
 
-### dirtyreload
+### dirty
 
-`--dirtyreload` オプションで起動すると、
+`--dirty` オプションで起動すると、
 リアルタイムで更新されるページが変更があったページのみになります。
 リロードの時間短くなるので、ページ数の多いドキュメントを作成する場合に有用です。
 
 ```shell
-mkdocs serve --dirtyreload
+mkdocs serve --dirty
 ```
 
 ## Material for MkDocs アイコンの使い方
