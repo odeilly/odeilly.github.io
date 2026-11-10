@@ -67,13 +67,13 @@ Windows 11 以降では `wmic` コマンドが非推奨になっています。
 ### コマンド一覧
 
 | 項目 | クラス / プロパティ | コマンド例 | 出力例 |
-|--------------|-------------------------------------|----------------------------------------------------------------------------|--------------------------------|
+| -------------- | ------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------- |
 | シリアル番号 | `Win32_BIOS.SerialNumber` | `(Get-CimInstance Win32_BIOS).SerialNumber` | `ABC1234XYZ` |
 | 製品名（モデル名） | `Win32_ComputerSystem.Model` | `(Get-CimInstance Win32_ComputerSystem).Model` | `ThinkPad X1 Carbon Gen 10` |
-| メーカー名| `Win32_ComputerSystem.Manufacturer` | `(Get-CimInstance Win32_ComputerSystem).Manufacturer` | `LENOVO` |
+| メーカー名 | `Win32_ComputerSystem.Manufacturer` | `(Get-CimInstance Win32_ComputerSystem).Manufacturer` | `LENOVO` |
 | OS 名 | `Win32_OperatingSystem.Caption` | `(Get-CimInstance Win32_OperatingSystem).Caption` | `Microsoft Windows 11 Pro` |
 | OS バージョン | `Win32_OperatingSystem.Version` | `(Get-CimInstance Win32_OperatingSystem).Version` | `10.0.22631` |
-| CPU 名 | `Win32_Processor.Name` | `(Get-CimInstance Win32_Processor).Name` | `Intel(R) Core(TM) i7-1360P`|
-| メモリ容量| `Win32_ComputerSystem.TotalPhysicalMemory` | `"{0:N0} GB" -f ((Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB)` | `32 GB`|
+| CPU 名 | `Win32_Processor.Name` | `(Get-CimInstance Win32_Processor).Name` | `Intel(R) Core(TM) i7-1360P` |
+| メモリ容量 | `Win32_ComputerSystem.TotalPhysicalMemory` | `"{0:N0} GB" -f ((Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB)` | `32 GB` |
 | ディスク容量（C: ドライブ） | `Win32_LogicalDisk.Size` / `FreeSpace` | `Get-CimInstance Win32_LogicalDisk -Filter "DeviceID='C:'" | Select-Object @{Name='Size(GB)';Expression={[math]::Round($_.Size/1GB,0)}}, @{Name='Free(GB)';Expression={[math]::Round($_.FreeSpace/1GB,0)}}` | `Size(GB): 512`<br>`Free(GB): 320` |
 | コンピュータ名 | `Win32_ComputerSystem.Name` | `(Get-CimInstance Win32_ComputerSystem).Name` | `MY_PC_001` |
