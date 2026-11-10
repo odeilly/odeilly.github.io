@@ -63,7 +63,7 @@ Google Chrome は、コマンドラインオプション `--user-data-dir` を�
 ## 補足オプション
 
 | オプション | 説明 |
-|-------------|------|
+| ------------- | ------ |
 | `--profile-directory="Profile 2"` | Chrome の「User Data」フォルダ内のサブフォルダを指定できます。例：<br>`--user-data-dir="C:\Users\<ユーザー>\AppData\Local\Google\Chrome\User Data" --profile-directory="Profile 2"` |
 | `--no-first-run` | 初回起動時のウェルカム画面をスキップします。 |
 | `--incognito` | 常にシークレットモードで起動します。 |
