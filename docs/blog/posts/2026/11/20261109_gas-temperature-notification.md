@@ -8,7 +8,7 @@ categories:
 tags:
   - GAS
   - JavaScript
-draft: true
+draft: false
 ---
 
 # GASで毎日の気温をGmailに通知する
