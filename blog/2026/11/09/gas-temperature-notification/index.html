@@ -1,0 +1,1462 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://odeilly.github.io/blog/2026/11/09/gas-temperature-notification/">
+      
+      
+        <link rel="prev" href="../../../10/28/uv-selectolax-error/">
+      
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>GASで毎日の気温をGmailに通知する - ODEILLY NOTE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans JP";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../_extra/css/extra.css">
+    
+      <link rel="stylesheet" href="../../../../../css/open_in_new_tab.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gasgmail" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../../../../.." title="ODEILLY NOTE" class="md-header__button md-logo" aria-label="ODEILLY NOTE" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ODEILLY NOTE
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GASで毎日の気温をGmailに通知する
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="ダークモード"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="ダークモード" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="ライトモード"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="ライトモード" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="ODEILLY NOTE" class="md-nav__button md-logo" aria-label="ODEILLY NOTE" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ODEILLY NOTE
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tags
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. はじめに
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 開発環境と構成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 気象庁のデータを取得する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 気象庁のデータを取得する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 データ取得先
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 観測地点について
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-gas" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. GASで実装する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. GASで実装する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 プロジェクトの作成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 気象庁のHTMLを取得する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 HTMLを解析する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 直近7日分を取得する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-gmail" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Gmailで通知する
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 定期実行の設定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 動作確認
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 今後の改善
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 参考資料
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. プログラム全体
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. プログラム全体">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      設定箇所
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      実行する関数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. おわりに
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    ブログトップへ戻る
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    メタデータ
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-11-09 00:00:00+00:00" class="md-ellipsis">2026年11月9日 (月)</time>
+                      </div>
+                    </li>
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 13h1.5v2.82l2.44 1.41-.75 1.3L15 16.69zm4-5H5v11h4.67c-.43-.91-.67-1.93-.67-3a7 7 0 0 1 7-7c1.07 0 2.09.24 3 .67zM5 21a2 2 0 0 1-2-2V5c0-1.11.89-2 2-2h1V1h2v2h8V1h2v2h1a2 2 0 0 1 2 2v6.1c1.24 1.26 2 2.99 2 4.9a7 7 0 0 1-7 7c-1.91 0-3.64-.76-4.9-2zm11-9.85A4.85 4.85 0 0 0 11.15 16c0 2.68 2.17 4.85 4.85 4.85A4.85 4.85 0 0 0 20.85 16c0-2.68-2.17-4.85-4.85-4.85"/></svg>
+                          <time datetime="2026-11-09 00:00:00+00:00" class="md-ellipsis">2026年11月9日 (月)</time>
+                        </div>
+                      </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/tips/">Tips</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              このページは約5分で読めます
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <a href="../../../../../tags/#tag:gas" class="md-tag">GAS</a>
+      
+    
+      
+      
+      
+        <a href="../../../../../tags/#tag:javascript" class="md-tag">JavaScript</a>
+      
+    
+  </nav>
+
+
+
+<h1 id="gasgmail">GASで毎日の気温をGmailに通知する<a class="headerlink" href="#gasgmail" title="Permanent link">&para;</a></h1>
+<p>Google Apps Script（GAS）を使って、気象庁のさいたま市の日最高気温・日最低気温を自動取得する仕組みを作りました。
+直近7日分の気温をまとめ、毎朝Gmailで通知することで、手帳への気温記録を効率化します。</p>
+<!-- more -->
+
+<h2 id="1">1. はじめに<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>毎日の気温を手帳に記録している。</p>
+<p>これまでは、気象庁のWebサイトで最高気温と最低気温を確認してから手帳に書き写していたが、毎日の作業なので自動化したいと考えた。</p>
+<p>そこで、Google Apps Script（GAS）を使って、気象庁の過去の気象データを取得し、Gmailで通知する仕組みを作ることにした。</p>
+<p>今回の目的は次のとおり。</p>
+<ul>
+<li>気象庁からさいたま市の気温を取得する</li>
+<li>最高気温と最低気温を取得する</li>
+<li>直近7日分のデータをまとめる</li>
+<li>毎朝、自動的にGmailで通知する</li>
+</ul>
+<h2 id="2">2. 開発環境と構成<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>今回使用するサービスは次のとおり。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>使用するもの</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>開発言語</td>
+<td>JavaScript</td>
+</tr>
+<tr>
+<td>実行環境</td>
+<td>Google Apps Script</td>
+</tr>
+<tr>
+<td>気象データ</td>
+<td>気象庁</td>
+</tr>
+<tr>
+<td>メール通知</td>
+<td>Gmail</td>
+</tr>
+<tr>
+<td>定期実行</td>
+<td>GASの時間主導型トリガー</td>
+</tr>
+</tbody>
+</table>
+<p>GASを採用した理由は、サーバを用意する必要がなく、Googleのクラウド上で定期実行できるためである。</p>
+<p>Pythonで実装する方法も考えたが、今回のような小規模な処理であればGASのほうが手軽に運用できる。</p>
+<p>また、当初はLINEへの通知も考えたが、LINE Messaging APIを利用するにはLINE公式アカウントの準備が必要になるため、今回はGmailを採用した。</p>
+<h2 id="3">3. 気象庁のデータを取得する<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 データ取得先<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>気象庁の「過去の気象データ検索」を利用する。</p>
+<p><a href="https://www.data.jma.go.jp/stats/etrn/">気象庁：過去の気象データ検索</a></p>
+<p>例えば、埼玉県の2026年11月の最高気温は、次のURLで確認できる。</p>
+<p><a href="https://www.data.jma.go.jp/stats/etrn/view/daily_h1.php?prec_no=43&amp;block_no=00&amp;year=2026&amp;month=11&amp;day=&amp;view=p3">https://www.data.jma.go.jp/stats/etrn/view/daily_h1.php?prec_no=43&amp;block_no=00&amp;year=2026&amp;month=11&amp;day=&amp;view=p3</a></p>
+<p>URLのパラメータは次のとおり。</p>
+<table>
+<thead>
+<tr>
+<th>パラメータ</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prec_no</td>
+<td>地域番号（埼玉県：43）</td>
+</tr>
+<tr>
+<td>block_no</td>
+<td>観測地点の指定（00：県内の地点一覧）</td>
+</tr>
+<tr>
+<td>year</td>
+<td>年</td>
+</tr>
+<tr>
+<td>month</td>
+<td>月</td>
+</tr>
+<tr>
+<td>day</td>
+<td>日</td>
+</tr>
+<tr>
+<td>view</td>
+<td>表示する観測項目</td>
+</tr>
+</tbody>
+</table>
+<p><code>view</code> の値によって、取得する気温を切り替える。</p>
+<ul>
+<li><code>p3</code>：日最高気温</li>
+<li><code>p4</code>：日最低気温</li>
+</ul>
+<p>このページには埼玉県内の複数の観測地点が掲載されているため、その中から「さいたま」の列を抽出する。</p>
+<h3 id="32">3.2 観測地点について<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>当初は別の場所の気温を取得したかった。
+しかし、気象庁の過去の気象データ検索にはその場所の観測地点が見当たらなかった。
+埼玉県の大気環境測定局についても調べたが、近隣の測定局では気温データを取得できる地点が限られていた。
+今回は、継続して記録するデータの信頼性を優先し、気象庁のさいたま観測所を利用することにした。</p>
+<h2 id="4-gas">4. GASで実装する<a class="headerlink" href="#4-gas" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 プロジェクトの作成<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p><a href="https://script.google.com/">Google Apps Script</a> にアクセスし、新しいプロジェクトを作成する。</p>
+<p>プロジェクト名は <code>SaitamaTemperature</code> とした。</p>
+<p>今回は、プログラムを <code>コード.gs</code> にまとめて実装する。</p>
+<h3 id="42-html">4.2 気象庁のHTMLを取得する<a class="headerlink" href="#42-html" title="Permanent link">&para;</a></h3>
+<p>GASでは <code>UrlFetchApp</code> を利用すると、HTTPリクエストによって外部のWebページを取得できる。</p>
+<p>最高気温と最低気温のページをそれぞれ取得する。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="s1">&#39;prec_no=43&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="s1">&#39;block_no=00&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="s1">&#39;year=&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">year</span><span class="p">,</span>
+<span class="w">  </span><span class="s1">&#39;month=&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">month</span><span class="p">,</span>
+<span class="w">  </span><span class="s1">&#39;day=&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="s1">&#39;view=&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">view</span>
+<span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&amp;&#39;</span><span class="p">);</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span>
+<span class="w">  </span><span class="s1">&#39;https://www.data.jma.go.jp/stats/etrn/view/daily_h1.php?&#39;</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">params</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">UrlFetchApp</span><span class="p">.</span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">html</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">getContentText</span><span class="p">(</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>取得したHTMLから、日付と「さいたま」の列を抽出する。</p>
+<h3 id="43-html">4.3 HTMLを解析する<a class="headerlink" href="#43-html" title="Permanent link">&para;</a></h3>
+<p>取得したHTMLには、埼玉県内の各観測地点のデータが表形式で含まれている。</p>
+<p>そのため、次の手順で必要な値を抽出する。</p>
+<ol>
+<li>HTMLからテーブルの行を取得する。</li>
+<li>各行からセルの内容を取得する。</li>
+<li>見出し行から「さいたま」の列番号を特定する。</li>
+<li>日付の行から最高気温または最低気温を取得する。</li>
+</ol>
+<p>最高気温と最低気温は、同じ処理を利用して取得する。</p>
+<h3 id="44-7">4.4 直近7日分を取得する<a class="headerlink" href="#44-7" title="Permanent link">&para;</a></h3>
+<p>毎朝の実行時に、現在の日付を基準として直近7日分の日付を作成する。</p>
+<p>月をまたぐ場合もあるため、対象となる年月を調べて、それぞれの月のデータを取得する。</p>
+<p>例えば、月初に実行した場合は前月と当月の2つのページが必要になる。</p>
+<p>今回の実装では、今日を含む7日分を取得対象としている。</p>
+<p>まだ気象庁のデータが発表されていない日については、未発表として扱う。</p>
+<h3 id="45-gmail">4.5 Gmailで通知する<a class="headerlink" href="#45-gmail" title="Permanent link">&para;</a></h3>
+<p>メールの送信にはGAS標準の <code>MailApp.sendEmail()</code> を利用する。</p>
+<p>メールには、次の情報を掲載する。</p>
+<ul>
+<li>観測地点</li>
+<li>日付</li>
+<li>日最高気温</li>
+<li>日最低気温</li>
+<li>気象庁のデータページへのリンク</li>
+</ul>
+<p>HTML形式のメールも作成し、最高気温と最低気温を色分けして表示する。</p>
+<h2 id="5">5. 定期実行の設定<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>GASの時間主導型トリガーを利用する。</p>
+<p>今回の設定は次のとおり。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>設定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>実行する関数</td>
+<td><code>sendWeeklyTemperatureReport</code></td>
+</tr>
+<tr>
+<td>実行頻度</td>
+<td>毎日</td>
+</tr>
+<tr>
+<td>実行時間帯</td>
+<td>午前8時台</td>
+</tr>
+<tr>
+<td>タイムゾーン</td>
+<td>Asia/Tokyo</td>
+</tr>
+</tbody>
+</table>
+<p>トリガーは次の関数で登録する。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">createDailyTrigger</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">ScriptApp</span><span class="p">.</span><span class="nx">getProjectTriggers</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">trigger</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span>
+<span class="w">      </span><span class="nx">trigger</span><span class="p">.</span><span class="nx">getHandlerFunction</span><span class="p">()</span><span class="w"> </span><span class="o">===</span>
+<span class="w">      </span><span class="s1">&#39;sendWeeklyTemperatureReport&#39;</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">ScriptApp</span><span class="p">.</span><span class="nx">deleteTrigger</span><span class="p">(</span><span class="nx">trigger</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">ScriptApp</span><span class="p">.</span><span class="nx">newTrigger</span><span class="p">(</span><span class="s1">&#39;sendWeeklyTemperatureReport&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">timeBased</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">everyDays</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">atHour</span><span class="p">(</span><span class="mf">8</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">inTimezone</span><span class="p">(</span><span class="s1">&#39;Asia/Tokyo&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>この関数を一度実行すれば、毎日の自動実行が登録される。</p>
+<p>なお、GASの時間主導型トリガーは8時ちょうどではなく、8時台のいずれかの時刻に実行される。</p>
+<h2 id="6">6. 動作確認<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>動作確認は次の順番で行う。</p>
+<ol>
+<li><code>testFetch</code> を実行し、気象庁のデータを取得できることを確認する。</li>
+<li><code>sendWeeklyTemperatureReport</code> を実行し、メールが届くことを確認する。</li>
+<li><code>createDailyTrigger</code> を実行し、定期実行を登録する。</li>
+<li>翌日の自動実行でメールが届くことを確認する。</li>
+</ol>
+<p>エラーが発生した場合は、GASの実行数から実行履歴とエラー内容を確認する。</p>
+<h2 id="7">7. 今後の改善<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p>今回の仕組みは、手帳への気温記録を簡単にすることを目的としている。</p>
+<p>今後は、次のような機能も追加したい。</p>
+<ul>
+<li>Googleスプレッドシートへの気温データの蓄積</li>
+<li>月別・年別の最高気温と最低気温の集計</li>
+<li>気温の推移をグラフで表示</li>
+<li>取得失敗時の通知機能の改善</li>
+</ul>
+<p>毎日手作業で確認していた気温を自動的に取得できれば、手帳への記録も続けやすくなる。</p>
+<h2 id="8">8. 参考資料<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.data.jma.go.jp/stats/etrn/">気象庁：過去の気象データ検索</a></li>
+<li><a href="https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app">Google Apps Script：UrlFetchApp</a></li>
+<li><a href="https://developers.google.com/apps-script/reference/mail/mail-app">Google Apps Script：MailApp</a></li>
+<li><a href="https://developers.google.com/apps-script/guides/triggers/installable">Google Apps Script：インストール可能なトリガー</a></li>
+</ul>
+<h2 id="9">9. プログラム全体<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<p>今回作成したGASのプログラム全体を以下に示す。</p>
+<p><code>コード.gs</code> に次のコードを記述する。</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * さいたま市 気温通知プログラム</span>
+<span class="cm"> *</span>
+<span class="cm"> * 気象庁の過去の気象データから</span>
+<span class="cm"> * 直近7日間の最高気温・最低気温を取得し、</span>
+<span class="cm"> * Gmailで通知する。</span>
+<span class="cm"> */</span>
+
+<span class="c1">// ========================================</span>
+<span class="c1">// 設定</span>
+<span class="c1">// ========================================</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">CONFIG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// メール送信先</span>
+<span class="w">  </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;your-address@gmail.com&#39;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="c1">// 観測地点</span>
+<span class="w">  </span><span class="nx">station</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;さいたま&#39;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="c1">// 気象庁の観測データ</span>
+<span class="w">  </span><span class="nx">baseUrl</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://www.data.jma.go.jp/stats/etrn/view/daily_h1.php&#39;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="c1">// 埼玉県・さいたま</span>
+<span class="w">  </span><span class="nx">precNo</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;43&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">blockNo</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;00&#39;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="c1">// タイムゾーン</span>
+<span class="w">  </span><span class="nx">timeZone</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Asia/Tokyo&#39;</span><span class="p">,</span>
+
+<span class="w">  </span><span class="c1">// 取得日数（今日を含む）</span>
+<span class="w">  </span><span class="nx">days</span><span class="o">:</span><span class="w"> </span><span class="mf">7</span>
+<span class="p">};</span>
+
+
+<span class="c1">// ========================================</span>
+<span class="c1">// メイン処理</span>
+<span class="c1">// ========================================</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">sendWeeklyTemperatureReport</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">records</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getWeeklyTemperatures</span><span class="p">();</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">subject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSubject</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createMailBody</span><span class="p">(</span><span class="nx">records</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">htmlBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createHtmlBody</span><span class="p">(</span><span class="nx">records</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nx">MailApp</span><span class="p">.</span><span class="nx">sendEmail</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="nx">CONFIG</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">subject</span><span class="o">:</span><span class="w"> </span><span class="nx">subject</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nx">body</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">htmlBody</span><span class="o">:</span><span class="w"> </span><span class="nx">htmlBody</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;さいたま市 気温通知&#39;</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;メールを送信しました。&#39;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nx">MailApp</span><span class="p">.</span><span class="nx">sendEmail</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="nx">CONFIG</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">subject</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;[エラー] さいたま市 気温通知&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;気温データの取得またはメール送信に失敗しました。\n\n&#39;</span>
+<span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="nx">error</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="c1">// ========================================</span>
+<span class="c1">// 直近7日間のデータ取得</span>
+<span class="c1">// ========================================</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">getWeeklyTemperatures</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">dates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getLast7Dates</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// 必要な年月を取得（月またぎに対応）</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">months</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[...</span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">dates</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">date</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">date</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">))</span>
+<span class="w">  </span><span class="p">)];</span>
+
+<span class="w">  </span><span class="c1">// 月ごとのデータを取得</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">monthlyData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fetchMonthlyData</span><span class="p">(</span><span class="nx">months</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// 日付ごとに最高気温・最低気温をまとめる</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">dates</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">date</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">yearMonth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">date</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Number</span><span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">));</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">monthlyData</span><span class="p">[</span><span class="nx">yearMonth</span><span class="p">];</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="nx">date</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">max</span><span class="o">:</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">max</span><span class="p">[</span><span class="nx">day</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">min</span><span class="o">:</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">min</span><span class="p">[</span><span class="nx">day</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">}</span>
+
+
+<span class="c1">// ========================================</span>
+<span class="c1">// 直近7日間の日付を作成</span>
+<span class="c1">// ========================================</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">getLast7Dates</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">today</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Utilities</span><span class="p">.</span><span class="nx">formatDate</span><span class="p">(</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">    </span><span class="nx">CONFIG</span><span class="p">.</span><span class="nx">timeZone</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;yyyy-MM-dd&#39;</span>
+<span class="w">  </span><span class="p">);</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">year</span><span class="p">,</span><span class="w"> </span><span class="nx">month</span><span class="p">,</span><span class="w"> </span><span class="nx">day</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">today</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nb">Number</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">baseDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">Date</span><span class="p">.</span><span class="nx">UTC</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span><span class="w"> </span><span class="nx">month</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">day</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">dates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">CONFIG</span><span class="p">.</span><span class="nx">days</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="nx">baseDate</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nx">date</span><span class="p">.</span><span class="nx">setUTCDate</span><span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">getUTCDate</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nx">dates</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
+<span class="w">      </span><span class="nx">Utilities</span><span class="p">.</span><span class="nx">formatDate</span><span class="p">(</span>
+<span class="w">        </span><span class="nx">date</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;GMT&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;yyyy-MM-dd&#39;</span>
+<span class="w">      </span><span class="p">)</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">dates</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">// ========================================</span>
+<span class="c1">// 月ごとの気象庁データ取得</span>
+<span class="c1">// ========================================</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">fetchMonthlyData</span><span class="p">(</span><span class="nx">months</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">requests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+
+<span class="w">  </span><span class="nx">months</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">yearMonth</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">year</span><span class="p">,</span><span class="w"> </span><span class="nx">month</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">yearMonth</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// p3: 最高気温</span>
+<span class="w">    </span><span class="c1">// p4: 最低気温</span>
+<span class="w">    </span><span class="p">[</span><span class="s1">&#39;p3&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;p4&#39;</span><span class="p">].</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">view</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s1">&#39;prec_no=&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">CONFIG</span><span class="p">.</span><span class="nx">precNo</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;block_no=&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">CONFIG</span><span class="p">.</span><span class="nx">blockNo</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;year=&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">year</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;month=&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Number</span><span class="p">(</span><span class="nx">month</span><span class="p">),</span>
+<span class="w">        </span><span class="s1">&#39;day=&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;view=&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">view</span>
+<span class="w">      </span><span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&amp;&#39;</span><span class="p">);</span>
+
+<span class="w">      </span><span class="nx">requests</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">        </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nx">CONFIG</span><span class="p">.</span><span class="nx">baseUrl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;?&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">params</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">muteHttpExceptions</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">      </span><span class="p">});</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">responses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">UrlFetchApp</span><span class="p">.</span><span class="nx">fetchAll</span><span class="p">(</span><span class="nx">requests</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nx">months</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">yearMonth</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">result</span><span class="p">[</span><span class="nx">yearMonth</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">max</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">      </span><span class="nx">min</span><span class="o">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;min&#39;</span><span class="p">].</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">type</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">responses</span><span class="p">[</span><span class="nx">index</span><span class="o">++</span><span class="p">];</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">getResponseCode</span><span class="p">()</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="mf">200</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span>
+<span class="w">          </span><span class="nx">yearMonth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39; の &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">type</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39; データ取得に失敗しました。&#39;</span>
+<span class="w">        </span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">html</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">getContentText</span><span class="p">(</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">);</span>
+
+<span class="w">      </span><span class="nx">result</span><span class="p">[</span><span class="nx">yearMonth</span><span class="p">][</span><span class="nx">type</span><span class="p">]</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="nx">parseTemperatureTable</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">// ========================================</span>
+<span class="c1">// HTMLから気温データを抽出</span>
+<span class="c1">// ========================================</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">parseTemperatureTable</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">html</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/&lt;tr\b[^&gt;]*&gt;[\s\S]*?&lt;\/tr&gt;/gi</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">rows</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s1">&#39;気象庁の表が見つかりません。&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">parsedRows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">rows</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">row</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">row</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span>
+<span class="w">      </span><span class="sr">/&lt;t[dh]\b[^&gt;]*&gt;[\s\S]*?&lt;\/t[dh]&gt;/gi</span>
+<span class="w">    </span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">cells</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">cells</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">cell</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">normalizeCellText</span><span class="p">(</span><span class="nx">cell</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="c1">// 「さいたま」の列番号を探す</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">parsedRows</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">row</span><span class="w"> </span><span class="p">=&gt;</span>
+<span class="w">    </span><span class="nx">row</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">CONFIG</span><span class="p">.</span><span class="nx">station</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">header</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s1">&#39;さいたまの列が見つかりません。&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">stationIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">header</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">CONFIG</span><span class="p">.</span><span class="nx">station</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+
+<span class="w">  </span><span class="nx">parsedRows</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">row</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">row</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">stationIndex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 先頭セルが日付（1～31）ならデータ行</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="sr">/^\d{1,2}$/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">row</span><span class="p">[</span><span class="mf">0</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Number</span><span class="p">(</span><span class="nx">row</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span>
+
+<span class="w">      </span><span class="nx">result</span><span class="p">[</span><span class="nx">day</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">row</span><span class="p">[</span><span class="nx">stationIndex</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">// ========================================</span>
+<span class="c1">// HTMLセルの文字列を整形</span>
+<span class="c1">// ========================================</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">normalizeCellText</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">html</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&lt;[^&gt;]*&gt;/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;nbsp;/gi</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;#160;/gi</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;amp;/gi</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&amp;&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;lt;/gi</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;gt;/gi</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&gt;&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;quot;/gi</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;#39;/gi</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;#(\d+);/g</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">code</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span>
+<span class="w">      </span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="nb">Number</span><span class="p">(</span><span class="nx">code</span><span class="p">))</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;#x([0-9a-f]+);/gi</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">code</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span>
+<span class="w">      </span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">code</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">))</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\s+/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">trim</span><span class="p">();</span>
+<span class="p">}</span>
+
+
+<span class="c1">// ========================================</span>
+<span class="c1">// メール件名</span>
+<span class="c1">// ========================================</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">createSubject</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">today</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Utilities</span><span class="p">.</span><span class="nx">formatDate</span><span class="p">(</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(),</span>
+<span class="w">    </span><span class="nx">CONFIG</span><span class="p">.</span><span class="nx">timeZone</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;yyyy/MM/dd&#39;</span>
+<span class="w">  </span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;【気温記録】さいたま市 &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">today</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">// ========================================</span>
+<span class="c1">// メール本文（テキスト形式）</span>
+<span class="c1">// ========================================</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">createMailBody</span><span class="p">(</span><span class="nx">records</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;さいたま市の過去7日間の気温\n\n&#39;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nx">body</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">&#39;日付          最高気温    最低気温\n&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">body</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">&#39;--------------------------------\n&#39;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nx">records</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">record</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">formatDate</span><span class="p">(</span><span class="nx">record</span><span class="p">.</span><span class="nx">date</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nx">body</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">date</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;    &#39;</span>
+<span class="w">      </span><span class="o">+</span><span class="w"> </span><span class="nx">formatTemperature</span><span class="p">(</span><span class="nx">record</span><span class="p">.</span><span class="nx">max</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;    &#39;</span>
+<span class="w">      </span><span class="o">+</span><span class="w"> </span><span class="nx">formatTemperature</span><span class="p">(</span><span class="nx">record</span><span class="p">.</span><span class="nx">min</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">body</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">&#39;\n観測地点：さいたま市\n&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">body</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">&#39;出典：気象庁 過去の気象データ検索\n&#39;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">body</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">// ========================================</span>
+<span class="c1">// メール本文（HTML形式）</span>
+<span class="c1">// ========================================</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">createHtmlBody</span><span class="p">(</span><span class="nx">records</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nx">records</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">record</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">rows</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="sb">`</span>
+<span class="sb">      &lt;tr&gt;</span>
+<span class="sb">        &lt;td&gt;</span><span class="si">${</span><span class="nx">formatDate</span><span class="p">(</span><span class="nx">record</span><span class="p">.</span><span class="nx">date</span><span class="p">)</span><span class="si">}</span><span class="sb">&lt;/td&gt;</span>
+<span class="sb">        &lt;td class=&quot;max&quot;&gt;</span><span class="si">${</span><span class="nx">escapeHtml</span><span class="p">(</span>
+<span class="w">          </span><span class="nx">formatTemperature</span><span class="p">(</span><span class="nx">record</span><span class="p">.</span><span class="nx">max</span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span><span class="si">}</span><span class="sb">&lt;/td&gt;</span>
+<span class="sb">        &lt;td class=&quot;min&quot;&gt;</span><span class="si">${</span><span class="nx">escapeHtml</span><span class="p">(</span>
+<span class="w">          </span><span class="nx">formatTemperature</span><span class="p">(</span><span class="nx">record</span><span class="p">.</span><span class="nx">min</span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span><span class="si">}</span><span class="sb">&lt;/td&gt;</span>
+<span class="sb">      &lt;/tr&gt;</span>
+<span class="sb">    `</span><span class="p">;</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span>
+<span class="sb">    &lt;html&gt;</span>
+<span class="sb">    &lt;head&gt;</span>
+<span class="sb">      &lt;style&gt;</span>
+<span class="sb">        body {</span>
+<span class="sb">          font-family: sans-serif;</span>
+<span class="sb">          color: #333;</span>
+<span class="sb">        }</span>
+<span class="sb">        table {</span>
+<span class="sb">          border-collapse: collapse;</span>
+<span class="sb">          width: 100%;</span>
+<span class="sb">          max-width: 480px;</span>
+<span class="sb">        }</span>
+<span class="sb">        th, td {</span>
+<span class="sb">          border: 1px solid #ddd;</span>
+<span class="sb">          padding: 10px;</span>
+<span class="sb">          text-align: center;</span>
+<span class="sb">        }</span>
+<span class="sb">        th {</span>
+<span class="sb">          background: #f2f2f2;</span>
+<span class="sb">        }</span>
+<span class="sb">        .max {</span>
+<span class="sb">          color: #d35400;</span>
+<span class="sb">        }</span>
+<span class="sb">        .min {</span>
+<span class="sb">          color: #2874a6;</span>
+<span class="sb">        }</span>
+<span class="sb">      &lt;/style&gt;</span>
+<span class="sb">    &lt;/head&gt;</span>
+<span class="sb">    &lt;body&gt;</span>
+<span class="sb">      &lt;h2&gt;さいたま市・過去7日間の気温&lt;/h2&gt;</span>
+
+<span class="sb">      &lt;table&gt;</span>
+<span class="sb">        &lt;tr&gt;</span>
+<span class="sb">          &lt;th&gt;日付&lt;/th&gt;</span>
+<span class="sb">          &lt;th&gt;最高気温&lt;/th&gt;</span>
+<span class="sb">          &lt;th&gt;最低気温&lt;/th&gt;</span>
+<span class="sb">        &lt;/tr&gt;</span>
+<span class="sb">        </span><span class="si">${</span><span class="nx">rows</span><span class="si">}</span>
+<span class="sb">      &lt;/table&gt;</span>
+
+<span class="sb">      &lt;p&gt;観測地点：さいたま市&lt;/p&gt;</span>
+
+<span class="sb">      &lt;p&gt;</span>
+<span class="sb">        出典：</span>
+<span class="sb">        &lt;a href=&quot;https://www.data.jma.go.jp/stats/etrn/&quot;&gt;</span>
+<span class="sb">          気象庁 過去の気象データ検索</span>
+<span class="sb">        &lt;/a&gt;</span>
+<span class="sb">      &lt;/p&gt;</span>
+<span class="sb">    &lt;/body&gt;</span>
+<span class="sb">    &lt;/html&gt;</span>
+<span class="sb">  `</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">// ========================================</span>
+<span class="c1">// 表示用の補助関数</span>
+<span class="c1">// ========================================</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">formatTemperature</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;未発表&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;///&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;×&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;欠測&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;℃&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">formatDate</span><span class="p">(</span><span class="nx">dateString</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="nx">dateString</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;T00:00:00Z&#39;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">weekdays</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s1">&#39;日&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;月&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;火&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;水&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;木&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;金&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;土&#39;</span>
+<span class="w">  </span><span class="p">];</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">date</span><span class="p">.</span><span class="nx">getUTCMonth</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">date</span><span class="p">.</span><span class="nx">getUTCDate</span><span class="p">();</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">weekday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">weekdays</span><span class="p">[</span><span class="nx">date</span><span class="p">.</span><span class="nx">getUTCDay</span><span class="p">()];</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">month</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">day</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39; (&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">weekday</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;)&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">escapeHtml</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&amp;amp;&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&lt;/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&amp;lt;&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&gt;/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&amp;gt;&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&quot;/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&amp;quot;&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="c1">// ========================================</span>
+<span class="c1">// テスト用：データ取得だけ行う</span>
+<span class="c1">// ========================================</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">testFetch</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">records</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getWeeklyTemperatures</span><span class="p">();</span>
+
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">records</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">));</span>
+<span class="p">}</span>
+
+
+<span class="c1">// ========================================</span>
+<span class="c1">// 毎朝8時のトリガーを登録</span>
+<span class="c1">// ========================================</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">createDailyTrigger</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 既存の同じトリガーを削除</span>
+<span class="w">  </span><span class="nx">ScriptApp</span><span class="p">.</span><span class="nx">getProjectTriggers</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">trigger</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span>
+<span class="w">      </span><span class="nx">trigger</span><span class="p">.</span><span class="nx">getHandlerFunction</span><span class="p">()</span><span class="w"> </span><span class="o">===</span>
+<span class="w">      </span><span class="s1">&#39;sendWeeklyTemperatureReport&#39;</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">ScriptApp</span><span class="p">.</span><span class="nx">deleteTrigger</span><span class="p">(</span><span class="nx">trigger</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="c1">// 毎日8時台に実行</span>
+<span class="w">  </span><span class="nx">ScriptApp</span><span class="p">.</span><span class="nx">newTrigger</span><span class="p">(</span><span class="s1">&#39;sendWeeklyTemperatureReport&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">timeBased</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">everyDays</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">atHour</span><span class="p">(</span><span class="mf">8</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">inTimezone</span><span class="p">(</span><span class="nx">CONFIG</span><span class="p">.</span><span class="nx">timeZone</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;毎朝8時台のトリガーを登録しました。&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_1">設定箇所<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>プログラムを利用する際には、次の箇所を自分の環境に合わせて変更する。</p>
+<div class="highlight"><pre><span></span><code><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;your-address@gmail.com&#39;</span><span class="p">,</span>
+</code></pre></div>
+<p>メール送信先に自分のGmailアドレスを指定する。</p>
+<h3 id="_2">実行する関数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>関数</th>
+<th>役割</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>testFetch</code></td>
+<td>気温データの取得テスト</td>
+</tr>
+<tr>
+<td><code>sendWeeklyTemperatureReport</code></td>
+<td>メール送信</td>
+</tr>
+<tr>
+<td><code>createDailyTrigger</code></td>
+<td>毎日の定期実行を登録</td>
+</tr>
+</tbody>
+</table>
+<p><code>createDailyTrigger</code> は初回の設定時に一度実行すればよい。</p>
+<h2 id="10">10. おわりに<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<p>GASを利用することで、気象庁のWebサイトから毎日手作業で気温を確認する必要がなくなった。</p>
+<p>今後は、Googleスプレッドシートへのデータ保存や、月別・年別の気温推移のグラフ化などにも取り組んでみたい。</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="フッター" >
+        
+          
+          <a href="../../../10/28/uv-selectolax-error/" class="md-footer__link md-footer__link--prev" aria-label="前: uv で selectolax のアーキテクチャ不一致が発生したときの対処">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                前
+              </span>
+              <div class="md-ellipsis">
+                uv で selectolax のアーキテクチャ不一致が発生したときの対処
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; Odeilly
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "content.code.copy", "content.tabs.link", "navigation.external"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../../../../_extra/javascript/add-noreferrer.js"></script>
+      
+        <script src="../../../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
